@@ -1,0 +1,17 @@
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Choose Your Transport</h1>
+    <p class="subtitle">Track buses and trams in real-time, or book your train journey</p>
+
+    <div class="transport-tabs">
+      <button [class.active]="selected==='bus'" (click)="select('bus')">Electric Bus</button>
+      <button [class.active]="selected==='tram'" (click)="select('tram')">Tram</button>
+      <button [class.active]="selected==='train'" (click)="select('train')">Electric Train</button>
+    </div>
+
+    <div class="actions">
+      <button class="pill primary">Book Ticket</button>
+      <button class="pill secondary">My Tickets (2)</button>
+    </div>
+  </div>
+</section>

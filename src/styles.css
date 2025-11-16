@@ -1,8 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+:root {
+  /* theme variables */
+  --green-900: #053b2e;
+  --green-800: #0a5a43;
+  --green-700: #0f7a57;
+  --accent: #09b473;
+  --glass: rgba(255,255,255,0.04);
+  --card-bg: rgba(12,40,33,0.45);
+  --text: #eaf6f0;
+}
 
-@theme {
-  --color-text-green: #9CEBC7;
-  --color-navBar: #033331;
-  --color-border-color: #1D4A47;
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%);
+  background-image: 
+  linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%),
+  url('/assets/train-background.jpg');
+  color: var(--text);
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
