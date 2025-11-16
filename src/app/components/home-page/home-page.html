@@ -30,14 +30,15 @@
     <p class="text-text-green mt-4 mb-2">Track nuses and trans in real-time, or book your train journey</p>
 
     <div class="p-[3px]  text-text-green grid grid-cols-3 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl">
-      @for (tabName of tabs; track $index) {
-        <button [class]="` text-nowrap text-center rounded-4xl text-[#A3BCBA] ${tabName == tab()? 'bg-[#009966] text-[#EEF8F5]': ''}`" (click)="tab.set(tabName)">
-          <p class="text-md font-semibold py-0.5 mx-auto">
-            {{tabName}}
-          </p>
-        </button>
-      }
+      <button *ngFor="let tabName of tabs"
+              [class]="'text-nowrap text-center rounded-4xl text-[#A3BCBA] ' + (tabName == tab() ? 'bg-[#009966] text-[#EEF8F5]' : '')"
+              (click)="tab.set(tabName)">
+        <p class="text-md font-semibold py-0.5 mx-auto">
+          {{tabName}}
+        </p>
+      </button>
     </div>
+    <app-electric-train *ngIf="tab() === 'Train'"></app-electric-train>
   </div>
 
 </main>

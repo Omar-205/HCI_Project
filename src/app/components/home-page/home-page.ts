@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { LucideAngularModule, FileIcon, User, LogOut } from 'lucide-angular';
+import { CommonModule } from '@angular/common';
+import { LucideAngularModule, User, LogOut } from "lucide-angular";
+import {ElectricTrain} from '../../tabs/electric-train/electric-train';
 
 @Component({
   selector: 'app-home-page',
-  imports: [LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, ElectricTrain],
   templateUrl: './home-page.html',
-  styleUrl: './home-page.css',
+  styleUrls: ['./home-page.css'],
   standalone: true,
 })
 export class HomePage {
