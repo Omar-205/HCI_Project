@@ -1,0 +1,69 @@
+<div class="flex flex-col items-center justify-center gap-4 p-4">
+  <div *ngFor="let ticket of tickets"
+       class="ticket-card w-full max-w-[1200px] bg-[#0d3d32]/95 rounded-2xl p-6 text-white shadow-lg border-2 border-[#1a5d4a] transition-colors duration-300 hover:border-[#00BC7D]">
+      <!-- Header: Status Badge and Ticket ID -->
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex items-center gap-2">
+          <span [class]="
+            ticket.status === 'active' ? 'bg-[#00BC7D]' :
+            ticket.status === 'used'   ? 'bg-[#1E90FF]' :
+                                         'bg-gray-500'
+          " class="px-3 py-1 rounded-full text-sm font-semibold capitalize">
+            {{ticket.status}}
+          </span>
+          <span class="text-sm text-gray-400">{{ticket.id}}</span>
+        </div>
+        <div class="text-right">
+          <div class="text-3xl font-bold text-[#00F5A0]">{{ticket.price}} EGP</div>
+          <div class="text-xs text-gray-400" *ngIf="ticket.type === 'train'">Train ET-105</div>
+        </div>
+      </div>
+
+
+      <!-- Route -->
+      <div class="text-2xl font-semibold mb-5 text-white">
+        {{ticket.from}} <span class="text-[#00BC7D]">→</span> {{ticket.to}}
+      </div>
+
+      <!-- Details: Date, Time, Seat -->
+      <div class="flex justify-between items-center mb-5 w-full">
+        <div>
+          <div class="flex items-center gap-2 text-[#00F5A0] mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="text-sm">Date</span>
+          </div>
+          <div class="font-semibold">{{ticket.date}}</div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 text-[#00F5A0] mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="text-sm">Time</span>
+          </div>
+          <div class="font-semibold">{{ticket.time}}</div>
+        </div>
+        <div *ngIf="ticket.seatNumber">
+          <div class="flex items-center gap-2 text-[#00F5A0] mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+              <path d="M7 14a3 3 0 0 0-3 3v3h16v-3a3 3 0 0 0-3-3z"></path>
+            </svg>
+            <span class="text-sm">Seat</span>
+          </div>
+          <div class="font-semibold">{{ticket.seatNumber}}</div>
+        </div>
+      </div>
+
+      <!-- QR Code Button -->
+      <button class="w-full bg-white text-[#00BC7D] font-semibold py-3 rounded-lg transition-colors duration-300 hover:bg-[#00BC7D] hover:text-white">
+        View QR Code
+      </button>
+    </div>
+</div>
