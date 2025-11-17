@@ -27,7 +27,7 @@
 <main class="relative p-4" style="height: calc(100vh - 80px);">
   <div class="relative">
     <h2 class="text-white text-5xl mt-6">Choose Your Transport</h2>
-    <p class="text-text-green mt-4 mb-2">Track nuses and trans in real-time, or book your train journey</p>
+    <p class="text-text-green mt-4 mb-2">Track Buses and trans in real-time, or book your train journey</p>
 
     <div class="p-[3px]  text-text-green grid grid-cols-3 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl">
       <button *ngFor="let tabName of tabs"
@@ -38,7 +38,16 @@
         </p>
       </button>
     </div>
-    <app-electric-train *ngIf="tab() === 'Train'"></app-electric-train>
+    @if (tab() == "Train") {
+      <app-electric-train></app-electric-train>
+
+    }
+    @if (tab() == "Tram") {
+      <app-tram></app-tram>
+    }
+    @if (tab() == 'Electric Bus') {
+      <app-electric-bus></app-electric-bus>
+    }
   </div>
 
 </main>

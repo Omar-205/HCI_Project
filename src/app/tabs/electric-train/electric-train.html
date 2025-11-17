@@ -9,3 +9,7 @@
   </button>
 </div>
 <app-my-tickets *ngIf="tab() ==='My Tickets'"></app-my-tickets>
+@if (tab() == 'Book Ticket') {
+  <app-hero-card></app-hero-card>
+  <app-booking-form></app-booking-form>
+}

@@ -1,12 +1,16 @@
-import {Component, signal} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MyTickets} from '../my-tickets/my-tickets';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MyTickets } from '../my-tickets/my-tickets';
+import { HeroCard } from "../../components/hero-card/hero-card";
+import { BookingForm } from "../../components/booking-form/booking-form";
 
 @Component({
   selector: 'app-electric-train',
   imports: [
     CommonModule,
-    MyTickets
+    MyTickets,
+    HeroCard,
+    BookingForm
   ],
   templateUrl: './electric-train.html',
   styleUrl: './electric-train.css',

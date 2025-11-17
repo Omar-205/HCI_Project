@@ -1,3 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-text-green: #9CEBC7;
+  --color-navBar: #033331;
+  --color-border-color: #1D4A47;
+}
+
+
 #bgimg {
   background-image: url('../../assets/images/bgimg.jpg');
 }
