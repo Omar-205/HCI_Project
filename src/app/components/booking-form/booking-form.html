@@ -1,0 +1,109 @@
+<div class="booking-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1 class="hero-title">Electric Train Network</h1>
+    <p class="hero-subtitle">Fast, comfortable, sustainable</p>
+  </div>
+
+  <!-- Booking Form Card -->
+  <div class="booking-card">
+    <div class="card-header">
+      <svg class="ticket-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="2" y="7" width="20" height="10" rx="2" stroke-width="2"/>
+        <line x1="2" y1="12" x2="22" y2="12" stroke-width="2" stroke-dasharray="2 2"/>
+      </svg>
+      <h2 class="card-title">Book Your Journey</h2>
+    </div>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <!-- From and To Row -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">From</label>
+          <select 
+            class="form-control" 
+            formControlName="fromStation"
+            [class.invalid]="bookingForm.get('fromStation')?.invalid && bookingForm.get('fromStation')?.touched">
+            <option value="" disabled selected>Select departure station</option>
+            <option *ngFor="let station of stations" [value]="station">
+              {{ station }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">To</label>
+          <select 
+            class="form-control" 
+            formControlName="toStation"
+            [class.invalid]="bookingForm.get('toStation')?.invalid && bookingForm.get('toStation')?.touched">
+            <option value="" disabled selected>Select arrival station</option>
+            <option *ngFor="let station of stations" [value]="station">
+              {{ station }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Date, Time, and Passengers Row -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Date</label>
+          <input 
+            type="date" 
+            class="form-control" 
+            formControlName="date"
+            [class.invalid]="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Time</label>
+          <input 
+            type="time" 
+            class="form-control" 
+            formControlName="time"
+            [class.invalid]="bookingForm.get('time')?.invalid && bookingForm.get('time')?.touched">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Passengers</label>
+          <select class="form-control" formControlName="passengers">
+            <option *ngFor="let num of passengers" [value]="num">
+              {{ num }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button" [disabled]="bookingForm.invalid">
+        <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="2" y="7" width="20" height="10" rx="2" stroke-width="2"/>
+          <line x1="2" y1="12" x2="22" y2="12" stroke-width="2" stroke-dasharray="2 2"/>
+        </svg>
+        Book Ticket - {{ getTotalPrice() }} EGP
+      </button>
+    </form>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <div class="feature-card">
+      <div class="feature-icon">✓</div>
+      <h3 class="feature-title">Instant Confirmation</h3>
+      <p class="feature-description">Get your ticket immediately</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">✓</div>
+      <h3 class="feature-title">Free Cancellation</h3>
+      <p class="feature-description">Cancel up to 2 hours before</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">✓</div>
+      <h3 class="feature-title">Eco-Friendly</h3>
+      <p class="feature-description">100% electric trains</p>
+    </div>
+  </div>
+</div>
