@@ -212,12 +212,28 @@ main {
 .input-box input:valid~label {
     top: -5px;
 }
+.input-box input::placeholder{
+    opacity: 0;
+    color: darkgrey;
+    font-size: 0.9rem;
+    top: -24px;
+    left: 0;
+}
 
+.input-box input:focus::placeholder{
+    opacity: 1;
+}
+.input-box small{
+    display: inline-block;
+    font-size: .8rem;
+    margin: 3px;
+    left: -15;
+}
 .input-box label {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(0%);
     font-size: 16px;
     font-weight: 500;
     pointer-events: none;
