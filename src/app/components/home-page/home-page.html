@@ -10,7 +10,7 @@
   <div class="flex gap-[4vw]">
     <div class="flex items-center gap-[1vw]">
       <i-lucide [img]="User" [size]="20" name="user" class="my-icon"></i-lucide>
-      <h3>Welcome, User</h3>
+      <h3>Welcome, {{UserName}}</h3>
     </div>
     <button (click)="onLogout()" class="flex cursor-pointer items-center text-md gap-[1vw] font-semibold">
       <i-lucide [img]="LogOutIcon" [size]="20" name="log-out" class="my-icon"></i-lucide>

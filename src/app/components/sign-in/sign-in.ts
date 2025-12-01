@@ -1,27 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
-import { Router } from '@angular/router';
-import { HomePage } from "../home-page/home-page";
-
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BackService } from '../Service/BackendService';
+import { Client } from '../Service/ClientIF';
+import { Router, RouterLink } from "@angular/router";
 @Component({
   selector: 'app-sign-in',
-  imports: [RouterLink, HomePage],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './sign-in.html',
   styleUrl: './sign-in.css'
 })
 export class SignIn {
-  constructor(private router: Router) {}
-    onSignIn() {
-    // Your sign-in logic here
-    // After successful sign-in, navigate to home
-    this.router.navigate(['/home']);
-  }
+  BackendService = new BackService;
+  submit:boolean | null = null;
+  SignIn : FormGroup;
+  constructor(private fb: FormBuilder,private router:Router) {
+    this.SignIn = this.fb.group({
+      Email : ['',[Validators.required,Validators.email]],
+      Password : ['',Validators.required],
 
-  navigateToSignUp() {
-    this.router.navigate(['/sign-up']);
+    })
   }
+    onSubmit(){
+    this.submit=false
+    if(this.SignIn.valid){
+      const Client = this.SignIn.value as Client;
+      this.BackendService.VerifySignIn(Client).subscribe({
+        next: value=> {
+          window.alert("Successfull SignIn")
+          ;console.log(value);
+          this.router.navigate(['home'],{queryParams :{username:Client.Email}})
+        },
+        error: (e)=>{console.log(Client);console.log(e)}
+      })
+    }else{
+      this.submit=true;
+    }
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
   }
 }
