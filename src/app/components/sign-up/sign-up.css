@@ -5,10 +5,10 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-body {
+
+main {
     background: black;
 }
-
 .Header {
     position: fixed;
     top: 0;
@@ -191,7 +191,7 @@ body {
 .form-box .input-box {
     position: relative;
     width: auto;
-    height: 50px;
+    height: 37px;
     border-bottom: 2px solid white;
     margin: 30px 0;
 }
@@ -212,12 +212,28 @@ body {
 .input-box input:valid~label {
     top: -5px;
 }
+.input-box input::placeholder{
+    opacity: 0;
+    color: darkgrey;
+    font-size: 0.8rem;
+    top: 0px;
+    left: 0;
+}
 
+.input-box input:focus::placeholder{
+    opacity: 1;
+}
+.input-box small{
+    display: inline-block;
+    font-size: .7rem;
+    margin: 3px;
+    left: -15;
+}
 .input-box label {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(-10%);
     font-size: 16px;
     font-weight: 500;
     pointer-events: none;
