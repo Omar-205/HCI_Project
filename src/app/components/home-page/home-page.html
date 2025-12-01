@@ -12,7 +12,7 @@
       <i-lucide [img]="User" [size]="20" name="user" class="my-icon"></i-lucide>
       <h3>Welcome, User</h3>
     </div>
-    <button class="flex cursor-pointer items-center text-md gap-[1vw] font-semibold">
+    <button (click)="onLogout()" class="flex cursor-pointer items-center text-md gap-[1vw] font-semibold">
       <i-lucide [img]="LogOutIcon" [size]="20" name="log-out" class="my-icon"></i-lucide>
       Sign Out
     </button>

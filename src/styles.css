@@ -6,3 +6,10 @@
   --color-navBar: #033331;
   --color-border-color: #1D4A47;
 }
+
+
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+}

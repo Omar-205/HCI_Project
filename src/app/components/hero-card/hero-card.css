@@ -3,16 +3,20 @@
   border-radius: 14px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 
   .hero-img {
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    display:block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
     filter: saturate(0.95) contrast(0.95);
-    transform: translateZ(0); /* triggers GPU */
+    transform: translateZ(0);
+    /* triggers GPU */
+    background: url("../../assets/train_2.jpg") no-repeat;
+    background-size:cover;
+    background-position: center;
   }
 
   .overlay {
@@ -20,8 +24,16 @@
     left: 28px;
     bottom: 22px;
     color: white;
-    text-shadow: 0 6px 22px rgba(0,0,0,0.6);
-    h2 { font-size:28px; margin:0 0 6px; }
-    .lead { margin:0; color: rgba(255,255,255,0.85); }
+    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
+
+    h2 {
+      font-size: 28px;
+      margin: 0 0 6px;
+    }
+
+    .lead {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.85);
+    }
   }
 }
