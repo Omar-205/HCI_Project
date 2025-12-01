@@ -33,9 +33,9 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-envelope'></i></span>
-                        <input type="text" class="FullName" placeholder="Enter Your UserName" formControlName="UserName"
+                        <input type="text" class="FullName" placeholder="Enter Your FullName" formControlName="FullName"
                             required>
-                        @if (submit&&SignUp.controls['UserName'].hasError('required') && SignUp.controls['UserName']?.touched) {
+                        @if (submit&&SignUp.controls['FullName'].hasError('required') && SignUp.controls['FullName']?.touched) {
                         <small>Enter Your UserName</small>
                         }
                         @if (submit&&SignUp.controls['FullName'].hasError('minlength')&& SignUp.controls['FullName']?.touched) {
@@ -98,7 +98,7 @@
 
                     <button type="submit" class="btn">Sign Up</button>
                     <div class="login-register">
-                        <p>Alreadu have an account?<a href="#" class="register-link">Sign Up</a></p>
+                        <p>Alreadu have an account?<a routerLink="/sign-in" class="register-link">Sign Up</a></p>
                     </div>
                 </form>
             </div>

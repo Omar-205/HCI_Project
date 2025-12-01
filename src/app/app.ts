@@ -6,7 +6,7 @@ import { SignUp } from "./sign-up/sign-up";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SignIn,],
+  imports: [RouterOutlet, SignIn, SignUp],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

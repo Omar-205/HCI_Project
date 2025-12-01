@@ -1,26 +1,35 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { BackService } from '../Service/BackendService';
+import { Client } from '../Service/ClientIF';
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-sign-in',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './sign-in.html',
   styleUrl: './sign-in.css'
 })
 export class SignIn {
+  BackendService = new BackService;
   submit:boolean | null = null;
   SignIn : FormGroup;
   constructor(private fb: FormBuilder) {
     this.SignIn = this.fb.group({
       Email : ['',[Validators.required,Validators.email]],
       Password : ['',Validators.required],
-      Remember: ['']
+
     })
   }
     onSubmit(){
     this.submit=false
     if(this.SignIn.valid){
-      console.log(this.SignIn.value as JSON)
+      const Client = this.SignIn.value as Client;
+      this.BackendService.VerifySignIn(Client).subscribe({
+        next: value=> {
+          window.alert("Successfull SignIn")
+          ,console.log(value)},
+        error: (e)=>{console.log(Client);console.log(e)}
+      })
     }else{
       this.submit=true;
     }
