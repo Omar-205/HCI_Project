@@ -1,0 +1,25 @@
+<div class="w-130 border text-center bg-[#C3E883]">
+
+  <button (click)="close(``)">Close</button>
+  <h3>Hello, Are you going home or coming from home?</h3>
+  <div class="mx-auto border w-[70%] grid grid-cols-2">
+    <button (click)="where.set(true)">FOE</button>
+    <button (click)="where.set(false)">Home</button>
+  </div>
+  @if(where()) {
+
+    <h5>
+      which gate are you getting off of?
+    </h5>
+    <div class="mx-auto flex flex-wrap justify-center gap-4 border">
+      @for (gate of data.gates; track $index) {
+        <button
+        (click)="close(gate)"
+        class="flex-none w-[30%] p-6 bg-white border-2 border-gray-200 rounded-lg text-center hover:border-blue-500 cursor-pointer"
+        >{{gate}}</button>
+      }
+    </div>
+
+  }
+
+</div>

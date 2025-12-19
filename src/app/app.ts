@@ -5,7 +5,7 @@ import { SignIn } from "./components/sign-in/sign-in";
 
 @Component({
   selector: 'app-root',
-  imports: [HomePage, SignIn, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,2649 @@
+import { injectQuery as __vite__injectQuery } from "/@vite/client";import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/main.js");// src/main.ts
+import { bootstrapApplication } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_platform-browser.js?v=a9de03d6";
+
+// src/app/app.config.ts
+import { provideZoneChangeDetection } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_core.js?v=a9de03d6";
+import { provideRouter } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_router.js?v=a9de03d6";
+import { provideHttpClient } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_common_http.js?v=a9de03d6";
+
+// src/app/app.routes.ts
+var routes = [];
+
+// src/app/app.config.ts
+var appConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient()
+  ]
+};
+
+// src/app/app.ts
+import { Component, ViewEncapsulation, inject } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_core.js?v=a9de03d6";
+import { CommonModule } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_common.js?v=a9de03d6";
+import { FormsModule } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_forms.js?v=a9de03d6";
+import { HttpClient } from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_common_http.js?v=a9de03d6";
+import * as i0 from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_core.js?v=a9de03d6";
+import * as i1 from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_common.js?v=a9de03d6";
+import * as i2 from "/@fs/E:/Year 2/Term 1/Numerical/Playground/Matrices/Matrix Frontend/.angular/cache/20.3.7/angular/vite/deps/@angular_forms.js?v=a9de03d6";
+var _c0 = () => ({ updateOn: "blur" });
+var _c1 = () => [];
+var _forTrack0 = ($index, $item) => $item.id;
+var _forTrack1 = ($index, $item) => $item.stepNumber;
+function App_Conditional_5_Conditional_9_For_5_For_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r5 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "input", 22);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_5_Conditional_9_For_5_For_1_Template_input_ngModelChange_0_listener($event) {
+      const \u0275$index_36_r6 = i0.\u0275\u0275restoreView(_r5).$index;
+      const \u0275$index_35_r7 = i0.\u0275\u0275nextContext().$index;
+      const ctx_r1 = i0.\u0275\u0275nextContext(3);
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6], $event) || (ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6] = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const \u0275$index_36_r6 = ctx.$index;
+    const \u0275$index_35_r7 = i0.\u0275\u0275nextContext().$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(3);
+    i0.\u0275\u0275classProp("invalid", ctx_r1.showError && (ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6] === null || ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6] === void 0))("valid", ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6] != null || ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6] != void 0);
+    i0.\u0275\u0275property("placeholder", i0.\u0275\u0275interpolate2("A(", \u0275$index_35_r7 + 1, ")(", \u0275$index_36_r6 + 1, ")"));
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.matrixA[\u0275$index_35_r7][\u0275$index_36_r6]);
+    i0.\u0275\u0275property("ngModelOptions", i0.\u0275\u0275pureFunction0(9, _c0));
+  }
+}
+function App_Conditional_5_Conditional_9_For_5_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275repeaterCreate(0, App_Conditional_5_Conditional_9_For_5_For_1_Template, 1, 10, "input", 20, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementStart(2, "input", 21);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_5_Conditional_9_For_5_Template_input_ngModelChange_2_listener($event) {
+      const \u0275$index_35_r7 = i0.\u0275\u0275restoreView(_r4).$index;
+      const ctx_r1 = i0.\u0275\u0275nextContext(3);
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.matrixB[\u0275$index_35_r7], $event) || (ctx_r1.matrixB[\u0275$index_35_r7] = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const row_r8 = ctx.$implicit;
+    const \u0275$index_35_r7 = ctx.$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(3);
+    i0.\u0275\u0275repeater(row_r8);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275classProp("invalid", ctx_r1.showError && (ctx_r1.matrixB[\u0275$index_35_r7] === null || ctx_r1.matrixB[\u0275$index_35_r7] === void 0))("valid", ctx_r1.matrixB[\u0275$index_35_r7] != null || ctx_r1.matrixB[\u0275$index_35_r7] != void 0);
+    i0.\u0275\u0275property("placeholder", i0.\u0275\u0275interpolate1("B", \u0275$index_35_r7 + 1));
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.matrixB[\u0275$index_35_r7]);
+    i0.\u0275\u0275property("ngModelOptions", i0.\u0275\u0275pureFunction0(8, _c0));
+  }
+}
+function App_Conditional_5_Conditional_9_For_9_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "option", 16);
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const m_r9 = ctx.$implicit;
+    i0.\u0275\u0275property("value", m_r9.id);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate(m_r9.name);
+  }
+}
+function App_Conditional_5_Conditional_9_Conditional_10_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r10 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "select", 23);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_5_Conditional_9_Conditional_10_Template_select_ngModelChange_0_listener($event) {
+      i0.\u0275\u0275restoreView(_r10);
+      const ctx_r1 = i0.\u0275\u0275nextContext(3);
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.luForm, $event) || (ctx_r1.luForm = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementStart(1, "option", 24);
+    i0.\u0275\u0275text(2, "Doolittle");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "option", 25);
+    i0.\u0275\u0275text(4, "Crout");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(5, "option", 26);
+    i0.\u0275\u0275text(6, "Cholesky");
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(3);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.luForm);
+  }
+}
+function App_Conditional_5_Conditional_9_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r3 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 12)(1, "h2");
+    i0.\u0275\u0275text(2, "Enter Coefficients (A | B)");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "div", 13);
+    i0.\u0275\u0275repeaterCreate(4, App_Conditional_5_Conditional_9_For_5_Template, 3, 9, null, null, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(6, "div", 14)(7, "select", 15);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_5_Conditional_9_Template_select_ngModelChange_7_listener($event) {
+      i0.\u0275\u0275restoreView(_r3);
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.selectedMethod, $event) || (ctx_r1.selectedMethod = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275repeaterCreate(8, App_Conditional_5_Conditional_9_For_9_Template, 2, 2, "option", 16, _forTrack0);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275conditionalCreate(10, App_Conditional_5_Conditional_9_Conditional_10_Template, 7, 1, "select", 17);
+    i0.\u0275\u0275elementStart(11, "button", 18);
+    i0.\u0275\u0275listener("click", function App_Conditional_5_Conditional_9_Template_button_click_11_listener() {
+      i0.\u0275\u0275restoreView(_r3);
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      return i0.\u0275\u0275resetView(ctx_r1.show = true);
+    });
+    i0.\u0275\u0275text(12, "Details");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(13, "button", 19);
+    i0.\u0275\u0275listener("click", function App_Conditional_5_Conditional_9_Template_button_click_13_listener() {
+      i0.\u0275\u0275restoreView(_r3);
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      return i0.\u0275\u0275resetView(ctx_r1.solve());
+    });
+    i0.\u0275\u0275text(14, "SOLVE");
+    i0.\u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(2);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275styleProp("grid-template-columns", "repeat(" + (ctx_r1.NumberEquations + 1) + ", 1fr)");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.matrixA);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.selectedMethod);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.methods);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275conditional(ctx_r1.selectedMethod === "LU" ? 10 : -1);
+  }
+}
+function App_Conditional_5_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r1 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 9)(1, "h1");
+    i0.\u0275\u0275text(2, "Matrix Solver");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "p");
+    i0.\u0275\u0275text(4, "Enter Dimensions (N):");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(5, "div", 10)(6, "input", 11);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_5_Template_input_ngModelChange_6_listener($event) {
+      i0.\u0275\u0275restoreView(_r1);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.NumberEquations, $event) || (ctx_r1.NumberEquations = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(7, "button", 8);
+    i0.\u0275\u0275listener("click", function App_Conditional_5_Template_button_click_7_listener() {
+      i0.\u0275\u0275restoreView(_r1);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      return i0.\u0275\u0275resetView(ctx_r1.gridGenerator());
+    });
+    i0.\u0275\u0275text(8, "START");
+    i0.\u0275\u0275elementEnd()()();
+    i0.\u0275\u0275conditionalCreate(9, App_Conditional_5_Conditional_9_Template, 15, 4, "div", 12);
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext();
+    i0.\u0275\u0275advance(6);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.NumberEquations);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275conditional(ctx_r1.isGenerated ? 9 : -1);
+  }
+}
+function App_Conditional_6_Conditional_1_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "h1")(1, "span", 42);
+    i0.\u0275\u0275text(2, "\u2A2F");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275text(3, " Solution not Found");
+    i0.\u0275\u0275elementEnd();
+  }
+}
+function App_Conditional_6_Conditional_2_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "h1")(1, "span", 43);
+    i0.\u0275\u0275text(2, "\u2714");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275text(3, " Solution Found");
+    i0.\u0275\u0275elementEnd();
+  }
+}
+function App_Conditional_6_Conditional_17_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "span", 32);
+    i0.\u0275\u0275text(1, "Didnt Converge");
+    i0.\u0275\u0275elementEnd();
+  }
+}
+function App_Conditional_6_Conditional_18_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "span", 33);
+    i0.\u0275\u0275text(1, "Optimal");
+    i0.\u0275\u0275elementEnd();
+  }
+}
+function App_Conditional_6_For_24_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 36)(1, "span", 44);
+    i0.\u0275\u0275text(2, "X");
+    i0.\u0275\u0275elementStart(3, "sub");
+    i0.\u0275\u0275text(4);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(5, "span", 45);
+    i0.\u0275\u0275text(6);
+    i0.\u0275\u0275pipe(7, "number");
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const res_r12 = ctx.$implicit;
+    const \u0275$index_122_r13 = ctx.$index;
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275textInterpolate(\u0275$index_122_r13 + 1);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275textInterpolate(i0.\u0275\u0275pipeBind2(7, 2, res_r12, "1.0-4"));
+  }
+}
+function App_Conditional_6_Conditional_25_For_6_For_1_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 51);
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275pipe(2, "number");
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const val_r14 = ctx.$implicit;
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate1(" ", i0.\u0275\u0275pipeBind2(2, 1, val_r14, "1.0-2"), " ");
+  }
+}
+function App_Conditional_6_Conditional_25_For_6_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275repeaterCreate(0, App_Conditional_6_Conditional_25_For_6_For_1_Template, 3, 4, "div", 51, i0.\u0275\u0275repeaterTrackByIdentity);
+  }
+  if (rf & 2) {
+    const row_r15 = ctx.$implicit;
+    i0.\u0275\u0275repeater(row_r15);
+  }
+}
+function App_Conditional_6_Conditional_25_For_14_For_1_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 51);
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275pipe(2, "number");
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const val_r16 = ctx.$implicit;
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate1(" ", i0.\u0275\u0275pipeBind2(2, 1, val_r16, "1.0-2"), " ");
+  }
+}
+function App_Conditional_6_Conditional_25_For_14_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275repeaterCreate(0, App_Conditional_6_Conditional_25_For_14_For_1_Template, 3, 4, "div", 51, i0.\u0275\u0275repeaterTrackByIdentity);
+  }
+  if (rf & 2) {
+    const row_r17 = ctx.$implicit;
+    i0.\u0275\u0275repeater(row_r17);
+  }
+}
+function App_Conditional_6_Conditional_25_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 37)(1, "div", 46)(2, "h3", 47);
+    i0.\u0275\u0275text(3, "Lower (L)");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(4, "div", 48);
+    i0.\u0275\u0275repeaterCreate(5, App_Conditional_6_Conditional_25_For_6_Template, 2, 0, null, null, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(7, "div", 49);
+    i0.\u0275\u0275text(8, "\xD7");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(9, "div", 46)(10, "h3", 50);
+    i0.\u0275\u0275text(11, "Upper (U)");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(12, "div", 48);
+    i0.\u0275\u0275repeaterCreate(13, App_Conditional_6_Conditional_25_For_14_Template, 2, 0, null, null, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(2);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275styleProp("grid-template-columns", "repeat(" + ctx_r1.NumberEquations + ", 1fr)");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.currentMatrixL);
+    i0.\u0275\u0275advance(7);
+    i0.\u0275\u0275styleProp("grid-template-columns", "repeat(" + ctx_r1.NumberEquations + ", 1fr)");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.currentMatrixU);
+  }
+}
+function App_Conditional_6_Conditional_27_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r18 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "button", 52);
+    i0.\u0275\u0275listener("click", function App_Conditional_6_Conditional_27_Template_button_click_0_listener() {
+      i0.\u0275\u0275restoreView(_r18);
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      return i0.\u0275\u0275resetView(ctx_r1.viewSteps());
+    });
+    i0.\u0275\u0275text(1, " Show Detailed Steps ");
+    i0.\u0275\u0275elementEnd();
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_1_For_10_For_1_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 62);
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275pipe(2, "number");
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const val_r21 = ctx.$implicit;
+    const \u0275$index_197_r22 = ctx.$index;
+    const \u0275$index_196_r23 = i0.\u0275\u0275nextContext().$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(4);
+    i0.\u0275\u0275property("ngStyle", ctx_r1.getCellStyle(\u0275$index_196_r23, \u0275$index_197_r22));
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate1(" ", i0.\u0275\u0275pipeBind2(2, 2, val_r21, "1.0-2"), " ");
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_1_For_10_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275repeaterCreate(0, App_Conditional_6_Conditional_30_Conditional_1_For_10_For_1_Template, 3, 5, "div", 62, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementStart(2, "div", 62);
+    i0.\u0275\u0275text(3);
+    i0.\u0275\u0275pipe(4, "number");
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const row_r24 = ctx.$implicit;
+    const \u0275$index_196_r23 = ctx.$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(4);
+    i0.\u0275\u0275repeater(row_r24);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275property("ngStyle", ctx_r1.getCellStyle(\u0275$index_196_r23, ctx_r1.currentMatrixADisplay[0].length));
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate1(" ", i0.\u0275\u0275pipeBind2(4, 2, ctx_r1.currentMatrixBDisplay[\u0275$index_196_r23], "1.0-2"), " ");
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r20 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "h2");
+    i0.\u0275\u0275text(1, "Step-by-Step Solution");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(2, "div", 54)(3, "h3", 55);
+    i0.\u0275\u0275text(4);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275element(5, "p", 56);
+    i0.\u0275\u0275elementStart(6, "div", 57);
+    i0.\u0275\u0275element(7, "div", 58);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(8, "div", 13);
+    i0.\u0275\u0275repeaterCreate(9, App_Conditional_6_Conditional_30_Conditional_1_For_10_Template, 5, 5, null, null, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(11, "div", 59)(12, "button", 60);
+    i0.\u0275\u0275listener("click", function App_Conditional_6_Conditional_30_Conditional_1_Template_button_click_12_listener() {
+      i0.\u0275\u0275restoreView(_r20);
+      const ctx_r1 = i0.\u0275\u0275nextContext(3);
+      return i0.\u0275\u0275resetView(ctx_r1.prevStep());
+    });
+    i0.\u0275\u0275text(13, " < Prev ");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(14, "button", 61);
+    i0.\u0275\u0275listener("click", function App_Conditional_6_Conditional_30_Conditional_1_Template_button_click_14_listener() {
+      i0.\u0275\u0275restoreView(_r20);
+      const ctx_r1 = i0.\u0275\u0275nextContext(3);
+      return i0.\u0275\u0275resetView(ctx_r1.nextStep());
+    });
+    i0.\u0275\u0275text(15, " Next > ");
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(3);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275textInterpolate2(" Step ", ctx_r1.currentStepIndex + 1, " / ", ctx_r1.solutionData.steps.length, " ");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275property("innerHTML", ctx_r1.solutionData.steps[ctx_r1.currentStepIndex].description, i0.\u0275\u0275sanitizeHtml);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275styleProp("width", ctx_r1.progressPercentage + "%");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275styleProp("grid-template-columns", "repeat(" + (ctx_r1.NumberEquations + 1) + ", 1fr)");
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.currentMatrixADisplay);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275property("disabled", ctx_r1.currentStepIndex === 0);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275property("disabled", ctx_r1.currentStepIndex === ctx_r1.solutionData.steps.length - 1);
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_Conditional_0_For_5_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275namespaceMathML();
+    i0.\u0275\u0275element(0, "Math", 68);
+  }
+  if (rf & 2) {
+    const eq_r25 = ctx.$implicit;
+    i0.\u0275\u0275property("innerHTML", eq_r25, i0.\u0275\u0275sanitizeHtml);
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_Conditional_0_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "div", 63)(1, "h3");
+    i0.\u0275\u0275text(2, "Iteration Equations");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "div", 67);
+    i0.\u0275\u0275repeaterCreate(4, App_Conditional_6_Conditional_30_Conditional_2_Conditional_0_For_5_Template, 1, 1, ":math:Math", 68, i0.\u0275\u0275repeaterTrackByIndex);
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(4);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275repeater(ctx_r1.solutionData.equations);
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_For_8_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "th");
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const iter_r26 = ctx.$implicit;
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate(iter_r26.stepNumber);
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_For_11_For_6_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "td");
+    i0.\u0275\u0275text(1);
+    i0.\u0275\u0275pipe(2, "number");
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const iteration_r27 = ctx.$implicit;
+    const \u0275$index_243_r28 = i0.\u0275\u0275nextContext().$index;
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275textInterpolate1(" ", i0.\u0275\u0275pipeBind2(2, 1, iteration_r27.matrixB[\u0275$index_243_r28], "1.0-4"), " ");
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_For_11_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275elementStart(0, "tr")(1, "th", 66);
+    i0.\u0275\u0275text(2, "X");
+    i0.\u0275\u0275elementStart(3, "sub");
+    i0.\u0275\u0275text(4);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275repeaterCreate(5, App_Conditional_6_Conditional_30_Conditional_2_For_11_For_6_Template, 3, 4, "td", null, _forTrack1);
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const \u0275$index_243_r28 = ctx.$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(4);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275textInterpolate(\u0275$index_243_r28 + 1);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275repeater(ctx_r1.solutionData.steps);
+  }
+}
+function App_Conditional_6_Conditional_30_Conditional_2_Template(rf, ctx) {
+  if (rf & 1) {
+    i0.\u0275\u0275conditionalCreate(0, App_Conditional_6_Conditional_30_Conditional_2_Conditional_0_Template, 6, 0, "div", 63);
+    i0.\u0275\u0275elementStart(1, "div", 64)(2, "table", 65)(3, "thead")(4, "tr")(5, "th", 66);
+    i0.\u0275\u0275text(6, "Iteration (k)");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275repeaterCreate(7, App_Conditional_6_Conditional_30_Conditional_2_For_8_Template, 2, 1, "th", null, _forTrack1);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(9, "tbody");
+    i0.\u0275\u0275repeaterCreate(10, App_Conditional_6_Conditional_30_Conditional_2_For_11_Template, 7, 1, "tr", null, i0.\u0275\u0275repeaterTrackByIndex);
+    i0.\u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(3);
+    i0.\u0275\u0275conditional(ctx_r1.solutionData.equations && ctx_r1.solutionData.equations.length > 0 ? 0 : -1);
+    i0.\u0275\u0275advance(7);
+    i0.\u0275\u0275repeater(ctx_r1.solutionData.steps);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275repeater(i0.\u0275\u0275pureFunction0(1, _c1).constructor(ctx_r1.NumberEquations));
+  }
+}
+function App_Conditional_6_Conditional_30_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r19 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 41);
+    i0.\u0275\u0275conditionalCreate(1, App_Conditional_6_Conditional_30_Conditional_1_Template, 16, 9);
+    i0.\u0275\u0275conditionalCreate(2, App_Conditional_6_Conditional_30_Conditional_2_Template, 12, 2);
+    i0.\u0275\u0275elementStart(3, "button", 53);
+    i0.\u0275\u0275listener("click", function App_Conditional_6_Conditional_30_Template_button_click_3_listener() {
+      i0.\u0275\u0275restoreView(_r19);
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      return i0.\u0275\u0275resetView(ctx_r1.backToResults());
+    });
+    i0.\u0275\u0275text(4, " Hide Steps ");
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext(2);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275conditional(ctx_r1.selectedMethod != "Gauss_Seidel" && ctx_r1.selectedMethod != "JACOBI" ? 1 : -1);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275conditional(ctx_r1.selectedMethod == "Gauss_Seidel" || ctx_r1.selectedMethod == "JACOBI" ? 2 : -1);
+  }
+}
+function App_Conditional_6_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r11 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 27);
+    i0.\u0275\u0275conditionalCreate(1, App_Conditional_6_Conditional_1_Template, 4, 0, "h1")(2, App_Conditional_6_Conditional_2_Template, 4, 0, "h1");
+    i0.\u0275\u0275elementStart(3, "div", 28)(4, "div", 29)(5, "span", 30);
+    i0.\u0275\u0275text(6, "Time");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(7, "span", 31);
+    i0.\u0275\u0275text(8);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(9, "div", 29)(10, "span", 30);
+    i0.\u0275\u0275text(11, "Iterations");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(12, "span", 31);
+    i0.\u0275\u0275text(13);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(14, "div", 29)(15, "span", 30);
+    i0.\u0275\u0275text(16, "Status");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275conditionalCreate(17, App_Conditional_6_Conditional_17_Template, 2, 0, "span", 32)(18, App_Conditional_6_Conditional_18_Template, 2, 0, "span", 33);
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(19, "div", 34)(20, "h3");
+    i0.\u0275\u0275text(21, "Final Result Vector (X)");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(22, "div", 35);
+    i0.\u0275\u0275repeaterCreate(23, App_Conditional_6_For_24_Template, 8, 5, "div", 36, i0.\u0275\u0275repeaterTrackByIdentity);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275conditionalCreate(25, App_Conditional_6_Conditional_25_Template, 15, 4, "div", 37);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(26, "div", 38);
+    i0.\u0275\u0275conditionalCreate(27, App_Conditional_6_Conditional_27_Template, 2, 0, "button", 39);
+    i0.\u0275\u0275elementStart(28, "button", 40);
+    i0.\u0275\u0275listener("click", function App_Conditional_6_Template_button_click_28_listener() {
+      i0.\u0275\u0275restoreView(_r11);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      return i0.\u0275\u0275resetView(ctx_r1.isSolved = false);
+    });
+    i0.\u0275\u0275text(29, " New Problem ");
+    i0.\u0275\u0275elementEnd()()();
+    i0.\u0275\u0275conditionalCreate(30, App_Conditional_6_Conditional_30_Template, 5, 2, "div", 41);
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext();
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275conditional(ctx_r1.solutionData.errorMessage ? 1 : 2);
+    i0.\u0275\u0275advance(7);
+    i0.\u0275\u0275textInterpolate1("", ctx_r1.solutionData.executionTime, " ms");
+    i0.\u0275\u0275advance(5);
+    i0.\u0275\u0275textInterpolate(ctx_r1.solutionData.TotalIternation);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275conditional(ctx_r1.solutionData.errorMessage ? 17 : 18);
+    i0.\u0275\u0275advance(6);
+    i0.\u0275\u0275repeater(ctx_r1.solutionData.results);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275conditional(ctx_r1.currentMatrixL && ctx_r1.currentMatrixU ? 25 : -1);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275conditional(!ctx_r1.showSteps ? 27 : -1);
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275conditional(ctx_r1.showSteps ? 30 : -1);
+  }
+}
+function App_Conditional_13_For_10_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r30 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 5)(1, "span");
+    i0.\u0275\u0275text(2);
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "input", 23);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_13_For_10_Template_input_ngModelChange_3_listener($event) {
+      const $index_r31 = i0.\u0275\u0275restoreView(_r30).$index;
+      const ctx_r1 = i0.\u0275\u0275nextContext(2);
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.initialGuess[$index_r31], $event) || (ctx_r1.initialGuess[$index_r31] = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const $index_r31 = ctx.$index;
+    const ctx_r1 = i0.\u0275\u0275nextContext(2);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275textInterpolate1("Initial Guess X", $index_r31 + 1);
+    i0.\u0275\u0275advance();
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.initialGuess[$index_r31]);
+  }
+}
+function App_Conditional_13_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r29 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 5)(1, "span");
+    i0.\u0275\u0275text(2, "Tolerance");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "input", 6);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_13_Template_input_ngModelChange_3_listener($event) {
+      i0.\u0275\u0275restoreView(_r29);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.tolerance, $event) || (ctx_r1.tolerance = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(4, "div", 5)(5, "span");
+    i0.\u0275\u0275text(6, "Iterations");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(7, "input", 23);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_13_Template_input_ngModelChange_7_listener($event) {
+      i0.\u0275\u0275restoreView(_r29);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.maxIterations, $event) || (ctx_r1.maxIterations = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(8, "div", 69);
+    i0.\u0275\u0275repeaterCreate(9, App_Conditional_13_For_10_Template, 4, 2, "div", 5, i0.\u0275\u0275repeaterTrackByIndex);
+    i0.\u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext();
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275property("defaultValue", 1e-6);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.tolerance);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.maxIterations);
+    i0.\u0275\u0275advance(2);
+    i0.\u0275\u0275repeater(i0.\u0275\u0275pureFunction0(3, _c1).constructor(ctx_r1.NumberEquations));
+  }
+}
+function App_Conditional_14_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r32 = i0.\u0275\u0275getCurrentView();
+    i0.\u0275\u0275elementStart(0, "div", 5)(1, "span");
+    i0.\u0275\u0275text(2, "Pivoting");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(3, "input", 70);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_14_Template_input_ngModelChange_3_listener($event) {
+      i0.\u0275\u0275restoreView(_r32);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.withpivoting, $event) || (ctx_r1.withpivoting = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd()();
+    i0.\u0275\u0275elementStart(4, "div", 5)(5, "span");
+    i0.\u0275\u0275text(6, "Pivoting & scaling");
+    i0.\u0275\u0275elementEnd();
+    i0.\u0275\u0275elementStart(7, "input", 70);
+    i0.\u0275\u0275twoWayListener("ngModelChange", function App_Conditional_14_Template_input_ngModelChange_7_listener($event) {
+      i0.\u0275\u0275restoreView(_r32);
+      const ctx_r1 = i0.\u0275\u0275nextContext();
+      i0.\u0275\u0275twoWayBindingSet(ctx_r1.withscaling, $event) || (ctx_r1.withscaling = $event);
+      return i0.\u0275\u0275resetView($event);
+    });
+    i0.\u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = i0.\u0275\u0275nextContext();
+    i0.\u0275\u0275advance(3);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.withpivoting);
+    i0.\u0275\u0275advance(4);
+    i0.\u0275\u0275twoWayProperty("ngModel", ctx_r1.withscaling);
+  }
+}
+var App = class _App {
+  http = inject(HttpClient);
+  NumberEquations = null;
+  matrixA = [];
+  matrixB = [];
+  precision = 10;
+  isGenerated = false;
+  isSolved = false;
+  showError = false;
+  showSteps = false;
+  withpivoting = false;
+  withscaling = false;
+  show = false;
+  currentMatrixL = null;
+  currentMatrixU = null;
+  selectedMethod = "Naive_Gauss";
+  methods = [
+    { id: "Naive_Gauss", name: "Naive Gauss Elimination" },
+    { id: "Gauss_elimination", name: "Gauss Elimination" },
+    { id: "Gauss_Jordan", name: "Gauss-Jordan" },
+    { id: "LU", name: "LU Decomposition" },
+    { id: "JACOBI", name: "Jacobi Iteration" },
+    { id: "Gauss_Seidel", name: "Gauss-Seidel" }
+  ];
+  luForm = "DOOLITTLE";
+  initialGuess = [];
+  maxIterations = 50;
+  tolerance = 1e-4;
+  solutionData = null;
+  currentStepIndex = 0;
+  currentMatrixADisplay = [];
+  currentMatrixBDisplay = [];
+  progressPercentage = 0;
+  gridGenerator() {
+    if (!this.NumberEquations || this.NumberEquations < 1) {
+      alert("Please enter a valid dimension (N >= 1)");
+      return;
+    }
+    this.matrixA = [];
+    this.matrixB = [];
+    this.initialGuess = [];
+    this.showError = false;
+    this.isSolved = false;
+    this.showSteps = false;
+    for (let i = 0; i < this.NumberEquations; i++) {
+      const row = new Array(this.NumberEquations).fill(null);
+      this.matrixA.push(row);
+      this.matrixB.push(null);
+      this.initialGuess.push(0);
+    }
+    this.isGenerated = true;
+  }
+  isValid() {
+    for (let i = 0; i < this.matrixA.length; i++) {
+      for (let j = 0; j < this.matrixB.length; j++) {
+        if (this.matrixA[i][j] == null || this.matrixA[i][j] == void 0)
+          return false;
+      }
+      if (this.matrixB[i] == null || this.matrixB[i] == void 0)
+        return false;
+    }
+    return true;
+  }
+  animateInvalidCells() {
+    setTimeout(() => {
+      const cells = document.querySelectorAll(".puzzle-cell.invalid");
+      cells.forEach((cell) => {
+        cell.classList.remove("animate");
+        void cell.offsetWidth;
+        cell.classList.add("animate");
+      });
+    }, 0);
+  }
+  solve() {
+    this.showError = true;
+    if (!this.isValid()) {
+      this.animateInvalidCells();
+      return;
+    }
+    this.progressPercentage = 0;
+    this.showSteps = false;
+    let finalMethodID = this.selectedMethod;
+    if (this.selectedMethod === "LU") {
+      if (this.luForm === "DOOLITTLE")
+        finalMethodID = "LU_decomposition_Doolittle";
+      if (this.luForm === "CROUT")
+        finalMethodID = "LU_decomposition_Croud";
+      if (this.luForm === "CHOLESKY")
+        finalMethodID = "LU_decomposition_Cholesky";
+    } else if (this.selectedMethod === "JACOBI") {
+      finalMethodID = "Jacobi";
+    } else if (this.selectedMethod === "Gauss_Seidel") {
+      finalMethodID = "Gauss_Seidel";
+    } else if (this.selectedMethod === "Gauss_Jordan") {
+      finalMethodID = "Gauss_Jordan";
+    } else {
+      if (this.withscaling) {
+        finalMethodID = "Gauss_elimination_Pivoting_Scaling";
+      } else if (this.withpivoting) {
+        finalMethodID = "Gauss_elimination_Pivoting";
+      } else {
+        finalMethodID = "Naive_Gauss";
+      }
+    }
+    const payload = {
+      MethodId: finalMethodID,
+      precision: this.precision,
+      size: this.NumberEquations,
+      matrix: this.matrixA,
+      vector_of_sol: this.matrixB,
+      initial_guess: this.selectedMethod === "JACOBI" || this.selectedMethod === "Gauss_Seidel" ? this.initialGuess : [],
+      max_iterations: this.maxIterations,
+      Tolerance: this.tolerance,
+      methodParams: {}
+    };
+    console.log("Sending Payload:", payload);
+    this.http.post("http://127.0.0.1:8000/solve", payload).subscribe({
+      next: (response) => {
+        console.log(payload.MethodId);
+        if (this.selectedMethod !== "JACOBI" && this.selectedMethod !== "Gauss_Seidel") {
+          if (response.errorMessage) {
+            alert("Solver Error: " + response.errorMessage);
+            return;
+          }
+        } else {
+          if (response.errorMessage === "can't divide by zero") {
+            alert("Solver Error: " + response.errorMessage);
+            return;
+          }
+        }
+        this.solutionData = response;
+        this.isSolved = true;
+        this.currentStepIndex = 0;
+        this.updateDisplayMatrix();
+        this.getPercentage();
+      },
+      error: (err) => {
+        console.error("Connection Error:", err);
+        alert("Failed to connect to backend. Is uvicorn running?");
+      }
+    });
+  }
+  viewSteps() {
+    this.showSteps = true;
+  }
+  backToResults() {
+    this.showSteps = false;
+  }
+  nextStep() {
+    if (this.solutionData && this.currentStepIndex < this.solutionData.steps.length - 1) {
+      this.currentStepIndex++;
+      this.updateDisplayMatrix();
+      this.getPercentage();
+    }
+  }
+  prevStep() {
+    if (this.currentStepIndex > 0) {
+      this.currentStepIndex--;
+      this.updateDisplayMatrix();
+      this.getPercentage();
+    }
+  }
+  updateDisplayMatrix() {
+    if (this.solutionData) {
+      const step = this.solutionData.steps[this.currentStepIndex];
+      this.currentMatrixADisplay = step.matrixA;
+      this.currentMatrixBDisplay = step.matrixB;
+      this.currentMatrixL = this.solutionData.L || null;
+      this.currentMatrixU = this.solutionData.U || null;
+    }
+  }
+  getCellStyle(rowIndex, colIndex) {
+    if (!this.solutionData)
+      return {};
+    const step = this.solutionData.steps[this.currentStepIndex];
+    if (step.pivotIndex && step.pivotIndex.r === rowIndex && step.pivotIndex.c === colIndex) {
+      return {
+        "border-color": "var(--success-color)",
+        "box-shadow": "0 0 15px var(--success-color)",
+        "transform": "scale(1.05)"
+      };
+    }
+    const aCols = this.currentMatrixADisplay && this.currentMatrixADisplay[0] ? this.currentMatrixADisplay[0].length : 0;
+    const isBCol = colIndex === aCols;
+    if (step.highlightRow === rowIndex && (colIndex < aCols || isBCol)) {
+      if (isBCol) {
+        return { "background": "rgba(0, 224, 255, 0.18)" };
+      }
+      return { "background": "rgba(255, 75, 145, 0.2)" };
+    }
+    return {};
+  }
+  getPercentage() {
+    if (!this.solutionData || !this.solutionData.steps || this.solutionData.steps.length === 0) {
+      this.progressPercentage = 0;
+      return;
+    }
+    this.progressPercentage = (this.currentStepIndex + 1) / this.solutionData.steps.length * 100;
+  }
+  static \u0275fac = function App_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _App)();
+  };
+  static \u0275cmp = /* @__PURE__ */ i0.\u0275\u0275defineComponent({ type: _App, selectors: [["app-root"]], decls: 18, vars: 8, consts: [["lang", "en", "dir", "ltr"], ["charset", "UTF-8"], [1, "solver-container"], [1, "popup"], [1, "popup-menu"], [1, "popup-controlls"], [3, "ngModelChange", "defaultValue", "ngModel"], [1, "continuebtn"], [3, "click"], ["id", "input-container"], [1, "controls", 2, "flex-direction", "row", "gap", "10px"], ["id", "ndim", "type", "number", "placeholder", "N", "min", "1", 1, "puzzle-cell", 2, "width", "80px", "text-align", "center", "padding", "10px", "border-radius", "10px", "border", "none", 3, "ngModelChange", "ngModel"], ["id", "display-container", 2, "display", "block", "margin-top", "20px"], [1, "puzzle-grid"], [1, "controls"], [1, "select-method", 3, "ngModelChange", "ngModel"], [3, "value"], [3, "ngModel"], ["id", "extra-details", 3, "click"], ["id", "solve-button", 3, "click"], ["type", "number", "inputmode", "decimal", "autocomplete", "off", "step", "any", 1, "puzzle-cell", 3, "ngModel", "ngModelOptions", "invalid", "valid", "placeholder"], ["type", "number", "inputmode", "decimal", "autocomplete", "off", "step", "any", 1, "puzzle-cell", 2, "border-color", "var(--primary-color)", 3, "ngModelChange", "ngModel", "ngModelOptions", "placeholder"], ["type", "number", "inputmode", "decimal", "autocomplete", "off", "step", "any", 1, "puzzle-cell", 3, "ngModelChange", "ngModel", "ngModelOptions", "placeholder"], [3, "ngModelChange", "ngModel"], ["value", "DOOLITTLE"], ["value", "CROUT"], ["value", "CHOLESKY"], ["id", "results-dashboard", 1, "animate-up"], [1, "metrics-container"], [1, "metric-card"], [1, "label"], [1, "value"], [1, "value", 2, "color", "var(--error-color)"], [1, "value", 2, "color", "var(--success-color)"], [1, "vector-display"], [1, "vector-grid"], [1, "vector-item"], [1, "lu-container", "animate-up"], [1, "controls", 2, "margin-top", "30px"], [2, "background", "var(--accent-color)", "color", "#000"], [2, "background", "transparent", "border", "1px solid var(--border-color)", "color", "white", 3, "click"], ["id", "display-container", 1, "animate-up", 2, "display", "block", "margin-top", "40px", "border-top", "1px solid var(--border-color)", "padding-top", "30px"], [2, "color", "var(--error-color)"], [2, "color", "var(--success-color)"], [1, "var-name"], [1, "var-value"], [1, "matrix-wrapper"], [2, "color", "var(--accent-color)", "margin-bottom", "10px"], [1, "puzzle-grid", 2, "margin", "0"], [1, "lu-separator"], [2, "color", "var(--primary-color)", "margin-bottom", "10px"], [1, "puzzle-cell", 2, "cursor", "default"], [2, "background", "var(--accent-color)", "color", "#000", 3, "click"], ["id", "reset-button", 2, "margin-top", "20px", "background", "transparent", "border", "1px solid var(--border-color)", 3, "click"], [1, "results-panel", 2, "margin-bottom", "15px", "text-align", "center"], [2, "color", "var(--accent-color)", "margin", "0"], [1, "step-description", 3, "innerHTML"], [2, "width", "100%", "height", "6px", "background", "rgba(255,255,255,0.1)", "border-radius", "3px", "margin-top", "15px", "overflow", "hidden"], [2, "height", "100%", "background", "greenyellow", "transition", "width 0.3s ease"], [1, "controls", 2, "flex-direction", "row", "margin-top", "20px"], [2, "background", "var(--tile-bg)", 3, "click", "disabled"], [3, "click", "disabled"], [1, "puzzle-cell", 2, "display", "flex", "align-items", "center", "justify-content", "center", "cursor", "default", 3, "ngStyle"], [1, "equations-container"], [1, "table-container"], [1, "table"], [1, "col"], [1, "equations-list"], [1, "equation-row", 3, "innerHTML"], [1, "initial-guess"], ["type", "checkbox", 3, "ngModelChange", "ngModel"]], template: function App_Template(rf, ctx) {
+    if (rf & 1) {
+      i0.\u0275\u0275elementStart(0, "html", 0)(1, "head");
+      i0.\u0275\u0275element(2, "meta", 1);
+      i0.\u0275\u0275elementEnd();
+      i0.\u0275\u0275elementStart(3, "body")(4, "div", 2);
+      i0.\u0275\u0275conditionalCreate(5, App_Conditional_5_Template, 10, 2);
+      i0.\u0275\u0275conditionalCreate(6, App_Conditional_6_Template, 31, 7);
+      i0.\u0275\u0275elementEnd();
+      i0.\u0275\u0275elementStart(7, "div", 3)(8, "div", 4)(9, "div", 5)(10, "p");
+      i0.\u0275\u0275text(11, "Presicion");
+      i0.\u0275\u0275elementEnd();
+      i0.\u0275\u0275elementStart(12, "input", 6);
+      i0.\u0275\u0275twoWayListener("ngModelChange", function App_Template_input_ngModelChange_12_listener($event) {
+        i0.\u0275\u0275twoWayBindingSet(ctx.precision, $event) || (ctx.precision = $event);
+        return $event;
+      });
+      i0.\u0275\u0275elementEnd()();
+      i0.\u0275\u0275conditionalCreate(13, App_Conditional_13_Template, 11, 4);
+      i0.\u0275\u0275conditionalCreate(14, App_Conditional_14_Template, 8, 2);
+      i0.\u0275\u0275elementStart(15, "div", 7)(16, "button", 8);
+      i0.\u0275\u0275listener("click", function App_Template_button_click_16_listener() {
+        return ctx.show = false;
+      });
+      i0.\u0275\u0275text(17, "Continue");
+      i0.\u0275\u0275elementEnd()()()()()();
+    }
+    if (rf & 2) {
+      i0.\u0275\u0275advance(5);
+      i0.\u0275\u0275conditional(!ctx.isSolved ? 5 : -1);
+      i0.\u0275\u0275advance();
+      i0.\u0275\u0275conditional(ctx.isSolved && ctx.solutionData ? 6 : -1);
+      i0.\u0275\u0275advance();
+      i0.\u0275\u0275classProp("show", ctx.show);
+      i0.\u0275\u0275advance(5);
+      i0.\u0275\u0275property("defaultValue", 10);
+      i0.\u0275\u0275twoWayProperty("ngModel", ctx.precision);
+      i0.\u0275\u0275advance();
+      i0.\u0275\u0275conditional(ctx.selectedMethod == "JACOBI" || ctx.selectedMethod == "Gauss_Seidel" ? 13 : -1);
+      i0.\u0275\u0275advance();
+      i0.\u0275\u0275conditional(ctx.selectedMethod == "Gauss_elimination" ? 14 : -1);
+    }
+  }, dependencies: [CommonModule, i1.NgClass, i1.NgComponentOutlet, i1.NgForOf, i1.NgIf, i1.NgTemplateOutlet, i1.NgStyle, i1.NgSwitch, i1.NgSwitchCase, i1.NgSwitchDefault, i1.NgPlural, i1.NgPluralCase, FormsModule, i2.\u0275NgNoValidate, i2.NgSelectOption, i2.\u0275NgSelectMultipleOption, i2.DefaultValueAccessor, i2.NumberValueAccessor, i2.RangeValueAccessor, i2.CheckboxControlValueAccessor, i2.SelectControlValueAccessor, i2.SelectMultipleControlValueAccessor, i2.RadioControlValueAccessor, i2.NgControlStatus, i2.NgControlStatusGroup, i2.RequiredValidator, i2.MinLengthValidator, i2.MaxLengthValidator, i2.PatternValidator, i2.CheckboxRequiredValidator, i2.EmailValidator, i2.MinValidator, i2.MaxValidator, i2.NgModel, i2.NgModelGroup, i2.NgForm, i1.AsyncPipe, i1.UpperCasePipe, i1.LowerCasePipe, i1.JsonPipe, i1.SlicePipe, i1.DecimalPipe, i1.PercentPipe, i1.TitleCasePipe, i1.CurrencyPipe, i1.DatePipe, i1.I18nPluralPipe, i1.I18nSelectPipe, i1.KeyValuePipe], styles: [`/* src/app/app.css */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e1e3f;
+  --primary-color: #ff4b91;
+  --accent-color: #00e0ff;
+  --text-color: #ffffff;
+  --text-muted: #a0aec0;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --tile-bg: #4a4a70;
+  --tile-empty-bg: rgba(255, 255, 255, 0.05);
+  --success-color: #49e53e;
+  --error-color: #ff6b6b;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family:
+    "Inter",
+    "Poppins",
+    sans-serif;
+  background:
+    linear-gradient(
+      var(--bg-color),
+      #1a1a2e,
+      #0f3460);
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+h1,
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  text-shadow: 0 0 12px var(--primary-color);
+  animation: fadeIn 1s ease-out;
+}
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: var(--accent-color);
+}
+p {
+  color: var(--text-muted);
+}
+.solver-container {
+  background: rgba(30, 30, 63, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  padding: clamp(20px, 4vw, 40px);
+  width: 90vw;
+  max-width: 1200px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.7s ease-out;
+  transition: all 0.4s ease;
+}
+.solver-container:hover {
+  box-shadow: 0 0 30px var(--accent-color);
+}
+#input-container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 480px;
+}
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 25px 0;
+  justify-content: center;
+}
+.puzzle-cell {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--tile-empty-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+  font-weight: bold;
+  text-align: center;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.puzzle-cell:hover {
+  box-shadow: 0 0 20px var(--accent-color);
+  transform: translateY(-2px);
+}
+.puzzle-cell:focus {
+  outline: none;
+  border-color: var(--success-color);
+  box-shadow: 0 0 20px var(--success-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+.puzzle-cell.invalid {
+  border-color: var(--error-color);
+  box-shadow: 0 0 12px var(--error-color);
+  color: var(--error-color);
+}
+.puzzle-cell.invalid.animate {
+  animation: shake 0.3s ease;
+}
+.puzzle-cell input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .controls {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+button,
+select {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 220px;
+  box-shadow: 0 0 15px rgba(255, 75, 145, 0.4);
+}
+button:hover,
+select:hover {
+  background: var(--accent-color);
+  color: #000;
+  box-shadow: 0 0 25px var(--accent-color);
+  transform: scale(1.05);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+select {
+  background: var(--tile-bg);
+  border: 1px solid var(--border-color);
+  appearance: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+}
+.error {
+  color: var(--error-color);
+  font-weight: bold;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+.error.show {
+  display: block;
+}
+#display-container {
+  display: none;
+  max-width: 850px;
+  width: 100%;
+  margin-top: 40px;
+}
+.solution-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+}
+.display-board-container {
+  width: 100%;
+  max-width: 420px;
+}
+#display-board {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--tile-empty-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+.display-tile {
+  background: var(--tile-bg);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: all 0.4s ease;
+}
+.display-tile.empty {
+  background: none;
+}
+.results-panel {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 75, 145, 0.2);
+}
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.result-item span:first-child {
+  color: var(--text-muted);
+}
+.result-item span:last-child {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+#reset-button {
+  width: 100%;
+  background: var(--success-color);
+  box-shadow: 0 0 20px rgba(62, 229, 119, 0.4);
+}
+#reset-button:hover {
+  background: #00d06f;
+  transform: scale(1.05);
+}
+.controls button {
+  min-width: 150px;
+  white-space: nowrap;
+  font-size: 1.05rem;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+@media (min-width: 768px) {
+  .solution-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .results-panel {
+    flex: 1;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .solver-container {
+    width: 55vw;
+    max-width: none;
+  }
+}
+@media (max-width: 600px) {
+  .solver-container {
+    width: 92vw;
+    max-width: none;
+    padding: 20px;
+  }
+}
+#display-container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+#display-container .results-panel {
+  width: 100%;
+  max-width: 520px;
+  margin: 10px auto;
+  text-align: center;
+}
+#reset-button {
+  width: auto;
+  min-width: 160px;
+  padding: 12px 24px;
+  margin: 18px auto 0 auto;
+  display: block;
+}
+#display-container .puzzle-grid {
+  justify-content: center;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.extra-options {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.puzzle-grid2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.puzzle-cell2 {
+  max-width: 60px;
+  min-height: 30px;
+  color: var(--text-muted);
+  background: var(--tile-bg);
+  border-radius: 5px;
+}
+.puzzle-cell2:hover,
+.extra-options-seidel:hover {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+.puzzle-cell2:focus,
+.extra-options-seidel:focus {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  outline: none;
+}
+.select-method {
+  width: 170px;
+}
+span {
+  color: var(--text-muted);
+}
+.extra-options-seidel {
+  width: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 60px;
+  min-height: 30px;
+  color: var(--text-muted);
+  background: var(--tile-bg);
+  margin-top: 15px;
+}
+.results-values {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.results-values span {
+  padding: 10px;
+}
+.table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  background-color: inherit;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.table {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: max-content;
+}
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  min-width: 80px;
+}
+.col {
+  position: sticky;
+  left: 0;
+  background-color: var(--tile-bg);
+  z-index: 10;
+  border-right: 1px solid var(--border-color);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+thead tr th.col {
+  z-index: 11;
+}
+.equations-container {
+  margin-top: 20px;
+  background: inherit;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.equations-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.equations-container h3 {
+  margin-top: 0;
+  color: #F9F9F9;
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.equation-row {
+  font-family: "Times New Roman", serif;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: inherit;
+  border-radius: 6px;
+  border-left: 4px solid var(--accent-color);
+}
+#results-dashboard {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.metrics-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  transition: transform 0.2s;
+}
+.metric-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+}
+.metric-card .label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.metric-card .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+.vector-display {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 25px;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.vector-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.vector-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+.vector-item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid var(--accent-color);
+}
+.var-name {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+.var-value {
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+.animate-up {
+  animation: slideUp 0.5s ease-out;
+}
+.vector-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.vector-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.vector-grid::-webkit-scrollbar-thumb {
+  background: var(--tile-bg);
+  border-radius: 3px;
+}
+.step-description {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 4px;
+  padding: 15px 25px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.lu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px dashed var(--border-color);
+}
+.matrix-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+}
+.lu-separator {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  align-self: center;
+  margin: 0 10px;
+}
+.matrix-wrapper .puzzle-grid {
+  width: 100%;
+  max-width: 500px;
+}
+.popup {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow: scroll;
+}
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.popup-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 450px;
+  min-height: 250px;
+  background-color: var(--tile-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transform: scale(0.7);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.2s ease-in-out;
+}
+.popup.show .popup-menu {
+  transform: scale(1);
+}
+.popup-menu:hover {
+  box-shadow: 0 0 30px var(--accent-color);
+}
+.popup-controlls {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px 20px 10px 10px;
+  align-items: center;
+}
+.popup-menu input {
+  margin-left: auto;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--text-muted);
+  background-color: #403f3f;
+  min-height: 30px;
+  max-height: 40px;
+  transition: all 0.1s ease-in-out;
+}
+.popup-menu input:hover {
+  box-shadow: 0 0 30px var(--error-color);
+  border: 1px solid var(--error-color);
+}
+.continuebtn {
+  display: flex;
+  width: 100%;
+  margin: auto 10px 20px 0;
+  justify-content: center;
+}
+.initial-guess {
+  width: 100%;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=app.css.map */
+`], encapsulation: 2 });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && i0.\u0275setClassMetadata(App, [{
+    type: Component,
+    args: [{ selector: "app-root", standalone: true, imports: [CommonModule, FormsModule], encapsulation: ViewEncapsulation.None, template: `<!DOCTYPE html>\r
+<html lang="en" dir="ltr">\r
+<head>\r
+    <meta charset="UTF-8">\r
+</head>\r
+<body>\r
+<div class="solver-container">\r
+    \r
+    @if(!isSolved) {\r
+    <div id="input-container">\r
+        <h1>Matrix Solver</h1>\r
+        <p>Enter Dimensions (N):</p>\r
+        <div class="controls" style="flex-direction: row; gap: 10px;">\r
+            <input  id = "ndim" class="puzzle-cell" type="number" [(ngModel)]="NumberEquations" \r
+                  placeholder="N" min="1" \r
+                  style="width: 80px; text-align: center; padding: 10px; border-radius: 10px; border: none;">\r
+            <button (click)="gridGenerator()">START</button>\r
+        </div>\r
+    </div>\r
+\r
+    @if(isGenerated) {\r
+        <div id="display-container" style="display: block; margin-top: 20px;">\r
+            <h2>Enter Coefficients (A | B)</h2>\r
+            <div class="puzzle-grid" [style.grid-template-columns]="'repeat(' + (NumberEquations! + 1) + ', 1fr)'">\r
+                \r
+                @for(row of matrixA; track row; let i = $index) {\r
+                    @for(col of row; track col; let j = $index) {\r
+                        <input type="number" [(ngModel)]="matrixA[i][j]" \r
+                        [ngModelOptions]="{updateOn: 'blur'}"\r
+                        class="puzzle-cell" inputmode="decimal" autocomplete="off" step="any"\r
+                        [class.invalid] = "showError && (matrixA[i][j] === null || matrixA[i][j] === undefined)"\r
+                        [class.valid] = "matrixA[i][j] != null || matrixA[i][j] != undefined"\r
+                        placeholder="A({{i+1}})({{j+1}})">\r
+                    }\r
+                    \r
+                    <input type="number" [(ngModel)]="matrixB[i]" \r
+                            [ngModelOptions]="{updateOn: 'blur'}"\r
+                            class="puzzle-cell" inputmode="decimal" autocomplete="off" step="any"\r
+                            style="border-color: var(--primary-color);" \r
+                        [class.invalid] = "showError && (matrixB[i] === null || matrixB[i] === undefined)"\r
+                        [class.valid] = "matrixB[i] != null || matrixB[i] != undefined"\r
+                            placeholder="B{{i+1}}">\r
+                }\r
+            </div>\r
+\r
+            <div class="controls">\r
+                <select [(ngModel)]="selectedMethod" class="select-method">\r
+                    @for(m of methods; track m.id) {\r
+                        <option [value]="m.id">{{ m.name }}</option>\r
+                    }\r
+                </select>\r
+\r
+                @if(selectedMethod === 'LU') {\r
+                    <select [(ngModel)]="luForm">\r
+                        <option value="DOOLITTLE">Doolittle</option>\r
+                        <option value="CROUT">Crout</option>\r
+                        <option value="CHOLESKY">Cholesky</option>\r
+                    </select>\r
+                }\r
+\r
+\r
+\r
+                <button id="extra-details" (click)="show=true">Details</button>\r
+                <button id="solve-button" (click)="solve()">SOLVE</button>\r
+            </div>\r
+        </div>\r
+    }\r
+    }\r
+\r
+    @if(isSolved && solutionData) {\r
+        \r
+        <div id="results-dashboard" class="animate-up">\r
+            @if (solutionData.errorMessage ){\r
+                <h1><span style="color:var(--error-color)">\u2A2F</span> Solution not Found</h1>\r
+            } @else {\r
+                <h1><span style="color:var(--success-color)">\u2714</span> Solution Found</h1>\r
+            }\r
+\r
+            <div class="metrics-container">\r
+                <div class="metric-card">\r
+                    <span class="label">Time</span>\r
+                    <span class="value">{{ solutionData.executionTime }} ms</span>\r
+                </div>\r
+                <div class="metric-card">\r
+                    <span class="label">Iterations</span>\r
+                    <span class="value">{{ solutionData.TotalIternation }}</span>\r
+                </div>\r
+                <div class="metric-card">\r
+                    <span class="label">Status</span>\r
+                    @if (solutionData.errorMessage){\r
+                        <span class="value" style="color: var(--error-color)">Didnt Converge</span>\r
+                    } @else {\r
+                        <span class="value" style="color: var(--success-color)">Optimal</span>\r
+                    }\r
+                </div>\r
+            </div>\r
+\r
+            <div class="vector-display">\r
+                <h3>Final Result Vector (X)</h3>\r
+                <div class="vector-grid">\r
+                    @for(res of solutionData.results; track res; let i = $index) {\r
+                        <div class="vector-item">\r
+                            <span class="var-name">X<sub>{{i+1}}</sub></span>\r
+                            <span class="var-value">{{ res | number:'1.0-4' }}</span>\r
+                        </div>\r
+                    }\r
+                </div>\r
+\r
+                    @if(currentMatrixL && currentMatrixU) {\r
+                        <div class="lu-container animate-up">\r
+                            \r
+                            <div class="matrix-wrapper">\r
+                                <h3 style="color: var(--accent-color); margin-bottom: 10px;">Lower (L)</h3>\r
+                                <div class="puzzle-grid" \r
+                                     [style.grid-template-columns]="'repeat(' + NumberEquations + ', 1fr)'"\r
+                                     style="margin: 0;"> \r
+                                    @for(row of currentMatrixL; track row) {\r
+                                        @for(val of row; track val) {\r
+                                            <div class="puzzle-cell" style="cursor: default;">\r
+                                                {{ val | number:'1.0-2' }}\r
+                                            </div>\r
+                                        }\r
+                                    }\r
+                                </div>\r
+                            </div>\r
+                    \r
+                            <div class="lu-separator">\xD7</div>\r
+                    \r
+                            <div class="matrix-wrapper">\r
+                                <h3 style="color: var(--primary-color); margin-bottom: 10px;">Upper (U)</h3>\r
+                                <div class="puzzle-grid" \r
+                                     [style.grid-template-columns]="'repeat(' + NumberEquations + ', 1fr)'"\r
+                                     style="margin: 0;">\r
+                                    @for(row of currentMatrixU; track row) {\r
+                                        @for(val of row; track val) {\r
+                                            <div class="puzzle-cell" style="cursor: default;">\r
+                                                {{ val | number:'1.0-2' }}\r
+                                            </div>\r
+                                        }\r
+                                    }\r
+                                </div>\r
+                            </div>\r
+                    \r
+                        </div>\r
+                    }\r
+            </div>\r
+\r
+            <div class="controls" style="margin-top: 30px;">\r
+                @if(!showSteps) {\r
+                    <button (click)="viewSteps()" style="background: var(--accent-color); color: #000;">\r
+                        Show Detailed Steps\r
+                    </button>\r
+                }\r
+                <button (click)="isSolved = false" style="background: transparent; border: 1px solid var(--border-color); color: white">\r
+                    New Problem\r
+                </button>\r
+            </div>\r
+        </div>\r
+\r
+        @if(showSteps) {\r
+            <div id="display-container" style="display: block; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;" class="animate-up">\r
+                \r
+                @if(selectedMethod != "Gauss_Seidel" && selectedMethod != "JACOBI"){\r
+\r
+                    <h2>Step-by-Step Solution</h2>\r
+\r
+                    <div class="results-panel" style="margin-bottom: 15px; text-align: center;">\r
+                        <h3 style="color: var(--accent-color); margin: 0;">\r
+                            Step {{currentStepIndex+1}} / {{solutionData.steps.length}}\r
+                        </h3>\r
+                        <p class="step-description" [innerHTML]="solutionData.steps[currentStepIndex].description">\r
+                        </p>\r
+                        \r
+                        <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 15px; overflow: hidden;">\r
+                            <div [style.width]="progressPercentage+'%'" \r
+                            style="height: 100%; background: greenyellow; transition: width 0.3s ease;">\r
+                            </div>\r
+                        </div>\r
+                    </div>\r
+\r
+                    <div class="puzzle-grid" [style.grid-template-columns]="'repeat(' + (NumberEquations! + 1) + ', 1fr)'">\r
+                        @for(row of currentMatrixADisplay; track row; let i = $index) {\r
+                            @for(val of row; track val; let j = $index) {\r
+                                <div class="puzzle-cell" \r
+                                    [ngStyle]="getCellStyle(i, j)"\r
+                                    style="display: flex; align-items: center; justify-content: center; cursor: default;">\r
+                                    {{ val | number:'1.0-2' }}\r
+                                </div>\r
+                            }\r
+                                <div class="puzzle-cell" \r
+                                    [ngStyle]="getCellStyle(i, currentMatrixADisplay[0].length)"\r
+                                    style="display: flex; align-items: center; justify-content: center; cursor: default;">\r
+                                    {{ currentMatrixBDisplay[i] | number:'1.0-2' }}\r
+                                </div>\r
+                        }\r
+                    </div>\r
+\r
+\r
+                    <div class="controls" style="flex-direction: row; margin-top: 20px;">\r
+                        <button (click)="prevStep()" [disabled]="currentStepIndex === 0" style="background: var(--tile-bg);">\r
+                            &lt; Prev\r
+                        </button>\r
+                        \r
+                        <button (click)="nextStep()" [disabled]="currentStepIndex === solutionData.steps.length - 1">\r
+                            Next &gt;\r
+                        </button>\r
+                    </div>\r
+                }\r
+\r
+                @if(selectedMethod == "Gauss_Seidel" || selectedMethod == "JACOBI"){\r
+                    \r
+                    @if(solutionData.equations && solutionData.equations.length > 0) {\r
+                        <div class="equations-container">\r
+                            <h3>Iteration Equations</h3>\r
+\r
+                            <div class="equations-list">\r
+                                @for (eq of solutionData.equations; track $index) {\r
+                                    <Math class="equation-row" [innerHTML]="eq">\r
+                                    </Math>\r
+                                }\r
+                            </div>\r
+                        </div>\r
+                    }\r
+\r
+                    <div class="table-container">\r
+                        <table class="table">\r
+                            <thead>\r
+                            <tr>\r
+                                <th class="col">Iteration (k)</th>\r
+                                @for(iter of solutionData.steps;track iter.stepNumber){\r
+                                    <th>{{iter.stepNumber}}</th>\r
+                                }\r
+                            </tr>\r
+                            </thead>\r
+\r
+                            <tbody>\r
+                                @for (dummy of [].constructor(NumberEquations); track $index;let xIndex = $index){\r
+                                    <tr>\r
+                                        <th class="col">X<sub>{{xIndex+1}}</sub></th>\r
+                                        @for (iteration of solutionData.steps;track iteration.stepNumber ){\r
+                                            <td>\r
+                                                {{iteration.matrixB[xIndex] | number:'1.0-4'}}\r
+                                            </td>\r
+                                        }\r
+                                    </tr>\r
+                                }\r
+                            </tbody>\r
+                        </table>\r
+                    </div>\r
+                }\r
+                \r
+                <button id="reset-button" (click)="backToResults()" style="margin-top: 20px; background: transparent; border: 1px solid var(--border-color);">\r
+                    Hide Steps\r
+                </button>\r
+            </div>\r
+        }\r
+    }\r
+\r
+</div>\r
+<div class="popup" [class.show]="show">\r
+    <div class="popup-menu">\r
+        <div class="popup-controlls">\r
+            <p>Presicion</p>\r
+            <input [defaultValue]="10" [(ngModel)]="precision">\r
+        </div>\r
+        @if (selectedMethod == 'JACOBI' || selectedMethod == 'Gauss_Seidel' ){\r
+            <div class="popup-controlls">\r
+                <span>Tolerance</span>\r
+                <input  [defaultValue]="0.000001" [(ngModel)]="tolerance" >\r
+            </div>\r
+            <div class="popup-controlls">\r
+                <span>Iterations</span>\r
+                <input [(ngModel)]="maxIterations">\r
+            </div>\r
+        <div class="initial-guess">\r
+            @for (item of [].constructor(NumberEquations) ; track $index){\r
+                <div class="popup-controlls">\r
+                <span>Initial Guess X{{$index+1}}</span>\r
+                    <input [(ngModel)]="initialGuess[$index]">\r
+                </div>\r
+            }\r
+        </div>\r
+        }\r
+        @if (selectedMethod == 'Gauss_elimination') {\r
+            <div class="popup-controlls">\r
+                <span>Pivoting</span>\r
+            <input type="checkbox" [(ngModel)]="withpivoting">\r
+            </div>\r
+            <div class="popup-controlls">\r
+                <span>Pivoting & scaling</span>\r
+                <input type="checkbox" [(ngModel)]="withscaling">\r
+            </div>\r
+        }\r
+        <div class="continuebtn">\r
+        <button (click)="show=false">Continue</button>\r
+        </div>\r
+    </div>\r
+</div>\r
+</body>\r
+</html>`, styles: [`/* src/app/app.css */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e1e3f;
+  --primary-color: #ff4b91;
+  --accent-color: #00e0ff;
+  --text-color: #ffffff;
+  --text-muted: #a0aec0;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --tile-bg: #4a4a70;
+  --tile-empty-bg: rgba(255, 255, 255, 0.05);
+  --success-color: #49e53e;
+  --error-color: #ff6b6b;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family:
+    "Inter",
+    "Poppins",
+    sans-serif;
+  background:
+    linear-gradient(
+      var(--bg-color),
+      #1a1a2e,
+      #0f3460);
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+h1,
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  text-shadow: 0 0 12px var(--primary-color);
+  animation: fadeIn 1s ease-out;
+}
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: var(--accent-color);
+}
+p {
+  color: var(--text-muted);
+}
+.solver-container {
+  background: rgba(30, 30, 63, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  padding: clamp(20px, 4vw, 40px);
+  width: 90vw;
+  max-width: 1200px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.7s ease-out;
+  transition: all 0.4s ease;
+}
+.solver-container:hover {
+  box-shadow: 0 0 30px var(--accent-color);
+}
+#input-container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 480px;
+}
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 25px 0;
+  justify-content: center;
+}
+.puzzle-cell {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--tile-empty-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+  font-weight: bold;
+  text-align: center;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.puzzle-cell:hover {
+  box-shadow: 0 0 20px var(--accent-color);
+  transform: translateY(-2px);
+}
+.puzzle-cell:focus {
+  outline: none;
+  border-color: var(--success-color);
+  box-shadow: 0 0 20px var(--success-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+.puzzle-cell.invalid {
+  border-color: var(--error-color);
+  box-shadow: 0 0 12px var(--error-color);
+  color: var(--error-color);
+}
+.puzzle-cell.invalid.animate {
+  animation: shake 0.3s ease;
+}
+.puzzle-cell input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .controls {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+button,
+select {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 220px;
+  box-shadow: 0 0 15px rgba(255, 75, 145, 0.4);
+}
+button:hover,
+select:hover {
+  background: var(--accent-color);
+  color: #000;
+  box-shadow: 0 0 25px var(--accent-color);
+  transform: scale(1.05);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+select {
+  background: var(--tile-bg);
+  border: 1px solid var(--border-color);
+  appearance: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+}
+.error {
+  color: var(--error-color);
+  font-weight: bold;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+.error.show {
+  display: block;
+}
+#display-container {
+  display: none;
+  max-width: 850px;
+  width: 100%;
+  margin-top: 40px;
+}
+.solution-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+}
+.display-board-container {
+  width: 100%;
+  max-width: 420px;
+}
+#display-board {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--tile-empty-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+.display-tile {
+  background: var(--tile-bg);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: all 0.4s ease;
+}
+.display-tile.empty {
+  background: none;
+}
+.results-panel {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 75, 145, 0.2);
+}
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.result-item span:first-child {
+  color: var(--text-muted);
+}
+.result-item span:last-child {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+#reset-button {
+  width: 100%;
+  background: var(--success-color);
+  box-shadow: 0 0 20px rgba(62, 229, 119, 0.4);
+}
+#reset-button:hover {
+  background: #00d06f;
+  transform: scale(1.05);
+}
+.controls button {
+  min-width: 150px;
+  white-space: nowrap;
+  font-size: 1.05rem;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+@media (min-width: 768px) {
+  .solution-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .results-panel {
+    flex: 1;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .solver-container {
+    width: 55vw;
+    max-width: none;
+  }
+}
+@media (max-width: 600px) {
+  .solver-container {
+    width: 92vw;
+    max-width: none;
+    padding: 20px;
+  }
+}
+#display-container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+#display-container .results-panel {
+  width: 100%;
+  max-width: 520px;
+  margin: 10px auto;
+  text-align: center;
+}
+#reset-button {
+  width: auto;
+  min-width: 160px;
+  padding: 12px 24px;
+  margin: 18px auto 0 auto;
+  display: block;
+}
+#display-container .puzzle-grid {
+  justify-content: center;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.extra-options {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.puzzle-grid2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.puzzle-cell2 {
+  max-width: 60px;
+  min-height: 30px;
+  color: var(--text-muted);
+  background: var(--tile-bg);
+  border-radius: 5px;
+}
+.puzzle-cell2:hover,
+.extra-options-seidel:hover {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+.puzzle-cell2:focus,
+.extra-options-seidel:focus {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  outline: none;
+}
+.select-method {
+  width: 170px;
+}
+span {
+  color: var(--text-muted);
+}
+.extra-options-seidel {
+  width: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 60px;
+  min-height: 30px;
+  color: var(--text-muted);
+  background: var(--tile-bg);
+  margin-top: 15px;
+}
+.results-values {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.results-values span {
+  padding: 10px;
+}
+.table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  background-color: inherit;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.table {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: max-content;
+}
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  min-width: 80px;
+}
+.col {
+  position: sticky;
+  left: 0;
+  background-color: var(--tile-bg);
+  z-index: 10;
+  border-right: 1px solid var(--border-color);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+thead tr th.col {
+  z-index: 11;
+}
+.equations-container {
+  margin-top: 20px;
+  background: inherit;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.equations-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.equations-container h3 {
+  margin-top: 0;
+  color: #F9F9F9;
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.equation-row {
+  font-family: "Times New Roman", serif;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: inherit;
+  border-radius: 6px;
+  border-left: 4px solid var(--accent-color);
+}
+#results-dashboard {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.metrics-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  transition: transform 0.2s;
+}
+.metric-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+}
+.metric-card .label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.metric-card .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+.vector-display {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 25px;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.vector-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.vector-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+.vector-item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid var(--accent-color);
+}
+.var-name {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+.var-value {
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+.animate-up {
+  animation: slideUp 0.5s ease-out;
+}
+.vector-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.vector-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.vector-grid::-webkit-scrollbar-thumb {
+  background: var(--tile-bg);
+  border-radius: 3px;
+}
+.step-description {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 4px;
+  padding: 15px 25px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.lu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px dashed var(--border-color);
+}
+.matrix-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+}
+.lu-separator {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  align-self: center;
+  margin: 0 10px;
+}
+.matrix-wrapper .puzzle-grid {
+  width: 100%;
+  max-width: 500px;
+}
+.popup {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow: scroll;
+}
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.popup-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 450px;
+  min-height: 250px;
+  background-color: var(--tile-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transform: scale(0.7);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.2s ease-in-out;
+}
+.popup.show .popup-menu {
+  transform: scale(1);
+}
+.popup-menu:hover {
+  box-shadow: 0 0 30px var(--accent-color);
+}
+.popup-controlls {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px 20px 10px 10px;
+  align-items: center;
+}
+.popup-menu input {
+  margin-left: auto;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--text-muted);
+  background-color: #403f3f;
+  min-height: 30px;
+  max-height: 40px;
+  transition: all 0.1s ease-in-out;
+}
+.popup-menu input:hover {
+  box-shadow: 0 0 30px var(--error-color);
+  border: 1px solid var(--error-color);
+}
+.continuebtn {
+  display: flex;
+  width: 100%;
+  margin: auto 10px 20px 0;
+  justify-content: center;
+}
+.initial-guess {
+  width: 100%;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=app.css.map */
+`] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && i0.\u0275setClassDebugInfo(App, { className: "App", filePath: "src/app/app.ts", lineNumber: 37 });
+})();
+(() => {
+  const id = "src%2Fapp%2Fapp.ts%40App";
+  function App_HmrLoad(t) {
+    import(
+      /* @vite-ignore */
+      __vite__injectQuery(i0.\u0275\u0275getReplaceMetadataURL(id, t, import.meta.url), 'import')
+    ).then((m) => m.default && i0.\u0275\u0275replaceMetadata(App, m.default, [i0, i1, i2], [CommonModule, FormsModule, Component, ViewEncapsulation], import.meta, id));
+  }
+  (typeof ngDevMode === "undefined" || ngDevMode) && App_HmrLoad(Date.now());
+  (typeof ngDevMode === "undefined" || ngDevMode) && (import.meta.hot && import.meta.hot.on("angular:component-update", (d) => d.id === id && App_HmrLoad(d.timestamp)));
+})();
+
+// src/main.ts
+bootstrapApplication(App, appConfig).catch((err) => console.error(err));
+
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9tYWluLnRzIiwic3JjL2FwcC9hcHAuY29uZmlnLnRzIiwic3JjL2FwcC9hcHAucm91dGVzLnRzIiwic3JjL2FwcC9hcHAudHMiLCJzcmMvYXBwL2FwcC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGJvb3RzdHJhcEFwcGxpY2F0aW9uIH0gZnJvbSAnQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3Nlcic7XHJcbmltcG9ydCB7IGFwcENvbmZpZyB9IGZyb20gJy4vYXBwL2FwcC5jb25maWcnO1xyXG5pbXBvcnQgeyBBcHAgfSBmcm9tICcuL2FwcC9hcHAnO1xyXG5cclxuYm9vdHN0cmFwQXBwbGljYXRpb24oQXBwLCBhcHBDb25maWcpXHJcbiAgLmNhdGNoKChlcnIpID0+IGNvbnNvbGUuZXJyb3IoZXJyKSk7XHJcbiIsImltcG9ydCB7IEFwcGxpY2F0aW9uQ29uZmlnLCBwcm92aWRlWm9uZUNoYW5nZURldGVjdGlvbiB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5pbXBvcnQgeyBwcm92aWRlUm91dGVyIH0gZnJvbSAnQGFuZ3VsYXIvcm91dGVyJztcclxuaW1wb3J0IHsgcHJvdmlkZUh0dHBDbGllbnQgfSBmcm9tICdAYW5ndWxhci9jb21tb24vaHR0cCc7IFxyXG5pbXBvcnQgeyByb3V0ZXMgfSBmcm9tICcuL2FwcC5yb3V0ZXMnO1xyXG5cclxuZXhwb3J0IGNvbnN0IGFwcENvbmZpZzogQXBwbGljYXRpb25Db25maWcgPSB7XHJcbiAgcHJvdmlkZXJzOiBbXHJcbiAgICBwcm92aWRlWm9uZUNoYW5nZURldGVjdGlvbih7IGV2ZW50Q29hbGVzY2luZzogdHJ1ZSB9KSxcclxuICAgIHByb3ZpZGVSb3V0ZXIocm91dGVzKSxcclxuICAgIHByb3ZpZGVIdHRwQ2xpZW50KCkgXHJcbiAgXVxyXG59OyIsImltcG9ydCB7IFJvdXRlcyB9IGZyb20gJ0Bhbmd1bGFyL3JvdXRlcic7XHJcblxyXG5leHBvcnQgY29uc3Qgcm91dGVzOiBSb3V0ZXMgPSBbXTtcclxuIiwiaW1wb3J0IHsgQ29tcG9uZW50LCBWaWV3RW5jYXBzdWxhdGlvbiwgaW5qZWN0IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XHJcbmltcG9ydCB7IEZvcm1zTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvZm9ybXMnO1xyXG5pbXBvcnQgeyBIdHRwQ2xpZW50IH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uL2h0dHAnO1xyXG5cclxuaW50ZXJmYWNlIE1hdHJpeFN0ZXAge1xyXG4gIHN0ZXBOdW1iZXI6IG51bWJlcjtcclxuICBkZXNjcmlwdGlvbjogc3RyaW5nO1xyXG4gIG1hdHJpeEE6IG51bWJlcltdW107IFxyXG4gIG1hdHJpeEIgOiBudW1iZXJbXTtcclxuICBMPzogbnVtYmVyW11bXTtcclxuICBVPzogbnVtYmVyW11bXTtcclxuICBwaXZvdEluZGV4PzogeyByOiBudW1iZXIsIGM6IG51bWJlciB9OyBcclxuICBoaWdobGlnaHRSb3c/OiBudW1iZXI7XHJcbn1cclxuXHJcbmludGVyZmFjZSBTb2x1dGlvblJlc3BvbnNlIHtcclxuICBzdGF0dXM6IHN0cmluZztcclxuICByZXN1bHRzOiBudW1iZXJbXTtcclxuICBleGVjdXRpb25UaW1lOiBudW1iZXIgO1xyXG4gIFRvdGFsSXRlcm5hdGlvbiA6IG51bWJlcjsgXHJcbiAgc3RlcHM6IE1hdHJpeFN0ZXBbXTtcclxuICBlcnJvck1lc3NhZ2UgOiBzdHJpbmcgfCBudWxsO1xyXG4gIGVxdWF0aW9ucz86IHN0cmluZ1tdO1xyXG4gIEw/OiBudW1iZXJbXVtdO1xyXG4gIFU/OiBudW1iZXJbXVtdO1xyXG59XHJcblxyXG5AQ29tcG9uZW50KHtcclxuICBzZWxlY3RvcjogJ2FwcC1yb290JyxcclxuICBzdGFuZGFsb25lOiB0cnVlLFxyXG4gIGltcG9ydHM6IFtDb21tb25Nb2R1bGUsIEZvcm1zTW9kdWxlXSxcclxuICB0ZW1wbGF0ZVVybDogJy4vYXBwLmh0bWwnLFxyXG4gIHN0eWxlVXJsczogWycuL2FwcC5jc3MnXSwgXHJcbiAgZW5jYXBzdWxhdGlvbiA6IFZpZXdFbmNhcHN1bGF0aW9uLk5vbmUgXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBBcHAge1xyXG4gIHByaXZhdGUgaHR0cCA9IGluamVjdChIdHRwQ2xpZW50KTtcclxuXHJcbiAgTnVtYmVyRXF1YXRpb25zOiBudW1iZXIgfCBudWxsID0gbnVsbDtcclxuICBcclxuICBtYXRyaXhBOiBudW1iZXJbXVtdID0gW107XHJcbiAgbWF0cml4QjogbnVtYmVyW10gPSBbXTtcclxuICBwcmVjaXNpb246IG51bWJlciA9IDEwO1xyXG4gIGlzR2VuZXJhdGVkOiBib29sZWFuID0gZmFsc2U7XHJcbiAgaXNTb2x2ZWQ6IGJvb2xlYW4gPSBmYWxzZTtcclxuICBzaG93RXJyb3IgOiBib29sZWFuID0gZmFsc2U7XHJcbiAgc2hvd1N0ZXBzOiBib29sZWFuID0gZmFsc2U7IFxyXG4gIHdpdGhwaXZvdGluZzogYm9vbGVhbiA9IGZhbHNlO1xyXG4gIHdpdGhzY2FsaW5nOiBib29sZWFuID0gZmFsc2U7XHJcbiAgc2hvdzpib29sZWFuID0gZmFsc2U7XHJcbiAgY3VycmVudE1hdHJpeEw6IG51bWJlcltdW10gfCBudWxsID0gbnVsbDtcclxuICBjdXJyZW50TWF0cml4VTogbnVtYmVyW11bXSB8IG51bGwgPSBudWxsO1xyXG4gIHNlbGVjdGVkTWV0aG9kOiBzdHJpbmcgPSAnTmFpdmVfR2F1c3MnO1xyXG4gIG1ldGhvZHMgPSBbXHJcbiAgICB7IGlkOiAnTmFpdmVfR2F1c3MnLCBuYW1lOiAnTmFpdmUgR2F1c3MgRWxpbWluYXRpb24nIH0sXHJcbiAgICB7aWQ6J0dhdXNzX2VsaW1pbmF0aW9uJyxuYW1lOiAnR2F1c3MgRWxpbWluYXRpb24nIH0sXHJcbiAgICB7IGlkOiAnR2F1c3NfSm9yZGFuJywgbmFtZTogJ0dhdXNzLUpvcmRhbicgfSxcclxuICAgIHsgaWQ6ICdMVScsIG5hbWU6ICdMVSBEZWNvbXBvc2l0aW9uJyB9LFxyXG4gICAgeyBpZDogJ0pBQ09CSScsIG5hbWU6ICdKYWNvYmkgSXRlcmF0aW9uJyB9LFxyXG4gICAgeyBpZDogJ0dhdXNzX1NlaWRlbCcsIG5hbWU6ICdHYXVzcy1TZWlkZWwnIH0sXHJcbiAgXTtcclxuXHJcbiAgbHVGb3JtOiBzdHJpbmcgPSAnRE9PTElUVExFJztcclxuICBpbml0aWFsR3Vlc3M6IG51bWJlcltdID0gW107XHJcbiAgbWF4SXRlcmF0aW9uczogbnVtYmVyID0gNTA7XHJcbiAgdG9sZXJhbmNlOiBudW1iZXIgPSAwLjAwMDE7XHJcblxyXG4gIHNvbHV0aW9uRGF0YTogU29sdXRpb25SZXNwb25zZSB8IG51bGwgPSBudWxsO1xyXG4gIGN1cnJlbnRTdGVwSW5kZXg6IG51bWJlciA9IDA7XHJcbiAgY3VycmVudE1hdHJpeEFEaXNwbGF5OiBudW1iZXJbXVtdID0gW107XHJcbiAgY3VycmVudE1hdHJpeEJEaXNwbGF5OiBudW1iZXJbXSA9IFtdO1xyXG4gIHByb2dyZXNzUGVyY2VudGFnZSA6bnVtYmVyID0gMDtcclxuXHJcbiAgZ3JpZEdlbmVyYXRvcigpIHtcclxuICAgIGlmICghdGhpcy5OdW1iZXJFcXVhdGlvbnMgfHwgdGhpcy5OdW1iZXJFcXVhdGlvbnMgPCAxKSB7XHJcbiAgICAgIGFsZXJ0KFwiUGxlYXNlIGVudGVyIGEgdmFsaWQgZGltZW5zaW9uIChOID49IDEpXCIpO1xyXG4gICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgICB0aGlzLm1hdHJpeEEgPSBbXTtcclxuICAgIHRoaXMubWF0cml4QiA9IFtdO1xyXG4gICAgdGhpcy5pbml0aWFsR3Vlc3MgPSBbXTtcclxuICAgIHRoaXMuc2hvd0Vycm9yID0gZmFsc2U7XHJcbiAgICB0aGlzLmlzU29sdmVkID0gZmFsc2U7XHJcbiAgICB0aGlzLnNob3dTdGVwcyA9IGZhbHNlO1xyXG5cclxuICAgIGZvciAobGV0IGkgPSAwOyBpIDwgdGhpcy5OdW1iZXJFcXVhdGlvbnM7IGkrKykge1xyXG4gICAgICBjb25zdCByb3cgPSBuZXcgQXJyYXkodGhpcy5OdW1iZXJFcXVhdGlvbnMpLmZpbGwobnVsbCk7XHJcbiAgICAgIHRoaXMubWF0cml4QS5wdXNoKHJvdyk7XHJcbiAgICAgIHRoaXMubWF0cml4Qi5wdXNoKG51bGwgYXMgYW55KTtcclxuICAgICAgdGhpcy5pbml0aWFsR3Vlc3MucHVzaCgwKTtcclxuICAgIH1cclxuICAgIHRoaXMuaXNHZW5lcmF0ZWQgPSB0cnVlO1xyXG4gIH1cclxuXHJcbiAgaXNWYWxpZCgpIDogYm9vbGVhbntcclxuICAgIGZvcihsZXQgaSA9IDAgOyBpIDwgdGhpcy5tYXRyaXhBLmxlbmd0aCA7IGkrKyl7XHJcbiAgICAgIGZvcihsZXQgaiA9IDAgOyBqIDwgdGhpcy5tYXRyaXhCLmxlbmd0aCA7IGorKyl7XHJcbiAgICAgICAgaWYodGhpcy5tYXRyaXhBW2ldW2pdPT1udWxsIHx8IHRoaXMubWF0cml4QVtpXVtqXSA9PSB1bmRlZmluZWQgKXJldHVybiBmYWxzZSA7XHJcbiAgICAgIH1cclxuICAgICAgaWYodGhpcy5tYXRyaXhCW2ldPT1udWxsIHx8IHRoaXMubWF0cml4QltpXSA9PSB1bmRlZmluZWQgKXJldHVybiBmYWxzZSA7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gdHJ1ZSA7XHJcbiAgfVxyXG5cclxuICBhbmltYXRlSW52YWxpZENlbGxzKCkge1xyXG4gICAgc2V0VGltZW91dCgoKSA9PiB7XHJcbiAgICAgIGNvbnN0IGNlbGxzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbDxIVE1MRWxlbWVudD4oJy5wdXp6bGUtY2VsbC5pbnZhbGlkJyk7XHJcbiAgICAgIGNlbGxzLmZvckVhY2goY2VsbCA9PiB7XHJcbiAgICAgICAgY2VsbC5jbGFzc0xpc3QucmVtb3ZlKCdhbmltYXRlJyk7XHJcbiAgICAgICAgdm9pZCAoY2VsbC5vZmZzZXRXaWR0aCk7XHJcbiAgICAgICAgY2VsbC5jbGFzc0xpc3QuYWRkKCdhbmltYXRlJyk7XHJcbiAgICAgIH0pO1xyXG4gICAgfSwgMCk7XHJcbiAgfVxyXG5cclxuICBzb2x2ZSgpIHtcclxuICAgIHRoaXMuc2hvd0Vycm9yID0gdHJ1ZTtcclxuXHJcbiAgICBpZighdGhpcy5pc1ZhbGlkKCkpe1xyXG4gICAgICB0aGlzLmFuaW1hdGVJbnZhbGlkQ2VsbHMoKTtcclxuICAgICAgcmV0dXJuO1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICB0aGlzLnByb2dyZXNzUGVyY2VudGFnZSA9IDA7XHJcbiAgICB0aGlzLnNob3dTdGVwcyA9IGZhbHNlO1xyXG5cclxuICAgIGxldCBmaW5hbE1ldGhvZElEID0gdGhpcy5zZWxlY3RlZE1ldGhvZDtcclxuICAgIGlmICh0aGlzLnNlbGVjdGVkTWV0aG9kID09PSAnTFUnKSB7XHJcbiAgICAgICAgaWYgKHRoaXMubHVGb3JtID09PSAnRE9PTElUVExFJykgZmluYWxNZXRob2RJRCA9ICdMVV9kZWNvbXBvc2l0aW9uX0Rvb2xpdHRsZSc7XHJcbiAgICAgICAgaWYgKHRoaXMubHVGb3JtID09PSAnQ1JPVVQnKSBmaW5hbE1ldGhvZElEID0gJ0xVX2RlY29tcG9zaXRpb25fQ3JvdWQnO1xyXG4gICAgICAgIGlmICh0aGlzLmx1Rm9ybSA9PT0gJ0NIT0xFU0tZJykgZmluYWxNZXRob2RJRCA9ICdMVV9kZWNvbXBvc2l0aW9uX0Nob2xlc2t5JztcclxuICAgIH0gZWxzZSBpZiAodGhpcy5zZWxlY3RlZE1ldGhvZCA9PT0gJ0pBQ09CSScpIHtcclxuICAgICAgICBmaW5hbE1ldGhvZElEID0gJ0phY29iaSc7XHJcbiAgICB9IGVsc2UgaWYgKHRoaXMuc2VsZWN0ZWRNZXRob2QgPT09ICdHYXVzc19TZWlkZWwnKSB7IFxyXG4gICAgICAgIGZpbmFsTWV0aG9kSUQgPSAnR2F1c3NfU2VpZGVsJztcclxuICAgIH1cclxuICAgIGVsc2UgaWYodGhpcy5zZWxlY3RlZE1ldGhvZCA9PT0nR2F1c3NfSm9yZGFuJyl7XHJcbiAgICAgICAgZmluYWxNZXRob2RJRCA9ICdHYXVzc19Kb3JkYW4nO1xyXG4gICAgfVxyXG4gICAgZWxzZXtcclxuICAgICAgaWYodGhpcy53aXRoc2NhbGluZyl7XHJcbiAgICAgICAgZmluYWxNZXRob2RJRCA9ICdHYXVzc19lbGltaW5hdGlvbl9QaXZvdGluZ19TY2FsaW5nJztcclxuICAgICAgfVxyXG4gICAgICBlbHNlIGlmKHRoaXMud2l0aHBpdm90aW5nKXtcclxuICAgICAgICBmaW5hbE1ldGhvZElEID0nR2F1c3NfZWxpbWluYXRpb25fUGl2b3RpbmcnO1xyXG4gICAgICB9XHJcbiAgICAgIGVsc2V7XHJcbiAgICAgICAgZmluYWxNZXRob2RJRCA9J05haXZlX0dhdXNzJztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgIGNvbnN0IHBheWxvYWQgPSB7XHJcbiAgICAgIE1ldGhvZElkOiBmaW5hbE1ldGhvZElELFxyXG4gICAgICBwcmVjaXNpb246IHRoaXMucHJlY2lzaW9uLFxyXG4gICAgICBzaXplOiB0aGlzLk51bWJlckVxdWF0aW9ucyxcclxuICAgICAgbWF0cml4OiB0aGlzLm1hdHJpeEEsXHJcbiAgICAgIHZlY3Rvcl9vZl9zb2w6IHRoaXMubWF0cml4QixcclxuICAgICAgaW5pdGlhbF9ndWVzczogKHRoaXMuc2VsZWN0ZWRNZXRob2QgPT09ICdKQUNPQkknIHx8IHRoaXMuc2VsZWN0ZWRNZXRob2QgPT09ICdHYXVzc19TZWlkZWwnKSA/IHRoaXMuaW5pdGlhbEd1ZXNzIDogW10sXHJcbiAgICAgIG1heF9pdGVyYXRpb25zOiB0aGlzLm1heEl0ZXJhdGlvbnMsXHJcbiAgICAgIFRvbGVyYW5jZTogdGhpcy50b2xlcmFuY2UsXHJcbiAgICAgIG1ldGhvZFBhcmFtczoge30gXHJcbiAgICB9O1xyXG5cclxuICAgIGNvbnNvbGUubG9nKFwiU2VuZGluZyBQYXlsb2FkOlwiLCBwYXlsb2FkKTtcclxuXHJcbiAgICB0aGlzLmh0dHAucG9zdDxTb2x1dGlvblJlc3BvbnNlPignaHR0cDovLzEyNy4wLjAuMTo4MDAwL3NvbHZlJywgcGF5bG9hZClcclxuICAgICAgLnN1YnNjcmliZSh7XHJcbiAgICAgICAgbmV4dDogKHJlc3BvbnNlKSA9PiB7Y29uc29sZS5sb2cocGF5bG9hZC5NZXRob2RJZCk7XHJcbiAgICAgICAgICBpZih0aGlzLnNlbGVjdGVkTWV0aG9kICE9PSAnSkFDT0JJJyAmJiB0aGlzLnNlbGVjdGVkTWV0aG9kICE9PSAnR2F1c3NfU2VpZGVsJykge1xyXG4gICAgICAgICAgaWYgKHJlc3BvbnNlLmVycm9yTWVzc2FnZSkge1xyXG4gICAgICAgICAgICBhbGVydChcIlNvbHZlciBFcnJvcjogXCIgKyByZXNwb25zZS5lcnJvck1lc3NhZ2UpO1xyXG4gICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgICBlbHNle1xyXG4gICAgICAgICAgICBpZiAocmVzcG9uc2UuZXJyb3JNZXNzYWdlID09PSAnY2FuXFwndCBkaXZpZGUgYnkgemVybycpIHtcclxuICAgICAgICAgICAgICBhbGVydChcIlNvbHZlciBFcnJvcjogXCIgKyByZXNwb25zZS5lcnJvck1lc3NhZ2UpO1xyXG4gICAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgdGhpcy5zb2x1dGlvbkRhdGEgPSByZXNwb25zZTtcclxuICAgICAgICAgIHRoaXMuaXNTb2x2ZWQgPSB0cnVlO1xyXG4gICAgICAgICAgdGhpcy5jdXJyZW50U3RlcEluZGV4ID0gMDtcclxuICAgICAgICAgIHRoaXMudXBkYXRlRGlzcGxheU1hdHJpeCgpO1xyXG4gICAgICAgICAgdGhpcy5nZXRQZXJjZW50YWdlKCk7XHJcbiAgICAgICAgfSxcclxuICAgICAgICBlcnJvcjogKGVycikgPT4ge1xyXG4gICAgICAgICAgY29uc29sZS5lcnJvcihcIkNvbm5lY3Rpb24gRXJyb3I6XCIsIGVycik7XHJcbiAgICAgICAgICBhbGVydChcIkZhaWxlZCB0byBjb25uZWN0IHRvIGJhY2tlbmQuIElzIHV2aWNvcm4gcnVubmluZz9cIik7XHJcbiAgICAgICAgfVxyXG4gICAgICB9KTtcclxuICB9XHJcblxyXG4gIHZpZXdTdGVwcygpIHsgdGhpcy5zaG93U3RlcHMgPSB0cnVlOyB9XHJcbiAgYmFja1RvUmVzdWx0cygpIHsgdGhpcy5zaG93U3RlcHMgPSBmYWxzZTsgfVxyXG5cclxuICBuZXh0U3RlcCgpIHtcclxuICAgIGlmICh0aGlzLnNvbHV0aW9uRGF0YSAmJiB0aGlzLmN1cnJlbnRTdGVwSW5kZXggPCB0aGlzLnNvbHV0aW9uRGF0YS5zdGVwcy5sZW5ndGggLSAxKSB7XHJcbiAgICAgIHRoaXMuY3VycmVudFN0ZXBJbmRleCsrO1xyXG4gICAgICB0aGlzLnVwZGF0ZURpc3BsYXlNYXRyaXgoKTtcclxuICAgICAgdGhpcy5nZXRQZXJjZW50YWdlKCk7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBwcmV2U3RlcCgpIHtcclxuICAgIGlmICh0aGlzLmN1cnJlbnRTdGVwSW5kZXggPiAwKSB7XHJcbiAgICAgIHRoaXMuY3VycmVudFN0ZXBJbmRleC0tO1xyXG4gICAgICB0aGlzLnVwZGF0ZURpc3BsYXlNYXRyaXgoKTtcclxuICAgICAgdGhpcy5nZXRQZXJjZW50YWdlKCk7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICB1cGRhdGVEaXNwbGF5TWF0cml4KCkge1xyXG4gICAgaWYgKHRoaXMuc29sdXRpb25EYXRhKSB7XHJcbiAgICAgIGNvbnN0IHN0ZXAgPSB0aGlzLnNvbHV0aW9uRGF0YS5zdGVwc1t0aGlzLmN1cnJlbnRTdGVwSW5kZXhdO1xyXG4gICAgICB0aGlzLmN1cnJlbnRNYXRyaXhBRGlzcGxheSA9IHN0ZXAubWF0cml4QTtcclxuICAgICAgdGhpcy5jdXJyZW50TWF0cml4QkRpc3BsYXkgPSBzdGVwLm1hdHJpeEI7XHJcbiAgICAgIHRoaXMuY3VycmVudE1hdHJpeEwgPSB0aGlzLnNvbHV0aW9uRGF0YS5MIHx8IG51bGw7XHJcbiAgICAgIHRoaXMuY3VycmVudE1hdHJpeFUgPSB0aGlzLnNvbHV0aW9uRGF0YS5VIHx8IG51bGw7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBnZXRDZWxsU3R5bGUocm93SW5kZXg6IG51bWJlciwgY29sSW5kZXg6IG51bWJlcikge1xyXG4gICAgaWYgKCF0aGlzLnNvbHV0aW9uRGF0YSkgcmV0dXJuIHt9O1xyXG4gICAgY29uc3Qgc3RlcCA9IHRoaXMuc29sdXRpb25EYXRhLnN0ZXBzW3RoaXMuY3VycmVudFN0ZXBJbmRleF07XHJcbiAgICBcclxuICAgIGlmIChzdGVwLnBpdm90SW5kZXggJiYgc3RlcC5waXZvdEluZGV4LnIgPT09IHJvd0luZGV4ICYmIHN0ZXAucGl2b3RJbmRleC5jID09PSBjb2xJbmRleCkge1xyXG4gICAgICAgIHJldHVybiB7XHJcbiAgICAgICAgICAnYm9yZGVyLWNvbG9yJzogJ3ZhcigtLXN1Y2Nlc3MtY29sb3IpJyxcclxuICAgICAgICAgICdib3gtc2hhZG93JzogJzAgMCAxNXB4IHZhcigtLXN1Y2Nlc3MtY29sb3IpJyxcclxuICAgICAgICAgICd0cmFuc2Zvcm0nOiAnc2NhbGUoMS4wNSknXHJcbiAgICAgICAgfTtcclxuICAgICAgfVxyXG4gIFxyXG4gICAgICBjb25zdCBhQ29scyA9IHRoaXMuY3VycmVudE1hdHJpeEFEaXNwbGF5ICYmIHRoaXMuY3VycmVudE1hdHJpeEFEaXNwbGF5WzBdID8gdGhpcy5jdXJyZW50TWF0cml4QURpc3BsYXlbMF0ubGVuZ3RoIDogMDtcclxuICAgICAgY29uc3QgaXNCQ29sID0gY29sSW5kZXggPT09IGFDb2xzO1xyXG5cclxuICAgICAgaWYgKHN0ZXAuaGlnaGxpZ2h0Um93ID09PSByb3dJbmRleCAmJiAoY29sSW5kZXggPCBhQ29scyB8fCBpc0JDb2wpKSB7XHJcbiAgICAgICAgaWYgKGlzQkNvbCkge1xyXG4gICAgICAgICAgcmV0dXJuIHsgJ2JhY2tncm91bmQnOiAncmdiYSgwLCAyMjQsIDI1NSwgMC4xOCknIH07XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHJldHVybiB7ICdiYWNrZ3JvdW5kJzogJ3JnYmEoMjU1LCA3NSwgMTQ1LCAwLjIpJyB9O1xyXG4gICAgICB9XHJcbiAgICByZXR1cm4ge307XHJcbiAgfVxyXG5cclxuZ2V0UGVyY2VudGFnZSgpIHtcclxuICAgIGlmICghdGhpcy5zb2x1dGlvbkRhdGEgfHwgIXRoaXMuc29sdXRpb25EYXRhLnN0ZXBzIHx8IHRoaXMuc29sdXRpb25EYXRhLnN0ZXBzLmxlbmd0aCA9PT0gMCkge1xyXG4gICAgICAgIHRoaXMucHJvZ3Jlc3NQZXJjZW50YWdlID0gMDtcclxuICAgICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgICB0aGlzLnByb2dyZXNzUGVyY2VudGFnZSA9ICgodGhpcy5jdXJyZW50U3RlcEluZGV4ICsgMSkgLyB0aGlzLnNvbHV0aW9uRGF0YS5zdGVwcy5sZW5ndGgpICogMTAwO1xyXG4gIH1cclxufSIsIjwhRE9DVFlQRSBodG1sPlxyXG48aHRtbCBsYW5nPVwiZW5cIiBkaXI9XCJsdHJcIj5cclxuPGhlYWQ+XHJcbiAgICA8bWV0YSBjaGFyc2V0PVwiVVRGLThcIj5cclxuPC9oZWFkPlxyXG48Ym9keT5cclxuPGRpdiBjbGFzcz1cInNvbHZlci1jb250YWluZXJcIj5cclxuICAgIFxyXG4gICAgQGlmKCFpc1NvbHZlZCkge1xyXG4gICAgPGRpdiBpZD1cImlucHV0LWNvbnRhaW5lclwiPlxyXG4gICAgICAgIDxoMT5NYXRyaXggU29sdmVyPC9oMT5cclxuICAgICAgICA8cD5FbnRlciBEaW1lbnNpb25zIChOKTo8L3A+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbnRyb2xzXCIgc3R5bGU9XCJmbGV4LWRpcmVjdGlvbjogcm93OyBnYXA6IDEwcHg7XCI+XHJcbiAgICAgICAgICAgIDxpbnB1dCAgaWQgPSBcIm5kaW1cIiBjbGFzcz1cInB1enpsZS1jZWxsXCIgdHlwZT1cIm51bWJlclwiIFsobmdNb2RlbCldPVwiTnVtYmVyRXF1YXRpb25zXCIgXHJcbiAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiTlwiIG1pbj1cIjFcIiBcclxuICAgICAgICAgICAgICAgICAgc3R5bGU9XCJ3aWR0aDogODBweDsgdGV4dC1hbGlnbjogY2VudGVyOyBwYWRkaW5nOiAxMHB4OyBib3JkZXItcmFkaXVzOiAxMHB4OyBib3JkZXI6IG5vbmU7XCI+XHJcbiAgICAgICAgICAgIDxidXR0b24gKGNsaWNrKT1cImdyaWRHZW5lcmF0b3IoKVwiPlNUQVJUPC9idXR0b24+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICA8L2Rpdj5cclxuXHJcbiAgICBAaWYoaXNHZW5lcmF0ZWQpIHtcclxuICAgICAgICA8ZGl2IGlkPVwiZGlzcGxheS1jb250YWluZXJcIiBzdHlsZT1cImRpc3BsYXk6IGJsb2NrOyBtYXJnaW4tdG9wOiAyMHB4O1wiPlxyXG4gICAgICAgICAgICA8aDI+RW50ZXIgQ29lZmZpY2llbnRzIChBIHwgQik8L2gyPlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzPVwicHV6emxlLWdyaWRcIiBbc3R5bGUuZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zXT1cIidyZXBlYXQoJyArIChOdW1iZXJFcXVhdGlvbnMhICsgMSkgKyAnLCAxZnIpJ1wiPlxyXG4gICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICBAZm9yKHJvdyBvZiBtYXRyaXhBOyB0cmFjayByb3c7IGxldCBpID0gJGluZGV4KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgQGZvcihjb2wgb2Ygcm93OyB0cmFjayBjb2w7IGxldCBqID0gJGluZGV4KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxpbnB1dCB0eXBlPVwibnVtYmVyXCIgWyhuZ01vZGVsKV09XCJtYXRyaXhBW2ldW2pdXCIgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIFtuZ01vZGVsT3B0aW9uc109XCJ7dXBkYXRlT246ICdibHVyJ31cIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzcz1cInB1enpsZS1jZWxsXCIgaW5wdXRtb2RlPVwiZGVjaW1hbFwiIGF1dG9jb21wbGV0ZT1cIm9mZlwiIHN0ZXA9XCJhbnlcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBbY2xhc3MuaW52YWxpZF0gPSBcInNob3dFcnJvciAmJiAobWF0cml4QVtpXVtqXSA9PT0gbnVsbCB8fCBtYXRyaXhBW2ldW2pdID09PSB1bmRlZmluZWQpXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgW2NsYXNzLnZhbGlkXSA9IFwibWF0cml4QVtpXVtqXSAhPSBudWxsIHx8IG1hdHJpeEFbaV1bal0gIT0gdW5kZWZpbmVkXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJBKHt7aSsxfX0pKHt7aisxfX0pXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgIDxpbnB1dCB0eXBlPVwibnVtYmVyXCIgWyhuZ01vZGVsKV09XCJtYXRyaXhCW2ldXCIgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBbbmdNb2RlbE9wdGlvbnNdPVwie3VwZGF0ZU9uOiAnYmx1cid9XCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzPVwicHV6emxlLWNlbGxcIiBpbnB1dG1vZGU9XCJkZWNpbWFsXCIgYXV0b2NvbXBsZXRlPVwib2ZmXCIgc3RlcD1cImFueVwiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT1cImJvcmRlci1jb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7XCIgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIFtjbGFzcy5pbnZhbGlkXSA9IFwic2hvd0Vycm9yICYmIChtYXRyaXhCW2ldID09PSBudWxsIHx8IG1hdHJpeEJbaV0gPT09IHVuZGVmaW5lZClcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBbY2xhc3MudmFsaWRdID0gXCJtYXRyaXhCW2ldICE9IG51bGwgfHwgbWF0cml4QltpXSAhPSB1bmRlZmluZWRcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJCe3tpKzF9fVwiPlxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJjb250cm9sc1wiPlxyXG4gICAgICAgICAgICAgICAgPHNlbGVjdCBbKG5nTW9kZWwpXT1cInNlbGVjdGVkTWV0aG9kXCIgY2xhc3M9XCJzZWxlY3QtbWV0aG9kXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgQGZvcihtIG9mIG1ldGhvZHM7IHRyYWNrIG0uaWQpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgPG9wdGlvbiBbdmFsdWVdPVwibS5pZFwiPnt7IG0ubmFtZSB9fTwvb3B0aW9uPlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIDwvc2VsZWN0PlxyXG5cclxuICAgICAgICAgICAgICAgIEBpZihzZWxlY3RlZE1ldGhvZCA9PT0gJ0xVJykge1xyXG4gICAgICAgICAgICAgICAgICAgIDxzZWxlY3QgWyhuZ01vZGVsKV09XCJsdUZvcm1cIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkRPT0xJVFRMRVwiPkRvb2xpdHRsZTwvb3B0aW9uPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiQ1JPVVRcIj5Dcm91dDwvb3B0aW9uPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiQ0hPTEVTS1lcIj5DaG9sZXNreTwvb3B0aW9uPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvc2VsZWN0PlxyXG4gICAgICAgICAgICAgICAgfVxyXG5cclxuXHJcblxyXG4gICAgICAgICAgICAgICAgPGJ1dHRvbiBpZD1cImV4dHJhLWRldGFpbHNcIiAoY2xpY2spPVwic2hvdz10cnVlXCI+RGV0YWlsczwvYnV0dG9uPlxyXG4gICAgICAgICAgICAgICAgPGJ1dHRvbiBpZD1cInNvbHZlLWJ1dHRvblwiIChjbGljayk9XCJzb2x2ZSgpXCI+U09MVkU8L2J1dHRvbj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgQGlmKGlzU29sdmVkICYmIHNvbHV0aW9uRGF0YSkge1xyXG4gICAgICAgIFxyXG4gICAgICAgIDxkaXYgaWQ9XCJyZXN1bHRzLWRhc2hib2FyZFwiIGNsYXNzPVwiYW5pbWF0ZS11cFwiPlxyXG4gICAgICAgICAgICBAaWYgKHNvbHV0aW9uRGF0YS5lcnJvck1lc3NhZ2UgKXtcclxuICAgICAgICAgICAgICAgIDxoMT48c3BhbiBzdHlsZT1cImNvbG9yOnZhcigtLWVycm9yLWNvbG9yKVwiPuKorzwvc3Bhbj4gU29sdXRpb24gbm90IEZvdW5kPC9oMT5cclxuICAgICAgICAgICAgfSBAZWxzZSB7XHJcbiAgICAgICAgICAgICAgICA8aDE+PHNwYW4gc3R5bGU9XCJjb2xvcjp2YXIoLS1zdWNjZXNzLWNvbG9yKVwiPuKclDwvc3Bhbj4gU29sdXRpb24gRm91bmQ8L2gxPlxyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzPVwibWV0cmljcy1jb250YWluZXJcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJtZXRyaWMtY2FyZFwiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwibGFiZWxcIj5UaW1lPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwidmFsdWVcIj57eyBzb2x1dGlvbkRhdGEuZXhlY3V0aW9uVGltZSB9fSBtczwvc3Bhbj5cclxuICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cIm1ldHJpYy1jYXJkXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJsYWJlbFwiPkl0ZXJhdGlvbnM8L3NwYW4+XHJcbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJ2YWx1ZVwiPnt7IHNvbHV0aW9uRGF0YS5Ub3RhbEl0ZXJuYXRpb24gfX08L3NwYW4+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJtZXRyaWMtY2FyZFwiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwibGFiZWxcIj5TdGF0dXM8L3NwYW4+XHJcbiAgICAgICAgICAgICAgICAgICAgQGlmIChzb2x1dGlvbkRhdGEuZXJyb3JNZXNzYWdlKXtcclxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJ2YWx1ZVwiIHN0eWxlPVwiY29sb3I6IHZhcigtLWVycm9yLWNvbG9yKVwiPkRpZG50IENvbnZlcmdlPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgIH0gQGVsc2Uge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz1cInZhbHVlXCIgc3R5bGU9XCJjb2xvcjogdmFyKC0tc3VjY2Vzcy1jb2xvcilcIj5PcHRpbWFsPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJ2ZWN0b3ItZGlzcGxheVwiPlxyXG4gICAgICAgICAgICAgICAgPGgzPkZpbmFsIFJlc3VsdCBWZWN0b3IgKFgpPC9oMz5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJ2ZWN0b3ItZ3JpZFwiPlxyXG4gICAgICAgICAgICAgICAgICAgIEBmb3IocmVzIG9mIHNvbHV0aW9uRGF0YS5yZXN1bHRzOyB0cmFjayByZXM7IGxldCBpID0gJGluZGV4KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJ2ZWN0b3ItaXRlbVwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJ2YXItbmFtZVwiPlg8c3ViPnt7aSsxfX08L3N1Yj48L3NwYW4+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz1cInZhci12YWx1ZVwiPnt7IHJlcyB8IG51bWJlcjonMS4wLTQnIH19PC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgQGlmKGN1cnJlbnRNYXRyaXhMICYmIGN1cnJlbnRNYXRyaXhVKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJsdS1jb250YWluZXIgYW5pbWF0ZS11cFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwibWF0cml4LXdyYXBwZXJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aDMgc3R5bGU9XCJjb2xvcjogdmFyKC0tYWNjZW50LWNvbG9yKTsgbWFyZ2luLWJvdHRvbTogMTBweDtcIj5Mb3dlciAoTCk8L2gzPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwdXp6bGUtZ3JpZFwiIFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgW3N0eWxlLmdyaWQtdGVtcGxhdGUtY29sdW1uc109XCIncmVwZWF0KCcgKyBOdW1iZXJFcXVhdGlvbnMgKyAnLCAxZnIpJ1wiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT1cIm1hcmdpbjogMDtcIj4gXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3Iocm93IG9mIGN1cnJlbnRNYXRyaXhMOyB0cmFjayByb3cpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3IodmFsIG9mIHJvdzsgdHJhY2sgdmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cInB1enpsZS1jZWxsXCIgc3R5bGU9XCJjdXJzb3I6IGRlZmF1bHQ7XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7IHZhbCB8IG51bWJlcjonMS4wLTInIH19XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImx1LXNlcGFyYXRvclwiPsOXPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwibWF0cml4LXdyYXBwZXJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aDMgc3R5bGU9XCJjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7IG1hcmdpbi1ib3R0b206IDEwcHg7XCI+VXBwZXIgKFUpPC9oMz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwicHV6emxlLWdyaWRcIiBcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFtzdHlsZS5ncmlkLXRlbXBsYXRlLWNvbHVtbnNdPVwiJ3JlcGVhdCgnICsgTnVtYmVyRXF1YXRpb25zICsgJywgMWZyKSdcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9XCJtYXJnaW46IDA7XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3Iocm93IG9mIGN1cnJlbnRNYXRyaXhVOyB0cmFjayByb3cpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3IodmFsIG9mIHJvdzsgdHJhY2sgdmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cInB1enpsZS1jZWxsXCIgc3R5bGU9XCJjdXJzb3I6IGRlZmF1bHQ7XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7IHZhbCB8IG51bWJlcjonMS4wLTInIH19XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cImNvbnRyb2xzXCIgc3R5bGU9XCJtYXJnaW4tdG9wOiAzMHB4O1wiPlxyXG4gICAgICAgICAgICAgICAgQGlmKCFzaG93U3RlcHMpIHtcclxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIChjbGljayk9XCJ2aWV3U3RlcHMoKVwiIHN0eWxlPVwiYmFja2dyb3VuZDogdmFyKC0tYWNjZW50LWNvbG9yKTsgY29sb3I6ICMwMDA7XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIFNob3cgRGV0YWlsZWQgU3RlcHNcclxuICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIDxidXR0b24gKGNsaWNrKT1cImlzU29sdmVkID0gZmFsc2VcIiBzdHlsZT1cImJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXItY29sb3IpOyBjb2xvcjogd2hpdGVcIj5cclxuICAgICAgICAgICAgICAgICAgICBOZXcgUHJvYmxlbVxyXG4gICAgICAgICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICBAaWYoc2hvd1N0ZXBzKSB7XHJcbiAgICAgICAgICAgIDxkaXYgaWQ9XCJkaXNwbGF5LWNvbnRhaW5lclwiIHN0eWxlPVwiZGlzcGxheTogYmxvY2s7IG1hcmdpbi10b3A6IDQwcHg7IGJvcmRlci10b3A6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXItY29sb3IpOyBwYWRkaW5nLXRvcDogMzBweDtcIiBjbGFzcz1cImFuaW1hdGUtdXBcIj5cclxuICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgQGlmKHNlbGVjdGVkTWV0aG9kICE9IFwiR2F1c3NfU2VpZGVsXCIgJiYgc2VsZWN0ZWRNZXRob2QgIT0gXCJKQUNPQklcIil7XHJcblxyXG4gICAgICAgICAgICAgICAgICAgIDxoMj5TdGVwLWJ5LVN0ZXAgU29sdXRpb248L2gyPlxyXG5cclxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwicmVzdWx0cy1wYW5lbFwiIHN0eWxlPVwibWFyZ2luLWJvdHRvbTogMTVweDsgdGV4dC1hbGlnbjogY2VudGVyO1wiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8aDMgc3R5bGU9XCJjb2xvcjogdmFyKC0tYWNjZW50LWNvbG9yKTsgbWFyZ2luOiAwO1wiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgU3RlcCB7e2N1cnJlbnRTdGVwSW5kZXgrMX19IC8ge3tzb2x1dGlvbkRhdGEuc3RlcHMubGVuZ3RofX1cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC9oMz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9XCJzdGVwLWRlc2NyaXB0aW9uXCIgW2lubmVySFRNTF09XCJzb2x1dGlvbkRhdGEuc3RlcHNbY3VycmVudFN0ZXBJbmRleF0uZGVzY3JpcHRpb25cIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC9wPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBzdHlsZT1cIndpZHRoOiAxMDAlOyBoZWlnaHQ6IDZweDsgYmFja2dyb3VuZDogcmdiYSgyNTUsMjU1LDI1NSwwLjEpOyBib3JkZXItcmFkaXVzOiAzcHg7IG1hcmdpbi10b3A6IDE1cHg7IG92ZXJmbG93OiBoaWRkZW47XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IFtzdHlsZS53aWR0aF09XCJwcm9ncmVzc1BlcmNlbnRhZ2UrJyUnXCIgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT1cImhlaWdodDogMTAwJTsgYmFja2dyb3VuZDogZ3JlZW55ZWxsb3c7IHRyYW5zaXRpb246IHdpZHRoIDAuM3MgZWFzZTtcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cInB1enpsZS1ncmlkXCIgW3N0eWxlLmdyaWQtdGVtcGxhdGUtY29sdW1uc109XCIncmVwZWF0KCcgKyAoTnVtYmVyRXF1YXRpb25zISArIDEpICsgJywgMWZyKSdcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgQGZvcihyb3cgb2YgY3VycmVudE1hdHJpeEFEaXNwbGF5OyB0cmFjayByb3c7IGxldCBpID0gJGluZGV4KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBAZm9yKHZhbCBvZiByb3c7IHRyYWNrIHZhbDsgbGV0IGogPSAkaW5kZXgpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwicHV6emxlLWNlbGxcIiBcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgW25nU3R5bGVdPVwiZ2V0Q2VsbFN0eWxlKGksIGopXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9XCJkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgY3Vyc29yOiBkZWZhdWx0O1wiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyB2YWwgfCBudW1iZXI6JzEuMC0yJyB9fVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwdXp6bGUtY2VsbFwiIFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbbmdTdHlsZV09XCJnZXRDZWxsU3R5bGUoaSwgY3VycmVudE1hdHJpeEFEaXNwbGF5WzBdLmxlbmd0aClcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGp1c3RpZnktY29udGVudDogY2VudGVyOyBjdXJzb3I6IGRlZmF1bHQ7XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7IGN1cnJlbnRNYXRyaXhCRGlzcGxheVtpXSB8IG51bWJlcjonMS4wLTInIH19XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcblxyXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJjb250cm9sc1wiIHN0eWxlPVwiZmxleC1kaXJlY3Rpb246IHJvdzsgbWFyZ2luLXRvcDogMjBweDtcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiAoY2xpY2spPVwicHJldlN0ZXAoKVwiIFtkaXNhYmxlZF09XCJjdXJyZW50U3RlcEluZGV4ID09PSAwXCIgc3R5bGU9XCJiYWNrZ3JvdW5kOiB2YXIoLS10aWxlLWJnKTtcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICZsdDsgUHJldlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gKGNsaWNrKT1cIm5leHRTdGVwKClcIiBbZGlzYWJsZWRdPVwiY3VycmVudFN0ZXBJbmRleCA9PT0gc29sdXRpb25EYXRhLnN0ZXBzLmxlbmd0aCAtIDFcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5leHQgJmd0O1xyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAgICAgICBAaWYoc2VsZWN0ZWRNZXRob2QgPT0gXCJHYXVzc19TZWlkZWxcIiB8fCBzZWxlY3RlZE1ldGhvZCA9PSBcIkpBQ09CSVwiKXtcclxuICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgICAgICBAaWYoc29sdXRpb25EYXRhLmVxdWF0aW9ucyAmJiBzb2x1dGlvbkRhdGEuZXF1YXRpb25zLmxlbmd0aCA+IDApIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImVxdWF0aW9ucy1jb250YWluZXJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxoMz5JdGVyYXRpb24gRXF1YXRpb25zPC9oMz5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwiZXF1YXRpb25zLWxpc3RcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBAZm9yIChlcSBvZiBzb2x1dGlvbkRhdGEuZXF1YXRpb25zOyB0cmFjayAkaW5kZXgpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPE1hdGggY2xhc3M9XCJlcXVhdGlvbi1yb3dcIiBbaW5uZXJIVE1MXT1cImVxXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvTWF0aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwidGFibGUtY29udGFpbmVyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDx0YWJsZSBjbGFzcz1cInRhYmxlXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGhlYWQ+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dHI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzPVwiY29sXCI+SXRlcmF0aW9uIChrKTwvdGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQGZvcihpdGVyIG9mIHNvbHV0aW9uRGF0YS5zdGVwczt0cmFjayBpdGVyLnN0ZXBOdW1iZXIpe1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGg+e3tpdGVyLnN0ZXBOdW1iZXJ9fTwvdGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC90cj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvdGhlYWQ+XHJcblxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRib2R5PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3IgKGR1bW15IG9mIFtdLmNvbnN0cnVjdG9yKE51bWJlckVxdWF0aW9ucyk7IHRyYWNrICRpbmRleDtsZXQgeEluZGV4ID0gJGluZGV4KXtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRyPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzPVwiY29sXCI+WDxzdWI+e3t4SW5kZXgrMX19PC9zdWI+PC90aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBmb3IgKGl0ZXJhdGlvbiBvZiBzb2x1dGlvbkRhdGEuc3RlcHM7dHJhY2sgaXRlcmF0aW9uLnN0ZXBOdW1iZXIgKXtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGQ+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7aXRlcmF0aW9uLm1hdHJpeEJbeEluZGV4XSB8IG51bWJlcjonMS4wLTQnfX1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RyPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvdGJvZHk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdGFibGU+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgIDxidXR0b24gaWQ9XCJyZXNldC1idXR0b25cIiAoY2xpY2spPVwiYmFja1RvUmVzdWx0cygpXCIgc3R5bGU9XCJtYXJnaW4tdG9wOiAyMHB4OyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tYm9yZGVyLWNvbG9yKTtcIj5cclxuICAgICAgICAgICAgICAgICAgICBIaWRlIFN0ZXBzXHJcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG5cclxuPC9kaXY+XHJcbjxkaXYgY2xhc3M9XCJwb3B1cFwiIFtjbGFzcy5zaG93XT1cInNob3dcIj5cclxuICAgIDxkaXYgY2xhc3M9XCJwb3B1cC1tZW51XCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cInBvcHVwLWNvbnRyb2xsc1wiPlxyXG4gICAgICAgICAgICA8cD5QcmVzaWNpb248L3A+XHJcbiAgICAgICAgICAgIDxpbnB1dCBbZGVmYXVsdFZhbHVlXT1cIjEwXCIgWyhuZ01vZGVsKV09XCJwcmVjaXNpb25cIj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICBAaWYgKHNlbGVjdGVkTWV0aG9kID09ICdKQUNPQkknIHx8IHNlbGVjdGVkTWV0aG9kID09ICdHYXVzc19TZWlkZWwnICl7XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwb3B1cC1jb250cm9sbHNcIj5cclxuICAgICAgICAgICAgICAgIDxzcGFuPlRvbGVyYW5jZTwvc3Bhbj5cclxuICAgICAgICAgICAgICAgIDxpbnB1dCAgW2RlZmF1bHRWYWx1ZV09XCIwLjAwMDAwMVwiIFsobmdNb2RlbCldPVwidG9sZXJhbmNlXCIgPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cInBvcHVwLWNvbnRyb2xsc1wiPlxyXG4gICAgICAgICAgICAgICAgPHNwYW4+SXRlcmF0aW9uczwvc3Bhbj5cclxuICAgICAgICAgICAgICAgIDxpbnB1dCBbKG5nTW9kZWwpXT1cIm1heEl0ZXJhdGlvbnNcIj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImluaXRpYWwtZ3Vlc3NcIj5cclxuICAgICAgICAgICAgQGZvciAoaXRlbSBvZiBbXS5jb25zdHJ1Y3RvcihOdW1iZXJFcXVhdGlvbnMpIDsgdHJhY2sgJGluZGV4KXtcclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwb3B1cC1jb250cm9sbHNcIj5cclxuICAgICAgICAgICAgICAgIDxzcGFuPkluaXRpYWwgR3Vlc3MgWHt7JGluZGV4KzF9fTwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICA8aW5wdXQgWyhuZ01vZGVsKV09XCJpbml0aWFsR3Vlc3NbJGluZGV4XVwiPlxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICB9XHJcbiAgICAgICAgQGlmIChzZWxlY3RlZE1ldGhvZCA9PSAnR2F1c3NfZWxpbWluYXRpb24nKSB7XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwb3B1cC1jb250cm9sbHNcIj5cclxuICAgICAgICAgICAgICAgIDxzcGFuPlBpdm90aW5nPC9zcGFuPlxyXG4gICAgICAgICAgICA8aW5wdXQgdHlwZT1cImNoZWNrYm94XCIgWyhuZ01vZGVsKV09XCJ3aXRocGl2b3RpbmdcIj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJwb3B1cC1jb250cm9sbHNcIj5cclxuICAgICAgICAgICAgICAgIDxzcGFuPlBpdm90aW5nICYgc2NhbGluZzwvc3Bhbj5cclxuICAgICAgICAgICAgICAgIDxpbnB1dCB0eXBlPVwiY2hlY2tib3hcIiBbKG5nTW9kZWwpXT1cIndpdGhzY2FsaW5nXCI+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIH1cclxuICAgICAgICA8ZGl2IGNsYXNzPVwiY29udGludWVidG5cIj5cclxuICAgICAgICA8YnV0dG9uIChjbGljayk9XCJzaG93PWZhbHNlXCI+Q29udGludWU8L2J1dHRvbj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgIDwvZGl2PlxyXG48L2Rpdj5cclxuPC9ib2R5PlxyXG48L2h0bWw+Il0sIm1hcHBpbmdzIjoiO0FBQUEsU0FBUyw0QkFBNEI7OztBQ0FyQyxTQUE0QixrQ0FBa0M7QUFDOUQsU0FBUyxxQkFBcUI7QUFDOUIsU0FBUyx5QkFBeUI7OztBQ0EzQixJQUFNLFNBQWlCLENBQUE7OztBREd2QixJQUFNLFlBQStCO0VBQzFDLFdBQVc7SUFDVCwyQkFBMkIsRUFBRSxpQkFBaUIsS0FBSSxDQUFFO0lBQ3BELGNBQWMsTUFBTTtJQUNwQixrQkFBaUI7Ozs7O0FFVHJCLFNBQVMsV0FBVyxtQkFBbUIsY0FBYztBQUNyRCxTQUFTLG9CQUFvQjtBQUM3QixTQUFTLG1CQUFtQjtBQUM1QixTQUFTLGtCQUFrQjs7Ozs7Ozs7Ozs7QUN3QkgsSUFBQSw0QkFBQSxHQUFBLFNBQUEsRUFBQTtBQUFxQixJQUFBLDhCQUFBLGlCQUFBLFNBQUEsb0ZBQUEsUUFBQTtBQUFBLFlBQUEscUJBQUEsMkJBQUEsR0FBQSxFQUFBO0FBQUEsWUFBQSxxQkFBQSwyQkFBQSxFQUFBO0FBQUEs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LENBQUEsR0FBQSxTQUFBLHVCQUFBLGlCQUFBLE1BQUEsR0FBQSxDQUFBLEdBQUEsZUFBQSxHQUFBLFVBQUEsR0FBQSxHQUFBLENBQUEsR0FBQSxjQUFBLEdBQUEsQ0FBQSxHQUFBLFNBQUEsd0JBQUEsaUJBQUEsTUFBQSxHQUFBLENBQUEsR0FBQSxlQUFBLEdBQUEsVUFBQSxTQUFBLEdBQUEsQ0FBQSxHQUFBLGNBQUEsdUJBQUEsU0FBQSxRQUFBLEdBQUEsT0FBQSxHQUFBLENBQUEsTUFBQSxnQkFBQSxHQUFBLGNBQUEsUUFBQSxjQUFBLGVBQUEsVUFBQSxpQ0FBQSxHQUFBLE9BQUEsR0FBQSxDQUFBLEdBQUEsaUJBQUEsR0FBQSxpQkFBQSxRQUFBLGNBQUEsUUFBQSxHQUFBLENBQUEsR0FBQSxTQUFBLHVCQUFBLFVBQUEsR0FBQSxHQUFBLENBQUEsR0FBQSxvQkFBQSxHQUFBLFdBQUEsR0FBQSxDQUFBLEdBQUEsU0FBQSxRQUFBLFVBQUEsT0FBQSxjQUFBLHlCQUFBLGlCQUFBLE9BQUEsY0FBQSxRQUFBLFlBQUEsUUFBQSxHQUFBLENBQUEsR0FBQSxVQUFBLFFBQUEsY0FBQSxlQUFBLGNBQUEsaUJBQUEsR0FBQSxDQUFBLEdBQUEsWUFBQSxHQUFBLGtCQUFBLE9BQUEsY0FBQSxNQUFBLEdBQUEsQ0FBQSxHQUFBLGNBQUEsa0JBQUEsR0FBQSxTQUFBLFVBQUEsR0FBQSxDQUFBLEdBQUEsU0FBQSxVQUFBLEdBQUEsQ0FBQSxHQUFBLGVBQUEsR0FBQSxXQUFBLFFBQUEsZUFBQSxVQUFBLG1CQUFBLFVBQUEsVUFBQSxXQUFBLEdBQUEsU0FBQSxHQUFBLENBQUEsR0FBQSxxQkFBQSxHQUFBLENBQUEsR0FBQSxpQkFBQSxHQUFBLENBQUEsR0FBQSxPQUFBLEdBQUEsQ0FBQSxHQUFBLEtBQUEsR0FBQSxDQUFBLEdBQUEsZ0JBQUEsR0FBQSxDQUFBLEdBQUEsZ0JBQUEsR0FBQSxXQUFBLEdBQUEsQ0FBQSxHQUFBLGVBQUEsR0FBQSxDQUFBLFFBQUEsWUFBQSxHQUFBLGlCQUFBLFNBQUEsQ0FBQSxHQUFBLFVBQUEsU0FBQSxhQUFBLElBQUEsS0FBQTtBQUFBLFFBQUEsS0FBQSxHQUFBO0FDbkNoQixNQUFBLDRCQUFBLEdBQUEsUUFBQSxDQUFBLEVBQTBCLEdBQUEsTUFBQTtBQUV0QixNQUFBLHVCQUFBLEdBQUEsUUFBQSxDQUFBO0FBQ0osTUFBQSwwQkFBQTtBQUNBLE1BQUEsNEJBQUEsR0FBQSxNQUFBLEVBQU0sR0FBQSxPQUFBLENBQUE7QUFHRixNQUFBLGlDQUFBLEdBQUEsNEJBQUEsSUFBQSxDQUFBO0FBNkRBLE1BQUEsaUNBQUEsR0FBQSw0QkFBQSxJQUFBLENBQUE7QUE2TEosTUFBQSwwQkFBQTtBQUNBLE1BQUEsNEJBQUEsR0FBQSxPQUFBLENBQUEsRUFBdUMsR0FBQSxPQUFBLENBQUEsRUFDWCxHQUFBLE9BQUEsQ0FBQSxFQUNTLElBQUEsR0FBQTtBQUN0QixNQUFBLG9CQUFBLElBQUEsV0FBQTtBQUFTLE1BQUEsMEJBQUE7QUFDWixNQUFBLDRCQUFBLElBQUEsU0FBQSxDQUFBO0FBQTJCLE1BQUEsOEJBQUEsaUJBQUEsU0FBQSw2Q0FBQSxRQUFBO0FBQUEsUUFBQSxnQ0FBQSxJQUFBLFdBQUEsTUFBQSxNQUFBLElBQUEsWUFBQTtBQUFBLGVBQUE7TUFBQSxDQUFBO0FBQTNCLE1BQUEsMEJBQUEsRUFBbUQ7QUFFdkQsTUFBQSxpQ0FBQSxJQUFBLDZCQUFBLElBQUEsQ0FBQTtBQWtCQSxNQUFBLGlDQUFBLElBQUEsNkJBQUEsR0FBQSxDQUFBO0FBVUEsTUFBQSw0QkFBQSxJQUFBLE9BQUEsQ0FBQSxFQUF5QixJQUFBLFVBQUEsQ0FBQTtBQUNqQixNQUFBLHdCQUFBLFNBQUEsU0FBQSx3Q0FBQTtBQUFBLGVBQUEsSUFBQSxPQUFjO01BQUssQ0FBQTtBQUFFLE1BQUEsb0JBQUEsSUFBQSxVQUFBO0FBQVEsTUFBQSwwQkFBQSxFQUFTLEVBQ3hDLEVBQ0osRUFDSixFQUNDOzs7QUFsU0gsTUFBQSx1QkFBQSxDQUFBO0FBQUEsTUFBQSwyQkFBQSxDQUFBLElBQUEsV0FBQSxJQUFBLEVBQUE7QUE2REEsTUFBQSx1QkFBQTtBQUFBLE1BQUEsMkJBQUEsSUFBQSxZQUFBLElBQUEsZUFBQSxJQUFBLEVBQUE7QUE4TGUsTUFBQSx1QkFBQTtBQUFBLE1BQUEseUJBQUEsUUFBQSxJQUFBLElBQUE7QUFJQSxNQUFBLHVCQUFBLENBQUE7QUFBQSxNQUFBLHdCQUFBLGdCQUFBLEVBQUE7QUFBb0IsTUFBQSw4QkFBQSxXQUFBLElBQUEsU0FBQTtBQUUvQixNQUFBLHVCQUFBO0FBQUEsTUFBQSwyQkFBQSxJQUFBLGtCQUFBLFlBQUEsSUFBQSxrQkFBQSxpQkFBQSxLQUFBLEVBQUE7QUFrQkEsTUFBQSx1QkFBQTtBQUFBLE1BQUEsMkJBQUEsSUFBQSxrQkFBQSxzQkFBQSxLQUFBLEVBQUE7O29CRDVQSSxjQUFZLFlBQUEsc0JBQUEsWUFBQSxTQUFBLHFCQUFBLFlBQUEsYUFBQSxpQkFBQSxvQkFBQSxhQUFBLGlCQUFFLGFBQVcsdUJBQUEsbUJBQUEsaUNBQUEseUJBQUEsd0JBQUEsdUJBQUEsaUNBQUEsK0JBQUEsdUNBQUEsOEJBQUEsb0JBQUEseUJBQUEsc0JBQUEsdUJBQUEsdUJBQUEscUJBQUEsOEJBQUEsbUJBQUEsaUJBQUEsaUJBQUEsWUFBQSxpQkFBQSxXQUFBLGNBQUEsa0JBQUEsa0JBQUEsYUFBQSxjQUFBLGdCQUFBLGdCQUFBLGtCQUFBLGlCQUFBLGFBQUEsbUJBQUEsbUJBQUEsZUFBQSxHQUFBLFFBQUEsQ0FBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0NBQUEsR0FBQSxlQUFBLEVBQUEsQ0FBQTs7OytFQUt4QixLQUFHLENBQUE7VUFSZjt1QkFDVyxZQUFVLFlBQ1IsTUFBSSxTQUNQLENBQUMsY0FBYyxXQUFXLEdBQUMsZUFHcEIsa0JBQWtCLE1BQUksVUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7VUFBQSxRQUFBLENBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQUFBLEVBQUEsQ0FBQTs7OztnRkFFM0IsS0FBRyxFQUFBLFdBQUEsT0FBQSxVQUFBLGtCQUFBLFlBQUEsR0FBQSxDQUFBO0FBQUEsR0FBQTs7Ozs7Ozs4REFBSCxLQUFHLEVBQUEsU0FBQSxDQUFBLElBQUEsSUFBQSxFQUFBLEdBQUEsQ0FBQSxjQUFBLGFBQUEsV0FBQSxpQkFBQSxHQUFBLGFBQUEsRUFBQSxDQUFBO0VBQUE7QUFBQSxHQUFBLE9BQUEsY0FBQSxlQUFBLGNBQUEsWUFBQSxLQUFBLElBQUEsQ0FBQTtBQUFBLEdBQUEsT0FBQSxjQUFBLGVBQUEsZUFBQSxZQUFBLE9BQUEsWUFBQSxJQUFBLEdBQUEsNEJBQUEsT0FBQSxFQUFBLE9BQUEsTUFBQSxZQUFBLEVBQUEsU0FBQSxDQUFBO0FBQUEsR0FBQTs7O0FIaENoQixxQkFBcUIsS0FBSyxTQUFTLEVBQ2hDLE1BQU0sQ0FBQyxRQUFRLFFBQVEsTUFBTSxHQUFHLENBQUM7IiwibmFtZXMiOltdfQ==

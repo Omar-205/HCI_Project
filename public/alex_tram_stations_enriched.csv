@@ -1,0 +1,21 @@
+﻿station_id,name_en,name_ar,district,sequence_order,latitude,longitude,line_name,station_type,status
+RAML_01,AlRaml Tram Station,محطة ترام الرمل,Al Attarin,1,31.2018099,29.90130592,Raml Tram,stop,active
+RAML_02,ALKATARAKT Hospital Tram Station,محطة ترام مستشفى الكتاراكت,Bab Sharq,2,31.20134163,29.93031825,Raml Tram,stop,active
+RAML_03,Shatibi Tram Station,محطة ترام الشاطبي,Bab Sharq,3,31.20933336,29.91700095,Raml Tram,stop,active
+RAML_04,El Ibrahimeya Tram Station,محطة ترام الإبراهيمية,Sidi Gaber,4,31.21683602,29.92630038,Raml Tram,stop,active
+RAML_05,Grand Sporting Tram Station,محطة ترام سبورتنج,Sidi Gaber,5,31.21892411,29.93355471,Raml Tram,stop,active
+RAML_06,Cleopatra El Soghra Tram Station,محطة ترام كليوباترا الصغرى,Sidi Gaber,6,31.22073811,29.93614151,Raml Tram,stop,active
+RAML_07,Cleopatra (Hammamat) Tram Station,محطة ترام كليوباترا الحمامات,Sidi Gaber,7,31.22232979,29.93805593,Raml Tram,stop,active
+RAML_08,Sidi Gaber El Sheikh Tram Station,محطة ترام سيدي جابر الشيخ,Sidi Gaber,8,31.22423977,29.94215068,Raml Tram,stop,active
+RAML_09,Moustafa Kamel Tram Station,محطة ترام مصطفى كامل,Sidi Gaber,9,31.22487642,29.94507549,Raml Tram,stop,active
+RAML_10,Roshdy Tram Station,محطة ترام رشدي,Sidi Gaber,10,31.22981079,29.95124738,Raml Tram,stop,active
+RAML_11,Al-Hidaya Tram Station,محطة ترام الهداية,Fleming,11,31.23445307,29.95543553,Raml Tram,stop,active
+RAML_12,Alwezara Tram Station,محطة ترام الوزارة,Fleming,12,31.23272882,29.95690914,Raml Tram,stop,active
+RAML_13,Saba Basha Tram Station,محطة ترام سابا باشا,Fleming,13,31.23730465,29.95714182,Raml Tram,stop,active
+RAML_14,El Karnak Tram Station,محطة ترام الكرنك,Fleming,14,31.23571308,29.96140754,Raml Tram,stop,active
+RAML_15,Gleem Tram Station,محطة ترام جليم,Gleem,15,31.24028876,29.96016661,Raml Tram,stop,active
+RAML_16,San Stefano Tram Station,محطة ترام سان ستيفانو,San Stefano,16,31.24572624,29.96792247,Raml Tram,stop,active
+RAML_17,Tharwat Tram Station,محطة ترام ثروت,San Stefano,17,31.24764917,29.96869805,Raml Tram,stop,active
+RAML_18,Louran Tram Station,محطة ترام لوران,Louran,18,31.24977098,29.97149016,Raml Tram,stop,active
+RAML_19,Victoria Tram Station,محطة ترام فيكتوريا,Victoria,19,31.24897531,29.97955626,Raml Tram,stop,active
+RAML_20,Sidi Bishr Tram Station,محطة ترام سيدي بشر,Sidi Bishr,20,31.25301992,29.97622124,Raml Tram,stop,active
