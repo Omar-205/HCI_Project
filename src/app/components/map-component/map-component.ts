@@ -179,53 +179,6 @@ export class MapComponent implements AfterViewInit {
   }
   closeModal(param: string) { // after selecting from the popup
     console.log(param);
-
-    // add the tram lines
-    // const tramLine = new L.GeoJSON(alex_raml_tram_line as any, {
-    //   onEachFeature: (feature: any, layer: L.Layer) => {
-    //     layer.bindPopup(feature.properties['name']);
-    //     layer.addEventListener('click', (e) => {
-    //       this.selectedMonument.set(null)
-    //       const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
-    //       this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
-    //     })
-
-    //   }
-    //   , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-    //     this.arr.push(latlng)
-    //     const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
-
-    //     return marker
-    //   }
-    // }).addTo(this.map as any)
-
-    // const mounments = new L.GeoJSON(alexandriaMonuments as any, {
-    //   onEachFeature: (feature: any, layer: L.Layer) => {
-    //     layer.bindPopup(feature.properties['name']);
-    //     layer.addEventListener('click', (e) => {
-    //       this.selectedStation.set(null)
-    //       const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
-    //       this.selectedMonument.set({
-    //         name: feature.properties['name'],
-    //         latlng: L.latLng(latnlgcords as any),
-    //         description: feature.properties['description'],
-    //         address: feature.properties['address'],
-    //         wikipedia: feature.properties['wikipedia']
-    //       })
-    //     }).addTo(this.map as any)
-
-    //   }
-    //   , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-    //     const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
-
-    //     return marker
-    //   }
-    // }).addTo(this.map as any)
-
-
-
-    //console.log(Object.values((tramLine as any)._layers).map((l: any) => l._latlng));
-
     
     if (Object.keys(this.gates).includes(param)) {
       this.startRoutingFromGate(param)
