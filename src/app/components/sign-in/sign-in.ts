@@ -15,8 +15,8 @@ export class SignIn {
   SignIn : FormGroup;
   constructor(private fb: FormBuilder,private router:Router) {
     this.SignIn = this.fb.group({
-      Email : ['',[Validators.required,Validators.email]],
-      Password : ['',Validators.required],
+      email : ['',[Validators.required,Validators.email]],
+      password : ['',Validators.required],
 
     })
   }
@@ -29,12 +29,12 @@ export class SignIn {
           if(value != null){
           const Properties = value as Client
           window.alert("Successfull SignIn")
-          ;console.log(Properties.FullName);
+          ;console.log(Properties.userName);
           this.router.navigate(['home'])
 
-          localStorage.setItem("Username",`${Properties.FullName}`)
-          localStorage.setItem("Email",`${Properties.Email}`)
-          localStorage.setItem("TeleNumber",`${Properties.TeleNumber}`)
+          localStorage.setItem("Username",`${Properties.userName}`)
+          localStorage.setItem("Email",`${Properties.email}`)
+          localStorage.setItem("TeleNumber",`${Properties.phone}`)
           }
         },
         error: (e)=>{console.log(Client);console.log(e)}

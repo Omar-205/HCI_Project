@@ -20,10 +20,10 @@ export class SignUp {
   }
   constructor(private fb: FormBuilder,private router:Router) {
     this.SignUp = this.fb.group({
-      FullName: ['', [Validators.required, Validators.minLength(3),Validators.pattern("^[a-zA-Z]+$")]],
-      Email: ['', [Validators.required, Validators.email]],
-      TeleNumber: ['', Validators.pattern("^01[5|0|1|2][0-9]{8}$")],
-      Password: ['', Validators.required],
+      userName: ['', [Validators.required, Validators.minLength(3),Validators.pattern("^[a-zA-Z]+$")]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.pattern("^01[5|0|1|2][0-9]{8}$")],
+      password: ['', Validators.required],
       Confirm: ['', Validators.required],
     },);
   }
@@ -33,7 +33,7 @@ export class SignUp {
   }
   onSubmit(){
     this.submit=false
-    
+
     if(this.SignUp.valid && this.passwordMatch(this.SignUp)){
       const Client = this.SignUp.value as Client;
       this.BackendService.CreateClient(Client).subscribe({

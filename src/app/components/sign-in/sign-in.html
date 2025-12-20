@@ -41,34 +41,34 @@
                     <h2>Sign In</h2>
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-envelope'></i></span>
-                        <input formControlName="Email" placeholder="eg:Ahmed@Saied.com" required>
+                        <input formControlName="email" placeholder="eg:Ahmed@Saied.com" required>
                         @if (submit &&
-                        SignIn.controls['Email'].hasError('required') &&
-                        SignIn.controls['Email']?.touched)
+                        SignIn.controls['email'].hasError('required') &&
+                        SignIn.controls['email']?.touched)
                         {
-                        <small>Enter an Email</small>
+                        <small>Enter an email</small>
                         }
                         @if (submit &&
-                        SignIn.controls['Email'].hasError('email') &&
-                        SignIn.controls['Email']?.touched) {
-                        <small>Your Email Format is not Correct
+                        SignIn.controls['email'].hasError('email') &&
+                        SignIn.controls['email']?.touched) {
+                        <small>Your email Format is not Correct
                         </small>
                         }
-                        <label>Email</label>
+                        <label>email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-lock'></i></span>
-                        <input type="password" formControlName="Password" required>
-                        @if (SignIn.controls['Password'].hasError('require') &&
-                        SignIn.controls['Password']?.touched){
+                        <input type="password" formControlName="password" required>
+                        @if (SignIn.controls['password'].hasError('require') &&
+                        SignIn.controls['password']?.touched){
                         <small>Enter a password
                         </small>
                         }
-                        <label>Password</label>
+                        <label>password</label>
                     </div>
                     <div class="remember-forget">
                         <label><input type="checkbox" >Remember me</label>
-                        <a href="#">Forget Password?</a>
+                        <a href="#">Forget password?</a>
                     </div>
                     <button type="submit" class="btn">Sign In</button>
                     <div class="login-register">
