@@ -11,7 +11,11 @@ export const routes: Routes = [
   { path: 'home', component: HomePage, canActivate: [authGuard] },
   { path: 'sign-up', component: SignUp },
   {
-    path: 'map', component: MapComponent
+    path: 'tram-map', component: MapComponent
+    // , canActivate:[authGuard]
+  },
+  {
+    path: 'bus-map', component: MapComponent
     // , canActivate:[authGuard]
   },
 ];
