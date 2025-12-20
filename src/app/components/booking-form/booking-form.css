@@ -210,6 +210,48 @@
   margin: 0;
 }
 
+/* Message Styles */
+.message {
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.success-message {
+  background: rgba(74, 222, 128, 0.2);
+  border: 1px solid #4ade80;
+  color: #4ade80;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Full width form group */
+.full-width {
+  grid-column: 1 / -1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .booking-container {

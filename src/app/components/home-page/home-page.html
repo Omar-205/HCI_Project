@@ -1,3 +1,5 @@
+<app-sidebar (menuItemClicked)="onSidebarMenuClick($event)"></app-sidebar>
+
 <div id="bgimg" class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-fixed"></div>
 <div class="fixed inset-0 -z-10 bg-black/30 backdrop-blur-xs"></div>
 
@@ -40,7 +42,7 @@
     </div>
 
     <div class="mt-4 overflow-y-auto">
-      @if (tab() == "Train") { <app-electric-train></app-electric-train> }
+      @if (tab() == "Metro") { <app-electric-train></app-electric-train> }
       @if (tab() == "Tram") { <app-tram></app-tram> }
       @if (tab() == 'Electric Bus') { <app-electric-bus></app-electric-bus> }
     </div>
@@ -48,7 +50,7 @@
 
   <div class="flex flex-col items-center gap-4 mb-6">
     <p class="text-white/80 text-lg">Need assistance or experiencing issues?</p>
-    <button (click)="isModalOpen.set(true)" 
+    <button (click)="isModalOpen.set(true)"
             class="flex items-center gap-3 px-8  py-4 bg-gradient-to-r from-[#FF4D00] to-[#FF8A00] text-white rounded-full font-bold text-xl shadow-lg hover:scale-105 transition-all cursor-pointer">
       <i-lucide [img]="FileWarning" [size]="24"></i-lucide>
       File a Formal Complaint
@@ -59,7 +61,7 @@
 @if (isModalOpen()) {
 <div (click)="isModalOpen.set(false)" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-4">
   <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-100 animate-in fade-in zoom-in duration-200" (click)="$event.stopPropagation()">
-    <div class="flex justify-between items-center p-6 border-b border-gray-100"> 
+    <div class="flex justify-between items-center p-6 border-b border-gray-100">
       <h2 class="text-2xl font-bold text-gray-800">Submit New Complaint</h2>
       <button (click)="isModalOpen.set(false)" class="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" aria-label="Close modal">
         <i-lucide [img]="XIcon" [size]="24"></i-lucide>
@@ -69,7 +71,7 @@
     <div class="p-6 space-y-4 max-h-[65vh] overflow-y-auto text-left">
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-1">Title <span class="text-red-500">*</span></label>
-        <input type="text" placeholder="Brief summary of your complaint" [(ngModel)]="complaintData.title" 
+        <input type="text" placeholder="Brief summary of your complaint" [(ngModel)]="complaintData.title"
                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009966] focus:outline-none text-black">
       </div>
 
@@ -84,7 +86,7 @@
           <label class="block text-sm font-semibold text-gray-700 mb-1">Complaint Type <span class="text-red-500">*</span></label>
           <select class="w-full p-3 border border-gray-300 rounded-lg bg-white text-black" [(ngModel)]="complaintData.complaintType" aria-label="complaint type">
             <option value="" disabled selected>Select complaint type</option>
-      
+
             @for(type of complaintTypeOptions; track type) {
               <option [value]="type">{{type}}</option>
             }
@@ -99,7 +101,7 @@
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2">Severity <span class="text-red-500">*</span></label>
         <div class="flex gap-2">
-          <button *ngFor="let s of severityOptions" 
+          <button *ngFor="let s of severityOptions"
             (click)="complaintData.severity = s"
             [class]="complaintData.severity === s ? 'bg-green-100 border-[#009966] text-[#009966]' : 'bg-white text-black'"
             class="flex-1 py-2 border border-gray-200 rounded-lg font-medium transition-all">
@@ -116,3 +118,36 @@
   </div>
 </div>
 }
+
+<!-- Sidebar Content Modal (Book Ticket / My Tickets / My Complaints) -->
+@if (sidebarContent()) {
+<div (click)="closeSidebarContent()" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-4 overflow-y-auto">
+  <div class="bg-[#0a2d29] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden" (click)="$event.stopPropagation()">
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center p-4 border-b border-[#1a5d4a]">
+      <h2 class="text-xl font-bold text-white">
+        @if (sidebarContent() === 'book-ticket') { Book Ticket }
+        @if (sidebarContent() === 'my-tickets') { My Tickets }
+        @if (sidebarContent() === 'my-complaints') { My Complaints }
+      </h2>
+      <button (click)="closeSidebarContent()" class="text-gray-400 hover:text-white transition-colors cursor-pointer p-2" aria-label="Close modal">
+        <i-lucide [img]="XIcon" [size]="24"></i-lucide>
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="overflow-y-auto max-h-[calc(90vh-80px)]">
+      @if (sidebarContent() === 'book-ticket') {
+        <app-booking-form></app-booking-form>
+      }
+      @if (sidebarContent() === 'my-tickets') {
+        <app-my-tickets></app-my-tickets>
+      }
+      @if (sidebarContent() === 'my-complaints') {
+        <app-complaints-page></app-complaints-page>
+      }
+    </div>
+  </div>
+</div>
+}
+

@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {Ticket} from '../../models/ticket.model';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TicketResponse } from '../../models/ticketResponse.model';
+import { TicketService } from '../../components/Service/ticket.service';
 
 @Component({
   selector: 'app-my-tickets',
@@ -9,59 +10,48 @@ import {Ticket} from '../../models/ticket.model';
   styleUrl: './my-tickets.css',
   standalone: true,
 })
-export class MyTickets {
-  tickets: Ticket[] = [
-    {
-      id: "T001",
-      userId: "U100",
-      type: "bus",
-      from: "Alexandria",
-      to: "Stanley Bridge",
-      date: "2025-11-20",
-      time: "09:30",
-      price: 25,
-      seatNumber: "12A",
-      status: "active",
-      qrCode: {
-        data: "data:image/png;base64,QR_SAMPLE_1",
-        createdAt: "2025-11-16T10:00:00Z"
+export class MyTickets implements OnInit {
+  tickets: TicketResponse[] = [];
+  isLoading = false;
+  errorMessage = '';
+
+  private readonly ticketService = inject(TicketService);
+
+  ngOnInit(): void {
+    this.loadTickets();
+  }
+
+  loadTickets(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.ticketService.getUserTickets().subscribe({
+      next: (tickets) => {
+        this.tickets = tickets;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.errorMessage = error.error?.message || 'Failed to load tickets. Please try again.';
+        this.isLoading = false;
+        console.error('Error loading tickets:', error);
       }
-    },
+    });
+  }
 
-    {
-      id: "TKT-2024-001",
-      userId: "U100",
-      type: "train",
-      from: "Alexandria Main Station",
-      to: "Sidi Gaber Station",
-      date: "2024-11-15",
-      time: "09:30",
-      price: 25,
-      seatNumber: "A-12",
-      status: "active",
-      qrCode: {
-        data: "data:image/png;base64,QR_SAMPLE_2",
-        createdAt: "2025-11-16T10:05:00Z"
-      }
-    },
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  }
 
-    {
-      id: "T003",
-      userId: "U100",
-      type: "metro",
-      from: "Alexandria",
-      to: "El Raml Station",
-      date: "2025-11-22",
-      time: "14:45",
-      price: 15,
-      status: "used",
-      qrCode: {
-        data: "data:image/png;base64,QR_SAMPLE_3",
-        createdAt: "2025-11-16T10:10:00Z"
-      }
-    }
-  ];
-
-
-
+  formatTime(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
 }

@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-text-green: #9CEBC7;
+  --color-navBar: #033331;
+  --color-border-color: #1D4A47;
+}
+
+/* Hamburger button */
+.hamburger-btn {
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sidebar */
+.sidebar {
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Menu items */
+.menu-item {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.menu-item:hover {
+  background-color: #f3f4f6;
+}
+
+.menu-item.active {
+  background-color: #ecfdf5;
+  border-color: #d1fae5;
+}
+
+/* Icon wrapper */
+.icon-wrapper {
+  background-color: #f3f4f6;
+}
+
+.icon-wrapper.active-icon {
+  background-color: #10b981;
+}
+
+.icon-wrapper.active-icon .menu-icon {
+  color: white;
+}
+
+.menu-icon {
+  color: #6b7280;
+}
+
+/* Active text */
+.active-text {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Count badge */
+.count-badge {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.menu-item.active .count-badge {
+  background-color: #10b981;
+  color: white;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

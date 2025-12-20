@@ -9,9 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { ComplaintService } from '../Service/complaint.service';
 import { inject } from '@angular/core';
 import { ComplaintRequest, ComplaintSeverity, ComplaintType } from '../../models/ComplaintRequest';
+import { SidebarComponent } from '../sidebar/sidebar';
+import { BookingForm } from '../booking-form/booking-form';
+import { MyTickets } from '../../tabs/my-tickets/my-tickets';
+import { ComplaintsPage } from '../../tabs/complaints-page/complaints-page';
+
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram,FormsModule],
+  imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram, FormsModule, SidebarComponent, BookingForm, MyTickets, ComplaintsPage],
   templateUrl: './home-page.html',
   styleUrls: ['./home-page.css'],
   standalone: true,
@@ -20,9 +25,12 @@ export class HomePage {
   UserName: string | null = "User";
   readonly User = User;
   readonly LogOutIcon = LogOut;
-  tab = signal<string>("Electric Bus"); 
-  tabs = ["Electric Bus", "Tram", "Train"];
+  tab = signal<string>("Electric Bus");
+  tabs = ["Electric Bus", "Tram", "Metro"];
   complaintService = inject(ComplaintService);
+
+  // Track which sidebar content to show
+  sidebarContent = signal<string | null>(null);
 
   severityOptions = Object.values(ComplaintSeverity);
   complaintTypeOptions = Object.values(ComplaintType);
@@ -51,7 +59,7 @@ export class HomePage {
 
   isModalOpen = signal<boolean>(false);
 
-  readonly FileWarning = FileWarning; 
+  readonly FileWarning = FileWarning;
   readonly XIcon = X;
 
   // Add logout method
@@ -64,13 +72,37 @@ export class HomePage {
 
 
   onSubmitComplaint() {
-    this.complaintService.createComplaint(this.complaintData).subscribe({
-      next: (res) => {
-        console.log('Complaint created successfully inside component', res);
-      },
-      error: (err) => console.error('Error in submiting the Complaint', err)
-    });
+    // 2l mafrod hena 2ana h3mel call ba2a lel service w 2deha 2l complaintData 3shan ttsagel fe 2l backend
+    this.complaintService.createComplaint(this.complaintData);
+
     this.isModalOpen.set(false);
+  }
+
+  closeSidebarContent() {
+    this.sidebarContent.set(null);
+  }
+
+  onSidebarMenuClick(itemId: string) {
+    switch (itemId) {
+      case 'my-tickets':
+        this.sidebarContent.set('my-tickets');
+        break;
+      case 'my-complaints':
+        this.sidebarContent.set('my-complaints');
+        break;
+      case 'check-balance':
+        // Handle check balance
+        break;
+      case 'book-ticket':
+        this.sidebarContent.set('book-ticket');
+        break;
+      case 'add-complaint':
+        this.isModalOpen.set(true);
+        break;
+      case 'settings':
+        // Handle settings
+        break;
+    }
   }
 }
 

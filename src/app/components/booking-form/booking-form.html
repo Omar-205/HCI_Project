@@ -1,8 +1,16 @@
 <div class="booking-container">
   <!-- Hero Section -->
   <div class="hero-section">
-    <h1 class="hero-title">Electric Train Network</h1>
-    <p class="hero-subtitle">Fast, comfortable, sustainable</p>
+    <h1 class="hero-title">Book Your Journey</h1>
+    <p class="hero-subtitle">Fast, comfortable, sustainable transportation</p>
+  </div>
+
+  <!-- Success/Error Messages -->
+  <div *ngIf="successMessage" class="message success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="message error-message">
+    {{ errorMessage }}
   </div>
 
   <!-- Booking Form Card -->
@@ -16,12 +24,28 @@
     </div>
 
     <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <!-- Category Selection -->
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label class="form-label">Transport Type</label>
+          <select
+            class="form-control"
+            formControlName="category"
+            [class.invalid]="bookingForm.get('category')?.invalid && bookingForm.get('category')?.touched">
+            <option value="" disabled>Select transport type</option>
+            <option *ngFor="let cat of categories" [value]="cat.value">
+              {{ cat.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+
       <!-- From and To Row -->
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">From</label>
-          <select 
-            class="form-control" 
+          <select
+            class="form-control"
             formControlName="fromStation"
             [class.invalid]="bookingForm.get('fromStation')?.invalid && bookingForm.get('fromStation')?.touched">
             <option value="" disabled selected>Select departure station</option>
@@ -33,8 +57,8 @@
 
         <div class="form-group">
           <label class="form-label">To</label>
-          <select 
-            class="form-control" 
+          <select
+            class="form-control"
             formControlName="toStation"
             [class.invalid]="bookingForm.get('toStation')?.invalid && bookingForm.get('toStation')?.touched">
             <option value="" disabled selected>Select arrival station</option>
@@ -45,26 +69,8 @@
         </div>
       </div>
 
-      <!-- Date, Time, and Passengers Row -->
+      <!-- Passengers and Description Row -->
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Date</label>
-          <input 
-            type="date" 
-            class="form-control" 
-            formControlName="date"
-            [class.invalid]="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Time</label>
-          <input 
-            type="time" 
-            class="form-control" 
-            formControlName="time"
-            [class.invalid]="bookingForm.get('time')?.invalid && bookingForm.get('time')?.touched">
-        </div>
-
         <div class="form-group">
           <label class="form-label">Passengers</label>
           <select class="form-control" formControlName="passengers">
@@ -73,15 +79,25 @@
             </option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label class="form-label">Description (Optional)</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+            placeholder="Any special requests">
+        </div>
       </div>
 
       <!-- Submit Button -->
-      <button type="submit" class="submit-button" [disabled]="bookingForm.invalid">
-        <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <button type="submit" class="submit-button" [disabled]="bookingForm.invalid || isLoading">
+        <svg *ngIf="!isLoading" class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <rect x="2" y="7" width="20" height="10" rx="2" stroke-width="2"/>
           <line x1="2" y1="12" x2="22" y2="12" stroke-width="2" stroke-dasharray="2 2"/>
         </svg>
-        Book Ticket - {{ getTotalPrice() }} EGP
+        <span *ngIf="isLoading" class="spinner"></span>
+        {{ isLoading ? 'Booking...' : 'Book Ticket - ' + getTotalPrice() + ' EGP' }}
       </button>
     </form>
   </div>
@@ -103,7 +119,7 @@
     <div class="feature-card">
       <div class="feature-icon">✓</div>
       <h3 class="feature-title">Eco-Friendly</h3>
-      <p class="feature-description">100% electric trains</p>
+      <p class="feature-description">100% electric transport</p>
     </div>
   </div>
 </div>

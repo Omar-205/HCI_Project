@@ -1,12 +1,12 @@
 export interface Ticket {
-  id?: string;          // optinal because we could generate it in backend instead
-  userId: string;
-  type: "bus" | "train" | "metro";
 
-  from: string;
-  to: string;
 
-  date: string;
+  category: "bus" | "tram" | "metro";
+
+  fromPlace: string;
+  toPlace: string;
+  description: string;
+
   time: string;
 
   price: number;
