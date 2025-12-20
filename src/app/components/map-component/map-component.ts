@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line, alexandriaMonuments } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments, interplatedTramPoint } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -23,6 +23,12 @@ export class MapComponent implements AfterViewInit {
   monumentsLayer!: L.GeoJSON;
   layerControl!: L.Control.Layers;
 
+    trainIcon = L.icon({
+    iconUrl: "train.png",
+    iconSize: [70, 40],
+    iconAnchor: [38, 38],  // the relative position of the tip to the top-left corner
+    popupAnchor: [-3, -76],
+  });
   
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
@@ -31,8 +37,12 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
   }
+  private trains: TrainState[] = [];
   arr: L.LatLng[] = []
   start_direction: any;
+    private stations: L.LatLng[] = alex_raml_tram_line.features.map(feature =>
+    L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0])
+  );
 
   getdistance(marker: L.LatLng, tram: L.LatLng) {
     let deltax = (marker.lat - tram.lat)
@@ -349,7 +359,273 @@ export class MapComponent implements AfterViewInit {
     window.open(mapsUrl, '_blank', 'width=1200,height=800');
   }
 
+    leftSideBar = signal(false);
 
+  initializeTrains() {
+    const numberOfTrains = 5;
+    const stationInterval = Math.floor(this.stations.length / numberOfTrains);
+    
+
+    for (let i = 0; i < numberOfTrains; i++) {
+      const startingStationIndex = i * stationInterval;
+      const trainMarker = L.marker(this.stations[startingStationIndex], {
+        riseOnHover: true,
+        icon: this.trainIcon,
+        alt: `Train ${i + 1}`,
+        draggable: false
+      }).addTo(this.map!);
+
+      // Add popup to identify each train
+      trainMarker.bindPopup(`Train ${i + 1}`);
+
+      this.trains.push({
+        marker: trainMarker,
+        currentStationIndex: startingStationIndex,
+        isMoving: false,
+        animationFrameId: null,
+        id: i + 1
+      });
+    }
+  }
+
+
+  // Start a specific train
+  private startTrain(train: TrainState) {
+    train.isMoving = true;
+    this.moveTrainToNextStation(train);
+  }
+
+  // Configuration options for train behavior
+  private trainConfig = {
+    loopMode: 'infinite' as 'infinite' | 'once' | 'limited', // How trains should loop
+    maxLoops: 3, // Only used if loopMode is 'limited'
+    endWaitTime: 5000, // Wait time at final station before restarting (ms)
+    stationWaitTime: 2000, // Wait time at regular stations (ms)
+    totalSimulationTime: 300000 // Total simulation time in ms (5 minutes), set to 0 for infinite
+  };
+
+  private simulationStartTime: number = 0;
+  private simulationTimeoutId: number | null = null;
+
+  // Move a specific train to its next station
+  private moveTrainToNextStation(train: TrainState) {
+    if (!train.isMoving) return;
+
+    // Check if total simulation time has elapsed
+    if (this.trainConfig.totalSimulationTime > 0) {
+      const elapsed = Date.now() - this.simulationStartTime;
+      if (elapsed >= this.trainConfig.totalSimulationTime) {
+        this.stopAllTrains();
+        console.log('Simulation time completed. All trains stopped.');
+        return;
+      }
+    }
+
+    // Check if reached the end of the line
+    if (train.currentStationIndex >= this.stations.length - 1) {
+      this.handleTrainReachedEnd(train);
+      return;
+    }
+
+    const start = this.stations[train.currentStationIndex];
+    const end = this.stations[train.currentStationIndex + 1];
+
+    this.animateTrainMovement(train, start, end, () => {
+      train.currentStationIndex++;
+
+      // Show which station the train arrived at
+      const stationName = alex_raml_tram_line.features[train.currentStationIndex]?.properties.name || 'Unknown';
+      train.marker.setPopupContent(`
+      <div style="text-align: center;">
+        <strong>Train ${train.id}</strong><br>
+        ${stationName}<br>
+        <small>Station ${train.currentStationIndex + 1}/${this.stations.length}</small>
+      </div>
+    `);
+
+      // Wait at the station before moving to next
+      setTimeout(() => {
+        if (train.isMoving) {
+          this.moveTrainToNextStation(train);
+        }
+      }, this.trainConfig.stationWaitTime);
+    });
+  }
+
+  // Handle what happens when train reaches the end
+  private handleTrainReachedEnd(train: TrainState & { loopCount?: number }) {
+    // Initialize loop count if not exists
+    if (train.loopCount === undefined) {
+      train.loopCount = 0;
+    }
+
+    const stationName = alex_raml_tram_line.features[train.currentStationIndex]?.properties.name || 'Unknown';
+
+    switch (this.trainConfig.loopMode) {
+      case 'once':
+        // Stop the train permanently
+        train.isMoving = false;
+        train.marker.setPopupContent(`
+        <div style="text-align: center;">
+          <strong>Train ${train.id}</strong><br>
+          ${stationName}<br>
+          <small>✓ Journey Complete</small>
+        </div>
+      `);
+        console.log(`Train ${train.id} completed its journey and stopped.`);
+        break;
+
+      case 'limited':
+        train.loopCount++;
+        if (train.loopCount >= this.trainConfig.maxLoops) {
+          // Stop after max loops reached
+          train.isMoving = false;
+          train.marker.setPopupContent(`
+          <div style="text-align: center;">
+            <strong>Train ${train.id}</strong><br>
+            ${stationName}<br>
+            <small>✓ Completed ${train.loopCount} loops</small>
+          </div>
+        `);
+          console.log(`Train ${train.id} completed ${train.loopCount} loops and stopped.`);
+        } else {
+          // Continue looping
+          train.marker.setPopupContent(`
+          <div style="text-align: center;">
+            <strong>Train ${train.id}</strong><br>
+            ${stationName}<br>
+            <small>Loop ${train.loopCount}/${this.trainConfig.maxLoops} - Restarting...</small>
+          </div>
+        `);
+
+          setTimeout(() => {
+            if (train.isMoving) {
+              train.currentStationIndex = 0; // Reset to start
+              train.marker.setLatLng(this.stations[0]);
+              this.moveTrainToNextStation(train);
+            }
+          }, this.trainConfig.endWaitTime);
+        }
+        break;
+
+      case 'infinite':
+      default:
+        // Loop forever
+        train.loopCount++;
+        train.marker.setPopupContent(`
+        <div style="text-align: center;">
+          <strong>Train ${train.id}</strong><br>
+          ${stationName}<br>
+          <small>Loop ${train.loopCount} - Restarting...</small>
+        </div>
+      `);
+
+        setTimeout(() => {
+          if (train.isMoving) {
+            train.currentStationIndex = 0; // Reset to start
+            train.marker.setLatLng(this.stations[0]);
+            this.moveTrainToNextStation(train);
+          }
+        }, this.trainConfig.endWaitTime);
+        break;
+    }
+  }
+
+  // Start all trains with optional configuration
+  startAllTrains(config?: Partial<typeof this.trainConfig>) {
+    // Update config if provided
+    if (config) {
+      this.trainConfig = { ...this.trainConfig, ...config };
+    }
+
+    // Record simulation start time
+    this.simulationStartTime = Date.now();
+
+    // Start all trains
+    this.trains.forEach(train => {
+      if (!train.isMoving) {
+        this.startTrain(train);
+      }
+    });
+
+    // Set up auto-stop timer if totalSimulationTime is set
+    if (this.trainConfig.totalSimulationTime > 0) {
+      this.simulationTimeoutId = window.setTimeout(() => {
+        this.stopAllTrains();
+        console.log('Total simulation time reached. All trains stopped.');
+      }, this.trainConfig.totalSimulationTime);
+    }
+  }
+
+  // Update stopAllTrains to clear timeout
+  stopAllTrains() {
+    this.trains.forEach(train => {
+      train.isMoving = false;
+      if (train.animationFrameId !== null) {
+        cancelAnimationFrame(train.animationFrameId);
+        train.animationFrameId = null;
+      }
+    });
+
+    // Clear simulation timeout
+    if (this.simulationTimeoutId !== null) {
+      clearTimeout(this.simulationTimeoutId);
+      this.simulationTimeoutId = null;
+    }
+  }
+
+  // Interpolate points between two stations for smooth movement
+  private interpolatePoints(start: L.LatLng, end: L.LatLng, steps: number): L.LatLng[] {
+    const points: L.LatLng[] = [];
+
+    for (let i = 0; i <= steps; i++) {
+      const ratio = i / steps;
+      const lat = start.lat + (end.lat - start.lat) * ratio;
+      const lng = start.lng + (end.lng - start.lng) * ratio;
+      points.push(L.latLng(lat, lng));
+    }
+
+    return points;
+  }
+  // Animate a specific train's movement
+  private animateTrainMovement(train: TrainState, start: L.LatLng, end: L.LatLng, onComplete: () => void) {
+    const steps = 100;
+    const duration = 60000; // 5 seconds per segment
+    let ps = interplatedTramPoint.map((arr) => L.latLng(arr[1], arr[0]))
+    const points: L.LatLng[] = ps.slice((train.id - 1) * (ps.length) / 5, (train.id) * (ps.length) / 5)
+
+    let currentPointIndex = 0;
+    const startTime = Date.now();
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      currentPointIndex = Math.floor(progress * (points.length - 1));
+
+      if (currentPointIndex < points.length) {
+        train.marker.setLatLng(points[currentPointIndex]);
+
+        if (progress < 1) {
+          train.animationFrameId = requestAnimationFrame(animate);
+        } else {
+          onComplete();
+        }
+      }
+    };
+
+    animate();
+  }
+
+
+
+}
+interface TrainState {
+  marker: L.Marker;
+  currentStationIndex: number;
+  isMoving: boolean;
+  animationFrameId: number | null;
+  id: number;
 }
 
 export const monumnetIcon = L.icon({
