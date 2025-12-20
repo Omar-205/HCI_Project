@@ -22,6 +22,34 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
   }
+  arr: L.LatLng[] = []
+  start_direction:any;
+
+  getdistance(marker:L.LatLng,tram:L.LatLng){
+      let deltax= (marker.lat- tram.lat)
+      let deltay=(marker.lng-tram.lng)
+      return Math.sqrt(Math.pow(deltax,2)+Math.pow(deltay,2))
+  }
+
+  getShortestPath(marker:any,LatLng:L.LatLng[]):L.LatLng{
+
+    const markerLatLng = marker
+    let shortest_Key=null;
+    let shortest_distance=null;
+    let shortest_station = null;
+    // for(mark of LatLng)
+    for(let i=0 ; i< LatLng.length;i++){
+      const dist = this.getdistance(markerLatLng,LatLng[i])
+      if(shortest_distance==null || dist < shortest_distance){
+        shortest_Key = i
+        shortest_distance = dist
+        shortest_station = LatLng[i]
+      }
+    }
+    console.log(shortest_Key,shortest_station)
+    return shortest_station as L.LatLng;
+
+  }
   centerPoint = L.latLng(31.20600, 29.92392)
   mahataElGam3a = L.latLng(31.211056, 29.92028302646695)
 
@@ -86,7 +114,7 @@ export class MapComponent implements AfterViewInit {
   }
   closeModal(param: string) { // after selecting from the popup
     console.log(param);
-    const arr: any = []
+    
     // add the tram lines
     const tramLine = new L.GeoJSON(alex_raml_tram_line as any, {
       onEachFeature: (feature: any, layer: L.Layer) => {
@@ -94,7 +122,7 @@ export class MapComponent implements AfterViewInit {
 
       }
       , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-        arr.push(latlng)
+        this.arr.push(latlng)
         const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
         marker.addEventListener('click', () => {
           this.leftSideBar.set(true)
@@ -103,11 +131,14 @@ export class MapComponent implements AfterViewInit {
       }
     }).addTo(this.map as any)
 
+    
     console.log(tramLine);
-
+    console.log(Object.values((tramLine as any)._layers).map((l: any) => l._latlng));
 
     if (Object.keys(this.gates).includes(param)) {
       this.startRoutingFromGate(param)
+      this.start_direction = param
+      console.log(this.getShortestPath(this.gates[param],this.arr))
     } else if (param == 'select') {
       this.handleSelectStartPoint()
       return
@@ -142,10 +173,11 @@ export class MapComponent implements AfterViewInit {
   }
 
   startRoutingFromGate(gate: string) {
+    console.log(this.gates[gate])
     this.routing = Routing.control({
       waypoints: [
         this.gates[gate],
-        this.mahataElGam3a
+        this.getShortestPath(this.gates[gate],this.arr)
       ],
       routeWhileDragging: false,
       router: L.Routing.osrmv1({
@@ -175,7 +207,7 @@ export class MapComponent implements AfterViewInit {
         this.routing = Routing.control({
           waypoints: [
             e.latlng,
-            this.mahataElGam3a
+            this.getShortestPath(e.latlng,this.arr)
           ],
           routeWhileDragging: false,
           router: L.Routing.osrmv1({
