@@ -25,16 +25,14 @@ export class SignIn {
     if(this.SignIn.valid){
       const Client = this.SignIn.value as Client;
       this.BackendService.VerifySignIn(Client).subscribe({
-        next: value=> {
+        next: (value: any)=> {
           if(value != null){
-          const Properties = value as Client
+          console.log(value)
           window.alert("Successfull SignIn")
-          ;console.log(Properties.userName);
           this.router.navigate(['home'])
 
-          localStorage.setItem("Username",`${Properties.userName}`)
-          localStorage.setItem("Email",`${Properties.email}`)
-          localStorage.setItem("TeleNumber",`${Properties.phone}`)
+          localStorage.setItem("Username",`${this.SignIn.value['email']}`)
+          localStorage.setItem('token',value['token'])
           }
         },
         error: (e)=>{console.log(Client);console.log(e)}

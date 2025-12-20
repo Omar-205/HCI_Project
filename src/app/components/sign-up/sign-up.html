@@ -36,28 +36,28 @@
                         <input type="text" class="userName" placeholder="Enter Your userName" formControlName="userName"
                             required>
                         @if (submit&&SignUp.controls['userName'].hasError('required') && SignUp.controls['userName']?.touched) {
-                        <small>Enter Your UserName</small>
+                        <small>Enter Your Username</small>
                         }
                         @if (submit&&SignUp.controls['userName'].hasError('minlength')&& SignUp.controls['userName']?.touched) {
                         <small>User Name must be more than 3 characters</small>
                         }
                         @if (submit&&SignUp.controls['userName'].hasError('pattern')&& SignUp.controls['userName']?.touched) {
-                        <small>User Name must be all letters</small>
+                        <small>Username must be all letters</small>
                         }
-                        <label>User Name</label>
+                        <label>Usermame</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-envelope'></i></span>
                         <input placeholder="(eg: Ahmed@LLAMA.com)" formControlName="email" required>
                         @if (submit&&SignUp.controls['email'].hasError('required') && SignUp.controls['email']?.touched) {
-                        <small>Enter an email</small>
+                        <small>Enter an Email</small>
                         }
                         @if (submit&&SignUp.controls['email'].hasError('email') && SignUp.controls['email']?.touched) {
-                        <small>Your email Format is not Correct
+                        <small>Your Email Format is not Correct
                         </small>
                         }
-                        <label>email</label>
+                        <label>Email</label>
                     </div>
 
                     <div class="input-box">
@@ -69,7 +69,7 @@
                             This is not a Correct Number!
                         </small>
                         }
-                        <label>Phone Number</label>
+                        <label>Phone number</label>
                     </div>
 
                     <div class="input-box">
@@ -78,10 +78,10 @@
                         @if (submit&&SignUp.controls['password'].hasError('required') &&
                         SignUp.controls['password']?.touched) {
                         <small>
-                            Enter a password
+                            Enter a Password
                         </small>
                         }
-                        <label>password</label>
+                        <label>Password</label>
                     </div>
 
                     <div class="input-box">
@@ -90,10 +90,10 @@
                         @if (submit&&SignUp.controls['password']?.touched &&SignUp.controls['Confirm']?.touched && !passwordMatch(SignUp) ) {
 
                         <small>
-                            The password don't match
+                            The Password don't match
                         </small>
                         }
-                        <label>Confirm password</label>
+                        <label>Confirm Password</label>
                     </div>
 
                     <button type="submit" class="btn">Sign Up</button>

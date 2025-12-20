@@ -46,25 +46,25 @@
                         SignIn.controls['email'].hasError('required') &&
                         SignIn.controls['email']?.touched)
                         {
-                        <small>Enter an email</small>
+                        <small>Enter an Email</small>
                         }
                         @if (submit &&
                         SignIn.controls['email'].hasError('email') &&
                         SignIn.controls['email']?.touched) {
-                        <small>Your email Format is not Correct
+                        <small>Your Email Format is not Correct
                         </small>
                         }
-                        <label>email</label>
+                        <label>Email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-lock'></i></span>
                         <input type="password" formControlName="password" required>
                         @if (SignIn.controls['password'].hasError('require') &&
                         SignIn.controls['password']?.touched){
-                        <small>Enter a password
+                        <small>Enter a Password
                         </small>
                         }
-                        <label>password</label>
+                        <label>Password</label>
                     </div>
                     <div class="remember-forget">
                         <label><input type="checkbox" >Remember me</label>

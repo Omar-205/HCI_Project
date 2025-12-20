@@ -15,7 +15,7 @@ export class SignUp {
   SignUp: FormGroup;
   submit:boolean | null = null;
   passwordMatch(group: FormGroup) {
-    return group.get('Password')?.value === group.get("Confirm")?.value
+    return group.get('password')?.value === group.get("Confirm")?.value
       ? true : false;
   }
   constructor(private fb: FormBuilder,private router:Router) {
