@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line, alexandriaMonuments, interplatedTramPoint } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments, alexandriaTransitData, interplatedTramPoint } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -17,19 +17,19 @@ import { MapModal } from '../map-modal/map-modal';
 export class MapComponent implements AfterViewInit {
 
   dialog = inject(Dialog)
-
   private map: L.Map | undefined;
-  tramLineLayer!:L.GeoJSON
+  tramLineLayer!: L.GeoJSON
+  Bus!: L.GeoJSON;
   monumentsLayer!: L.GeoJSON;
   layerControl!: L.Control.Layers;
 
-    trainIcon = L.icon({
+  trainIcon = L.icon({
     iconUrl: "train.png",
     iconSize: [70, 40],
     iconAnchor: [38, 38],  // the relative position of the tip to the top-left corner
     popupAnchor: [-3, -76],
   });
-  
+
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
   selectedMonument = signal<null | { name: string, latlng: L.LatLng, description: string, address: string, wikipedia: string }>(null)
@@ -38,9 +38,10 @@ export class MapComponent implements AfterViewInit {
     this.initMap();
   }
   private trains: TrainState[] = [];
-  arr: L.LatLng[] = []
+  arr_Tram: L.LatLng[] = []
+  arr_Bus: L.LatLng[] = []
   start_direction: any;
-    private stations: L.LatLng[] = alex_raml_tram_line.features.map(feature =>
+  private stations: L.LatLng[] = alex_raml_tram_line.features.map(feature =>
     L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0])
   );
 
@@ -119,7 +120,7 @@ export class MapComponent implements AfterViewInit {
     }
 
     const ctr = L.control.layers(baseLayers, markers, { collapsed: false })
-    this.tramLineLayer= new L.GeoJSON(alex_raml_tram_line as any, {
+    this.tramLineLayer = new L.GeoJSON(alex_raml_tram_line as any, {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
         layer.addEventListener('click', (e) => {
@@ -130,7 +131,7 @@ export class MapComponent implements AfterViewInit {
 
       }
       , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-        this.arr.push(latlng)
+        this.arr_Tram.push(latlng)
         const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
 
         return marker
@@ -159,17 +160,39 @@ export class MapComponent implements AfterViewInit {
         return marker
       }
     });
+    this.Bus = new L.GeoJSON(alexandriaTransitData as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.selectedStation.set(null)
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedMonument.set({
+            name: feature.properties['name'],
+            latlng: L.latLng(latnlgcords as any),
+            description: feature.properties['description'],
+            address: feature.properties['address'],
+            wikipedia: feature.properties['wikipedia']
+          })
+        })
 
-    this.tramLineLayer.addTo(this.map);
+      }
+      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        this.arr_Bus.push(latlng)
+        const marker = L.marker(latlng, { icon: BusIcon, draggable: false })
+        return marker
+      }
+    });
+
     this.monumentsLayer.addTo(this.map);
 
 
     this.layerControl = L.control.layers({},
       {
-        'Tram Station & Lines':this.tramLineLayer,
-        'Alexandria Monuments':this.monumentsLayer
+        'Tram Station & Lines': this.tramLineLayer,
+        'Alexandria Monuments': this.monumentsLayer,
+        'Electric Buses': this.Bus
       },
-      {collapsed:false}
+      { collapsed: false }
     ).addTo(this.map);
 
     tiles.addTo(this.map);
@@ -179,23 +202,38 @@ export class MapComponent implements AfterViewInit {
       hasBackdrop: true,
       data: {
         gates: Object.keys(this.gates)
+        
       },
       disableClose: true,
       closeOnNavigation: true,
       autoFocus: false
       // scrollStrategy: block
-    }).closed.subscribe(ret => this.closeModal(ret as string))
+    }).closed.subscribe(ret => this.closeModal(ret as any[]))
 
   }
-  closeModal(param: string) { // after selecting from the popup
+  closeModal(param: any[]) { // after selecting from the popup
     console.log(param);
-    
-    if (Object.keys(this.gates).includes(param)) {
-      this.startRoutingFromGate(param)
-      this.start_direction = param
-      console.log(this.getShortestPath(this.gates[param], this.arr))
-    } else if (param == 'select') {
-      this.handleSelectStartPoint();
+    if (Object.keys(this.gates).includes(param[1])) {
+      if ('Tram'===param[0]) {
+        this.tramLineLayer.addTo(this.map as any);
+        this.startRoutingFromGate(param[1], this.arr_Tram)
+        this.start_direction = param
+        console.log(this.getShortestPath(this.gates[param[1]], this.arr_Tram))
+      } else {
+        this.Bus.addTo(this.map as any);
+        this.startRoutingFromGate(param[1], this.arr_Bus)
+        this.start_direction = param
+      }
+    } else if (param[1] == 'select') {
+
+      if ('Tram'===param[0]) {
+        this.tramLineLayer.addTo(this.map as any);
+        this.handleSelectStartPoint(this.arr_Tram);
+      } else {
+        this.Bus.addTo(this.map as any);
+        this.handleSelectStartPoint(this.arr_Bus);
+      }
+
       return
     }
     this.initMapDomRouting()
@@ -215,7 +253,7 @@ export class MapComponent implements AfterViewInit {
     if (!this.map) return
     if (this.routing)
       this.map.removeControl(this.routing)
-    console.log(source,destination)
+    console.log(source, destination)
     this.routing = Routing.control({
       waypoints: [
         source,
@@ -227,13 +265,13 @@ export class MapComponent implements AfterViewInit {
         serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
         profile: 'foot' // Explicitly set the profile to foot
       }),
-      show:true
+      show: true
     }).addTo(this.map)
   }
 
-  startRoutingFromGate(gate: string) {
+  startRoutingFromGate(gate: string, Arr: L.LatLng[]) {
     this.startPoint = this.gates[gate]
-    this.destinationPoint = this.getShortestPath(this.gates[gate], this.arr)
+    this.destinationPoint = this.getShortestPath(this.gates[gate], Arr)
     this.routeFromTo(this.startPoint, this.destinationPoint)
   }
 
@@ -244,7 +282,7 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
-  handleSelectStartPoint = () => {
+  handleSelectStartPoint = (Arr: L.LatLng[]) => {
     const selection = (e: any) => {
       console.log(e.latlng);
       const container = L.DomUtil.create('div')
@@ -253,7 +291,7 @@ export class MapComponent implements AfterViewInit {
       startBtn.style.padding = '10px'
       startBtn.style.color = 'white'
       // create the label with the buttons
-      console.log(this.arr)
+      console.log(this.arr_Tram)
       const popUp = L.popup().setLatLng(e.latlng)
         .setContent(container)
         .addTo(this.map as any)
@@ -261,7 +299,7 @@ export class MapComponent implements AfterViewInit {
       L.DomEvent.on(startBtn, 'click', () => {
         popUp.close()
         console.log("selected");
-        this.routeFromTo(e.latlng, this.getShortestPath(e.latlng, this.arr)) // todo: change to dynamic
+        this.routeFromTo(e.latlng, this.getShortestPath(e.latlng, Arr)) // todo: change to dynamic
         this.map?.removeEventListener('click', selection)
         this.initMapDomRouting()
 
@@ -359,12 +397,12 @@ export class MapComponent implements AfterViewInit {
     window.open(mapsUrl, '_blank', 'width=1200,height=800');
   }
 
-    leftSideBar = signal(false);
+  leftSideBar = signal(false);
 
   initializeTrains() {
     const numberOfTrains = 5;
     const stationInterval = Math.floor(this.stations.length / numberOfTrains);
-    
+
 
     for (let i = 0; i < numberOfTrains; i++) {
       const startingStationIndex = i * stationInterval;
@@ -591,7 +629,7 @@ export class MapComponent implements AfterViewInit {
   private animateTrainMovement(train: TrainState, start: L.LatLng, end: L.LatLng, onComplete: () => void) {
     const steps = 100;
     const duration = 60000; // 5 seconds per segment
-    let ps = interplatedTramPoint.map((arr) => L.latLng(arr[1], arr[0]))
+    let ps = interplatedTramPoint.map((arr_Tram) => L.latLng(arr_Tram[1], arr_Tram[0]))
     const points: L.LatLng[] = ps.slice((train.id - 1) * (ps.length) / 5, (train.id) * (ps.length) / 5)
 
     let currentPointIndex = 0;
@@ -632,5 +670,11 @@ export const monumnetIcon = L.icon({
   iconUrl: "monumentIcon.png",
   iconSize: [160, 90],
   iconAnchor: [100, 100],  // the relative position of the tip to the top-left corner
+  popupAnchor: [-3, -76],
+})
+export const BusIcon = L.icon({
+  iconUrl: "image.png",
+  iconSize: [50, 50],
+  iconAnchor: [15, 15],  // the relative position of the tip to the top-left corner
   popupAnchor: [-3, -76],
 })
