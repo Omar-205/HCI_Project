@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line, alexandriaMonuments } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments, interplatedTramPoint } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -167,10 +167,6 @@ export class MapComponent implements AfterViewInit {
         return marker
       }
     }).addTo(this.map as any)
-    // const tramOverlay = new L.FeatureGroup
-    // tramOverlay.addLayer(tramLine)
-
-    // this.ctr?.addOverlay(tramOverlay.addTo(this.map as any), "Tram line")
 
     const monuments = new L.GeoJSON(alexandriaMonuments as any, {
       onEachFeature: (feature: any, layer: L.Layer) => {
@@ -269,7 +265,7 @@ export class MapComponent implements AfterViewInit {
       L.DomEvent.on(startBtn, 'click', () => {
         popUp.close()
         console.log("selected");
-        this.routeFromTo(e.latLng, this.getShortestPath(e.latlng, this.arr)) // todo: change to dynamic
+        this.routeFromTo(e.latlng, this.getShortestPath(e.latlng, this.arr)) // todo: change to dynamic
         this.map?.removeEventListener('click', selection)
         this.initMapDomRouting()
 
@@ -318,7 +314,7 @@ export class MapComponent implements AfterViewInit {
         popUp.close()
         console.log("selected");
         this.map?.removeEventListener('click', selection)
-        then({ start: e.latLng })
+        // then({ start: e.latLng })
       })
     }
     this.map?.addEventListener("click", selection)
@@ -594,12 +590,12 @@ export class MapComponent implements AfterViewInit {
 
     return points;
   }
-
   // Animate a specific train's movement
   private animateTrainMovement(train: TrainState, start: L.LatLng, end: L.LatLng, onComplete: () => void) {
     const steps = 100;
     const duration = 60000; // 5 seconds per segment
-    const points = this.interpolatePoints(start, end, steps);
+    let ps = interplatedTramPoint.map((arr) => L.latLng(arr[1], arr[0]))
+    const points: L.LatLng[] = ps.slice((train.id - 1) * (ps.length) / 5, (train.id) * (ps.length) / 5)
 
     let currentPointIndex = 0;
     const startTime = Date.now();
