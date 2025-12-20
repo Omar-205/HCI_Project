@@ -19,6 +19,11 @@ export class MapComponent implements AfterViewInit {
   dialog = inject(Dialog)
 
   private map: L.Map | undefined;
+  tramLineLayer!:L.GeoJSON
+  monumentsLayer!: L.GeoJSON;
+  layerControl!: L.Control.Layers;
+
+  
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
   selectedMonument = signal<null | { name: string, latlng: L.LatLng, description: string, address: string, wikipedia: string }>(null)
@@ -104,6 +109,58 @@ export class MapComponent implements AfterViewInit {
     }
 
     const ctr = L.control.layers(baseLayers, markers, { collapsed: false })
+    this.tramLineLayer= new L.GeoJSON(alex_raml_tram_line as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.selectedMonument.set(null)
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
+        })
+
+      }
+      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        this.arr.push(latlng)
+        const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
+
+        return marker
+      }
+    });
+
+    this.monumentsLayer = new L.GeoJSON(alexandriaMonuments as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.selectedStation.set(null)
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedMonument.set({
+            name: feature.properties['name'],
+            latlng: L.latLng(latnlgcords as any),
+            description: feature.properties['description'],
+            address: feature.properties['address'],
+            wikipedia: feature.properties['wikipedia']
+          })
+        })
+
+      }
+      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
+
+        return marker
+      }
+    });
+
+    this.tramLineLayer.addTo(this.map);
+    this.monumentsLayer.addTo(this.map);
+
+
+    this.layerControl = L.control.layers({},
+      {
+        'Tram Station & Lines':this.tramLineLayer,
+        'Alexandria Monuments':this.monumentsLayer
+      },
+      {collapsed:false}
+    ).addTo(this.map);
 
     tiles.addTo(this.map);
     ctr.addTo(this.map)
@@ -124,59 +181,58 @@ export class MapComponent implements AfterViewInit {
     console.log(param);
 
     // add the tram lines
-    const tramLine = new L.GeoJSON(alex_raml_tram_line as any, {
-      onEachFeature: (feature: any, layer: L.Layer) => {
-        layer.bindPopup(feature.properties['name']);
-        layer.addEventListener('click', (e) => {
-          this.selectedMonument.set(null)
-          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
-          this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
-        })
+    // const tramLine = new L.GeoJSON(alex_raml_tram_line as any, {
+    //   onEachFeature: (feature: any, layer: L.Layer) => {
+    //     layer.bindPopup(feature.properties['name']);
+    //     layer.addEventListener('click', (e) => {
+    //       this.selectedMonument.set(null)
+    //       const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+    //       this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
+    //     })
 
-      }
-      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-        this.arr.push(latlng)
-        const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
+    //   }
+    //   , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+    //     this.arr.push(latlng)
+    //     const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
 
-        return marker
-      }
-    }).addTo(this.map as any)
+    //     return marker
+    //   }
+    // }).addTo(this.map as any)
 
-    const mounments = new L.GeoJSON(alexandriaMonuments as any, {
-      onEachFeature: (feature: any, layer: L.Layer) => {
-        layer.bindPopup(feature.properties['name']);
-        layer.addEventListener('click', (e) => {
-          this.selectedStation.set(null)
-          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
-          this.selectedMonument.set({
-            name: feature.properties['name'],
-            latlng: L.latLng(latnlgcords as any),
-            description: feature.properties['description'],
-            address: feature.properties['address'],
-            wikipedia: feature.properties['wikipedia']
-          })
-        })
+    // const mounments = new L.GeoJSON(alexandriaMonuments as any, {
+    //   onEachFeature: (feature: any, layer: L.Layer) => {
+    //     layer.bindPopup(feature.properties['name']);
+    //     layer.addEventListener('click', (e) => {
+    //       this.selectedStation.set(null)
+    //       const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+    //       this.selectedMonument.set({
+    //         name: feature.properties['name'],
+    //         latlng: L.latLng(latnlgcords as any),
+    //         description: feature.properties['description'],
+    //         address: feature.properties['address'],
+    //         wikipedia: feature.properties['wikipedia']
+    //       })
+    //     }).addTo(this.map as any)
 
-      }
-      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-        this.arr.push(latlng)
-        const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
+    //   }
+    //   , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+    //     const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
 
-        return marker
-      }
-    }).addTo(this.map as any)
+    //     return marker
+    //   }
+    // }).addTo(this.map as any)
 
 
 
     //console.log(Object.values((tramLine as any)._layers).map((l: any) => l._latlng));
 
-
+    
     if (Object.keys(this.gates).includes(param)) {
       this.startRoutingFromGate(param)
       this.start_direction = param
       console.log(this.getShortestPath(this.gates[param], this.arr))
     } else if (param == 'select') {
-      this.handleSelectStartPoint()
+      this.handleSelectStartPoint();
       return
     }
     this.initMapDomRouting()
@@ -196,7 +252,7 @@ export class MapComponent implements AfterViewInit {
     if (!this.map) return
     if (this.routing)
       this.map.removeControl(this.routing)
-
+    console.log(source,destination)
     this.routing = Routing.control({
       waypoints: [
         source,
@@ -208,6 +264,7 @@ export class MapComponent implements AfterViewInit {
         serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
         profile: 'foot' // Explicitly set the profile to foot
       }),
+      show:true
     }).addTo(this.map)
   }
 
@@ -233,6 +290,7 @@ export class MapComponent implements AfterViewInit {
       startBtn.style.padding = '10px'
       startBtn.style.color = 'white'
       // create the label with the buttons
+      console.log(this.arr)
       const popUp = L.popup().setLatLng(e.latlng)
         .setContent(container)
         .addTo(this.map as any)
@@ -240,7 +298,7 @@ export class MapComponent implements AfterViewInit {
       L.DomEvent.on(startBtn, 'click', () => {
         popUp.close()
         console.log("selected");
-        this.routeFromTo(e.latLng, this.getShortestPath(e.latlng, this.arr)) // todo: change to dynamic
+        this.routeFromTo(e.latlng, this.getShortestPath(e.latlng, this.arr)) // todo: change to dynamic
         this.map?.removeEventListener('click', selection)
         this.initMapDomRouting()
 
