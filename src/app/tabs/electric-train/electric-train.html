@@ -1,10 +1,8 @@
-<div
-  class="p-[3px]  text-text-green grid grid-cols-2 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl mt-2">
+<div class="p-[3px] text-text-green grid grid-cols-3 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl mt-2">
   <button *ngFor="let tabName of tabs"
     [class]="'text-nowrap text-center rounded-4xl text-[#A3BCBA] ' + (tabName == tab() ? 'bg-[#009966] text-[#EEF8F5]' : '')"
     (click)="tab.set(tabName)">
-    <p class="text-md font-semibold py-0.5 mx-auto">
-      {{ tabName }}
+    <p class="text-md font-semibold py-1 mx-auto"> {{ tabName }}
     </p>
   </button>
 </div>
@@ -12,4 +10,8 @@
 @if (tab() == 'Book Ticket') {
   <app-hero-card></app-hero-card>
   <app-booking-form></app-booking-form>
+}
+
+@if (tab() ==='My Complaints') {
+  <app-complaints-page></app-complaints-page>
 }

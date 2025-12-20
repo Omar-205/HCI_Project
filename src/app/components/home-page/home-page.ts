@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, User, LogOut , FileWarning, X } from "lucide-angular";
 import { ElectricTrain } from '../../tabs/electric-train/electric-train';
@@ -6,8 +6,9 @@ import { ElectricBusComponent } from "../electric-bus/electric-bus";
 import { Tram } from "../tram/tram";
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-
+import { ComplaintService } from '../Service/complaint.service';
+import { inject } from '@angular/core';
+import { ComplaintRequest, ComplaintSeverity, ComplaintType } from '../../models/ComplaintRequest';
 @Component({
   selector: 'app-home-page',
   imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram,FormsModule],
@@ -21,13 +22,17 @@ export class HomePage {
   readonly LogOutIcon = LogOut;
   tab = signal<string>("Electric Bus"); 
   tabs = ["Electric Bus", "Tram", "Train"];
+  complaintService = inject(ComplaintService);
 
-  complaintData = {
+  severityOptions = Object.values(ComplaintSeverity);
+  complaintTypeOptions = Object.values(ComplaintType);
+
+  complaintData : ComplaintRequest = {
     title: '',
     description: '',
-    type: 'Service Issue',
+    complaintType: ComplaintType.SERVICE_QUALITY,
     ticketId: 'TCK-UTW4G0OMU',
-    severity: 'Medium'
+    severity: ComplaintSeverity.LOW
   };
 
   constructor(private router: Router, private ActiveRoute: ActivatedRoute) {
@@ -59,8 +64,9 @@ export class HomePage {
 
 
   onSubmitComplaint() {
-    console.log("Sending Data to Backend:", this.complaintData);
     // 2l mafrod hena 2ana h3mel call ba2a lel service w 2deha 2l complaintData 3shan ttsagel fe 2l backend
+    this.complaintService.submitComplaint(this.complaintData);
+    
     this.isModalOpen.set(false);
   }
 }
