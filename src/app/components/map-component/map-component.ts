@@ -59,6 +59,9 @@ export class MapComponent implements AfterViewInit {
   startPoint = this.centerPoint;
   destinationPoint = this.mahataElGam3a;
 
+  ctr: L.Control.Layers | undefined;
+  tramLine: any;
+  monuments: any;
   tramIcon = L.icon({
     iconUrl: "tramIcon.png",
     iconSize: [110, 60],
@@ -84,7 +87,9 @@ export class MapComponent implements AfterViewInit {
     });
 
     const googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
+      minZoom: 3,
+      maxZoom: 30,
+      maxNativeZoom: 30,
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
@@ -96,8 +101,8 @@ export class MapComponent implements AfterViewInit {
     })
     //.addTo(this.map)
     const baseLayers = {
-      tiles,
-      googleStreets
+      "OSM": tiles,
+      "Google street": googleStreets
     }
     const markers = {
       // "tram m": tramMarker
@@ -141,8 +146,12 @@ export class MapComponent implements AfterViewInit {
         return marker
       }
     }).addTo(this.map as any)
+    // const tramOverlay = new L.FeatureGroup
+    // tramOverlay.addLayer(tramLine)
 
-    const mounments = new L.GeoJSON(alexandriaMonuments as any, {
+    // this.ctr?.addOverlay(tramOverlay.addTo(this.map as any), "Tram line")
+
+    const monuments = new L.GeoJSON(alexandriaMonuments as any, {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
         layer.addEventListener('click', (e) => {
@@ -159,7 +168,6 @@ export class MapComponent implements AfterViewInit {
 
       }
       , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
-        this.arr.push(latlng)
         const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
 
         return marker
@@ -174,7 +182,7 @@ export class MapComponent implements AfterViewInit {
     if (Object.keys(this.gates).includes(param)) {
       this.startRoutingFromGate(param)
       this.start_direction = param
-      console.log(this.getShortestPath(this.gates[param], this.arr))
+      //console.log(this.getShortestPath(this.gates[param], this.arr))
     } else if (param == 'select') {
       this.handleSelectStartPoint()
       return
