@@ -23,6 +23,6 @@ export interface ComplaintRequest {
     title: string;
     description: string;
     complaintType: ComplaintType;
-    ticketId: string;
+    ticketId: number;
     severity: ComplaintSeverity;
 }

@@ -15,7 +15,7 @@ export interface ComplaintResponse {
     complaintType: string;
     severity: string;
     status: ComplaintStatus; 
-    ticketId: string;
+    ticketId: number;
     ticketTitle: string;
     userId: string;
     userEmail: string;

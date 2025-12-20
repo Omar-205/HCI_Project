@@ -1,70 +1,19 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal,inject } from '@angular/core';
 import { ComplaintRequest } from '../../models/ComplaintRequest';
 import { ComplaintResponse, ComplaintStatus } from '../../models/ComplaintResponse';
-
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
 export class ComplaintService {
-  private HoldingComplaintData : ComplaintRequest | null = null;
 
+  private apiUrl = 'http://localhost:8080/api/v1/complaints';
+  private http = inject(HttpClient);
 
-  complaintsList   = signal<ComplaintResponse[]>([
-    {
-      id: 1,
-      title: 'Bus #102 Delayed',
-      description: 'The bus was 25 minutes late at the station.',
-      complaintType: 'DELAY',
-      severity: 'Medium',
-      status: ComplaintStatus.IN_PROGRESS,
-      ticketId: 'TCK-8821',
-      ticketTitle: 'Main Station Route',
-      userId: 'USR-01',
-      userEmail: 'user@greenlink.com',
-      userName: 'Ahmed Ali',
-      response: 'We are checking with the driver.',
-      respondedById: 'STAFF-05',
-      respondedByName: 'Sara Admin',
-      createdAt: '2025-11-10',
-      resolvedAt: ''
-    },
-    {
-      id: 2,
-      title: 'Broken Seat in Tram',
-      description: 'Seat number 12 in the second car is broken.',
-      complaintType: 'VEHICLE_CONDITION',
-      severity: 'Low',
-      status: ComplaintStatus.RESOLVED,
-      ticketId: 'TCK-4432',
-      ticketTitle: 'Blue Line Tram',
-      userId: 'USR-01',
-      userEmail: 'user@greenlink.com',
-      userName: 'Ahmed Ali',
-      response: 'The seat has been fixed by the maintenance team.',
-      respondedById: 'STAFF-09',
-      respondedByName: 'Hany Tech',
-      createdAt: '2025-11-05',
-      resolvedAt: '2025-11-07'
-    },
-    {
-      id: 3,
-      title: 'Overcharged for Ticket',
-      description: 'The app charged me twice for the same trip.',
-      complaintType: 'PRICING_ISSUE',
-      severity: 'High',
-      status: ComplaintStatus.SUBMITTED,
-      ticketId: 'TCK-9901',
-      ticketTitle: 'Electric Bus Ticket',
-      userId: 'USR-01',
-      userEmail: 'user@greenlink.com',
-      userName: 'Ahmed Ali',
-      response: '',
-      respondedById: '',
-      respondedByName: '',
-      createdAt: '2025-11-12',
-      resolvedAt: ''
-    }
-  ]);
+  complaintsList   = signal<ComplaintResponse[]>([]);
+
+  editedComplaint = signal<ComplaintRequest | null>(null);
 
   activeListComplaint = computed(() => {
     return this.complaintsList().filter(complaint => complaint.status !== ComplaintStatus.RESOLVED);
@@ -74,22 +23,76 @@ export class ComplaintService {
     return this.complaintsList().filter(complaint => complaint.status === ComplaintStatus.RESOLVED);
   });
 
-  setComplaintData(data: ComplaintRequest) {
-    this.HoldingComplaintData = data;
+
+  // submitComplaint(complaint: ComplaintRequest) {
+  //   this.createComplaint(complaint).subscribe({
+  //     next: (res) => {
+  //       console.log('Complaint created successfully inside service', res);
+  //     },
+  //     error: (err) => console.error('Error in submitComplaint', err)
+  //   });
+  // }
+
+  // getAllComplaints() {
+  //   return this.getUserComplaints().subscribe({
+  //     next: () => console.log('Fetched complaints successfully'),
+  //     error: (err) => console.error('Fetch failed', err)
+  //   });
+  // }
+
+
+  // DeleteComplaint(id: number) {
+  //   this.deleteComplaint(id).subscribe({
+  //     next: () => console.log('Deleted successfully'),
+  //     error: (err) => console.error('Delete failed', err)
+  //   });
+  // }
+
+
+  // EditedComplaint(complaintId: number, data: ComplaintRequest) {
+  //   this.updateComplaintStatus(complaintId, data).subscribe({
+  //     next: (res) => console.log('Updated successfully', res),
+  //     error: (err) => console.error('Update failed', err)
+  //   });
+  // }
+
+
+  createComplaint(complaint: ComplaintRequest) {
+    console.log('Creating complaint:', complaint);
+    return this.http.post<ComplaintResponse>(this.apiUrl, complaint).pipe(
+      tap((newC) => this.complaintsList.update(list => [newC, ...list]))
+    );
   }
 
-  getComplaintData(): ComplaintRequest | null {
-    return this.HoldingComplaintData;
+  updateComplaintStatus(complaintId: number, updatedComplaint: ComplaintRequest) {
+    const url = `${this.apiUrl}/${complaintId}`;
+    return this.http.put<ComplaintResponse>(url, updatedComplaint).pipe(
+      tap((updatedRes) => {
+        this.complaintsList.update(list => 
+          list.map(c => c.id === complaintId ? updatedRes : c)
+        );
+      })
+    );
   }
 
-  clearComplaintData() {
-    this.HoldingComplaintData = null;
+
+  getUserComplaints() {
+    return this.http.get<ComplaintResponse[]>(this.apiUrl).pipe(
+      tap((complaints) => {
+        this.complaintsList.set(complaints);
+      })
+    );
+  }
+
+  deleteComplaint(id: number) {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url).pipe(
+      tap(() => {
+        this.complaintsList.update(list => list.filter(c => c.id !== id));
+      })
+    );
   }
 
 
-  submitComplaint(complaint: ComplaintRequest) {
-    console.log('Complaint submitted:', complaint);
-  }
-
-
+  
 }

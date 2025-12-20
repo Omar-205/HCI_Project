@@ -31,7 +31,7 @@ export class HomePage {
     title: '',
     description: '',
     complaintType: ComplaintType.SERVICE_QUALITY,
-    ticketId: 'TCK-UTW4G0OMU',
+    ticketId: 123,
     severity: ComplaintSeverity.LOW
   };
 
@@ -64,9 +64,12 @@ export class HomePage {
 
 
   onSubmitComplaint() {
-    // 2l mafrod hena 2ana h3mel call ba2a lel service w 2deha 2l complaintData 3shan ttsagel fe 2l backend
-    this.complaintService.submitComplaint(this.complaintData);
-    
+    this.complaintService.createComplaint(this.complaintData).subscribe({
+      next: (res) => {
+        console.log('Complaint created successfully inside component', res);
+      },
+      error: (err) => console.error('Error in submiting the Complaint', err)
+    });
     this.isModalOpen.set(false);
   }
 }
