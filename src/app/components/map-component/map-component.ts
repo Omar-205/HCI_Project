@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -15,23 +15,31 @@ import { MapModal } from '../map-modal/map-modal';
   styleUrl: './map-component.css',
 })
 export class MapComponent implements AfterViewInit {
+
   dialog = inject(Dialog)
 
   private map: L.Map | undefined;
+
+  selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
+  selectedMonument = signal<null | { name: string, latlng: L.LatLng, description: string, address: string, wikipedia: string }>(null)
 
   ngAfterViewInit(): void {
     this.initMap();
   }
   centerPoint = L.latLng(31.20600, 29.92392)
   mahataElGam3a = L.latLng(31.211056, 29.92028302646695)
+  startPoint = this.centerPoint;
+  destinationPoint = this.mahataElGam3a;
 
   tramIcon = L.icon({
     iconUrl: "tramIcon.png",
     iconSize: [110, 60],
-    iconAnchor: [38, 38],  // the relative position of the tip to the top-left corner
+    iconAnchor: [60, 60],  // the relative position of the tip to the top-left corner
     popupAnchor: [-3, -76],
 
   })
+
+
 
   private initMap(): void {
     this.map = map('map', {
@@ -91,23 +99,52 @@ export class MapComponent implements AfterViewInit {
     const tramLine = new L.GeoJSON(alex_raml_tram_line as any, {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.selectedMonument.set(null)
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
+        })
 
       }
       , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
         arr.push(latlng)
         const marker = L.marker(latlng, { icon: this.tramIcon, draggable: false })
-        marker.addEventListener('click', () => {
-          this.leftSideBar.set(true)
-        })
+
         return marker
       }
     }).addTo(this.map as any)
 
-    console.log(tramLine);
+    const mounments = new L.GeoJSON(alexandriaMonuments as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.selectedStation.set(null)
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedMonument.set({
+            name: feature.properties['name'],
+            latlng: L.latLng(latnlgcords as any),
+            description: feature.properties['description'],
+            address: feature.properties['address'],
+            wikipedia: feature.properties['wikipedia']
+          })
+        })
+
+      }
+      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        arr.push(latlng)
+        const marker = L.marker(latlng, { icon: monumnetIcon, draggable: false })
+
+        return marker
+      }
+    }).addTo(this.map as any)
+
+
+
+    //console.log(Object.values((tramLine as any)._layers).map((l: any) => l._latlng));
 
 
     if (Object.keys(this.gates).includes(param)) {
-      this.startRoutingFromGate(param)
+      this.startRoutingFromGateTo(param, this.destinationPoint)
     } else if (param == 'select') {
       this.handleSelectStartPoint()
       return
@@ -126,7 +163,10 @@ export class MapComponent implements AfterViewInit {
   }
 
   routeFromTo(source: L.LatLng, destination: L.LatLng) {
-    this.routing?.remove()
+    if (!this.map) return
+    if (this.routing)
+      this.map.removeControl(this.routing)
+
     this.routing = Routing.control({
       waypoints: [
         source,
@@ -138,22 +178,19 @@ export class MapComponent implements AfterViewInit {
         serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
         profile: 'foot' // Explicitly set the profile to foot
       }),
-    }).addTo(this.map as any)
+    }).addTo(this.map)
   }
 
-  startRoutingFromGate(gate: string) {
-    this.routing = Routing.control({
-      waypoints: [
-        this.gates[gate],
-        this.mahataElGam3a
-      ],
-      routeWhileDragging: false,
-      router: L.Routing.osrmv1({
-        // This specific URL is a community-hosted instance for walking/foot paths
-        serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
-        profile: 'foot' // Explicitly set the profile to foot
-      }),
-    }).addTo(this.map as any)
+  startRoutingFromGateTo(gate: string, destination: L.LatLng) {
+    this.startPoint = this.gates[gate]
+    this.routeFromTo(this.startPoint, destination)
+  }
+
+  inAppNavigation(destination: string) {
+    if (this.selectedStation() != null) {
+      this.destinationPoint = this.selectedStation()?.latlng as any
+      this.routeFromTo(this.startPoint, this.destinationPoint)
+    }
   }
 
   handleSelectStartPoint = () => {
@@ -172,17 +209,7 @@ export class MapComponent implements AfterViewInit {
       L.DomEvent.on(startBtn, 'click', () => {
         popUp.close()
         console.log("selected");
-        this.routing = Routing.control({
-          waypoints: [
-            e.latlng,
-            this.mahataElGam3a
-          ],
-          routeWhileDragging: false,
-          router: L.Routing.osrmv1({
-            serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
-            profile: 'foot' // Explicitly set the profile to foot
-          }),
-        }).addTo(this.map as any)
+        this.routeFromTo(e.latLng, this.destinationPoint) // todo: change to dynamic
         this.map?.removeEventListener('click', selection)
         this.initMapDomRouting()
 
@@ -191,11 +218,11 @@ export class MapComponent implements AfterViewInit {
     this.map?.addEventListener("click", selection)
   }
 
-  selectPointThen = (then: Function) => {
+  selectStartPoint = (then: Function) => {
     const selection = (e: any) => {
       console.log(e.latlng);
       const container = L.DomUtil.create('div')
-        , startBtn = this.createButton('Confirm', container);
+        , startBtn = this.createButton('Confirm start point', container);
       startBtn.style.backgroundColor = 'green'
       startBtn.style.padding = '10px'
       startBtn.style.color = 'white'
@@ -214,6 +241,30 @@ export class MapComponent implements AfterViewInit {
     this.map?.addEventListener("click", selection)
   }
 
+  selectDestinationPoint = (then: Function) => {
+    const selection = (e: any) => {
+      console.log(e.latlng);
+      const container = L.DomUtil.create('div')
+        , startBtn = this.createButton('Confirm start point', container);
+      startBtn.style.backgroundColor = 'green'
+      startBtn.style.padding = '10px'
+      startBtn.style.color = 'white'
+      // create the label with the buttons
+      const popUp = L.popup().setLatLng(e.latlng)
+        .setContent(container)
+        .addTo(this.map as any)
+      // events for the popup dom (click) for buttons
+      L.DomEvent.on(startBtn, 'click', () => {
+        popUp.close()
+        console.log("selected");
+        this.map?.removeEventListener('click', selection)
+        then({ start: e.latLng })
+      })
+    }
+    this.map?.addEventListener("click", selection)
+  }
+
+
   createButton = (label: any, container: any) => {
     var btn = L.DomUtil.create('button', '', container);
     L.DomUtil.create('br', '', container);
@@ -225,6 +276,8 @@ export class MapComponent implements AfterViewInit {
   initMapDomRouting() {
     this.map?.addEventListener("click", (e) => {
       console.log(e.latlng);
+      this.selectedStation.set(null)
+      this.selectedMonument.set(null);
       const container = L.DomUtil.create('div')
         , startBtn = this.createButton('Start from this location', container),
         destBtn = this.createButton('Go to this location', container);
@@ -254,6 +307,12 @@ export class MapComponent implements AfterViewInit {
     window.open(mapsUrl, '_blank', 'width=1200,height=800');
   }
 
-  leftSideBar = signal(false);
 
 }
+
+export const monumnetIcon = L.icon({
+  iconUrl: "monumentIcon.png",
+  iconSize: [160, 90],
+  iconAnchor: [100, 100],  // the relative position of the tip to the top-left corner
+  popupAnchor: [-3, -76],
+})
