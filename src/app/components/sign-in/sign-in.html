@@ -17,7 +17,7 @@
         </nav>
         <form class="Header__Search__Bar">
             <input type="search" placeholder="Search">
-            <button type="submit"><i class='bx  bx-search'></i></button>
+            <button type="submit"><i class='bx  bx-search' aria-label="submit search"></i></button>
         </form>
     </header>
     <div class="background"></div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class='bx  bx-lock'></i></span>
-                        <input type="password" formControlName="password" required>
+                        <input type="password" formControlName="password" required aria-label="password input">
                         @if (SignIn.controls['password'].hasError('require') &&
                         SignIn.controls['password']?.touched){
                         <small>Enter a Password
