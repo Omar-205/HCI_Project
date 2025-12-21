@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root {
   /* theme variables */
   --green-900: #053b2e;
@@ -6,19 +8,8 @@
   --accent: #09b473;
   --glass: rgba(255,255,255,0.04);
   --card-bg: rgba(12,40,33,0.45);
-  --text: #eaf6f0;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%);
-  background-image:
-  linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%),
-  url('app/assets/train-background.jpg');
-  color: var(--text);
-}
 
 .app-root {
   min-height: 100vh;

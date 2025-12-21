@@ -6,10 +6,14 @@ import { ElectricBusComponent } from "../electric-bus/electric-bus";
 import { Tram } from "../tram/tram";
 import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../Service/ClientIF';
+import { Header } from "../../header/header";
+import { TransportSelectorComponent } from "../../transport-selector/transport-selector";
+import { HeroCard } from "../hero-card/hero-card";
+import { BookingForm } from "../booking-form/booking-form";
 
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram],
+  imports: [CommonModule, LucideAngularModule, Header, TransportSelectorComponent, HeroCard, BookingForm, ElectricTrain, Tram, ElectricBusComponent],
   templateUrl: './home-page.html',
   styleUrls: ['./home-page.css'],
   standalone: true,

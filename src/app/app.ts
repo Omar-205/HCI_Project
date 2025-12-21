@@ -15,12 +15,11 @@ import { SignIn } from "./components/sign-in/sign-in";
 
   standalone: true,
   imports: [
-    Header,
+    RouterOutlet,
     TransportSelectorComponent,
     HeroCard,
-    TicketPanel,
     BookingForm,
-    RouterOutlet
+    Header
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
