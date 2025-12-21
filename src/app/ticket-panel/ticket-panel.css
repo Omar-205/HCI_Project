@@ -1,0 +1,25 @@
+.ticket-panel {
+  margin: 14px 64px 64px;
+  background: linear-gradient(180deg, rgba(10,90,67,0.14), rgba(0,0,0,0.06));
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.03);
+
+  .panel-inner {
+    display:flex; align-items:center; gap:16px;
+  }
+
+  .icon { font-size:28px; }
+
+  .title { font-weight:600; }
+  .subtitle { opacity:0.9; font-size:13px; color: rgba(255,255,255,0.9); }
+
+  .cta {
+    margin-left:auto;
+    background: var(--accent);
+    border: none;
+    padding:10px 16px;
+    border-radius:10px;
+    color:white;
+  }
+}
