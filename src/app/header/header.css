@@ -1,0 +1,27 @@
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 18px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px);
+}
+
+.logo { display:flex; align-items:center; gap:12px; }
+.logo-mark {
+  width:32px; height:40px; border-radius:6px;
+  background: linear-gradient(180deg, var(--accent), #0ea56d);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.branding .title { font-weight:600; font-size:18px; }
+.branding .subtitle { font-size:12px; color: rgba(255,255,255,0.7); }
+
+.right { display:flex; align-items:center; gap:16px; }
+.user { opacity:0.9; }
+.signout {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--text);
+}

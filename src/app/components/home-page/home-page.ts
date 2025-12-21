@@ -1,6 +1,6 @@
 import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, User, LogOut , TriangleAlert, X } from "lucide-angular";
+import { LucideAngularModule, User, LogOut, TriangleAlert, X } from "lucide-angular";
 import { ElectricTrain } from '../../tabs/electric-train/electric-train';
 import { ElectricBusComponent } from "../electric-bus/electric-bus";
 import { Tram } from "../tram/tram";
@@ -35,7 +35,7 @@ export class HomePage {
   severityOptions = Object.values(ComplaintSeverity);
   complaintTypeOptions = Object.values(ComplaintType);
 
-  complaintData : ComplaintRequest = {
+  complaintData: ComplaintRequest = {
     title: '',
     description: '',
     complaintType: ComplaintType.SERVICE_QUALITY,

@@ -1,5 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject, signal } from '@angular/core';
+import { Component, inject, Inject, signal } from '@angular/core';
+import { MapComponent } from '../map-component/map-component';
 
 @Component({
   selector: 'app-map-modal',
@@ -9,7 +10,7 @@ import { Component, Inject, signal } from '@angular/core';
 })
 export class MapModal {
   constructor(
-    public dialogRef: DialogRef<string>, // Used to close and return a value
+    public dialogRef: DialogRef<any[]>, // Used to close and return a value
     @Inject(DIALOG_DATA) public data: {
       gates: string[];
     } // Used to receive passed data
@@ -18,9 +19,18 @@ export class MapModal {
   }
   where = signal<boolean>(true);
 
+  Map:any[]=[];
   close(option: string) {
-    this.dialogRef.close(option); // Closes dialog and returns "Result Data"
+    if(option=="Tram"||option==='Bus'){
+      this.Procede.set(true)
+      this.Map.push(option)
+    }
+    else{
+      this.Map.push(option)
+    this.dialogRef.close(this.Map); 
+    }// Closes dialog and returns "Result Data"
   }
-
-
+  
+  Tram_Bus = signal<boolean>(false);
+  Procede = signal<boolean>(false);
 }
