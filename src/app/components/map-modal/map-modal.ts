@@ -1,6 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, inject, Inject, signal } from '@angular/core';
-import { MapComponent } from '../map-component/map-component';
+import { Component, Inject, signal } from '@angular/core';
 
 @Component({
   selector: 'app-map-modal',
@@ -19,18 +18,18 @@ export class MapModal {
   }
   where = signal<boolean>(true);
 
-  Map:any[]=[];
+  Map: any[] = [];
   close(option: string) {
-    if(option=="Tram"||option==='Bus'){
+    if (option == "Tram" || option === 'Bus') {
       this.Procede.set(true)
       this.Map.push(option)
     }
-    else{
+    else {
       this.Map.push(option)
-    this.dialogRef.close(this.Map); 
+      this.dialogRef.close(this.Map);
     }// Closes dialog and returns "Result Data"
   }
-  
+
   Tram_Bus = signal<boolean>(false);
   Procede = signal<boolean>(false);
 }
