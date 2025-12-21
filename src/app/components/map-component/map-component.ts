@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line, alexandriaMonuments, alexandriaTransitData, alexandriaMetroStations, interplatedTramPoint } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments, alexandriaTransitData, alexandriaMetroStations, interplatedTramPoint, alexandriaBusStations } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -23,6 +23,7 @@ export class MapComponent implements AfterViewInit {
   tramLineLayer!: L.GeoJSON
   metroLayer!: L.GeoJSON;
   Bus!: L.GeoJSON;
+  busStationsLayer!: L.GeoJSON;
   monumentsLayer!: L.GeoJSON;
   layerControl!: L.Control.Layers;
 
@@ -39,6 +40,14 @@ export class MapComponent implements AfterViewInit {
     iconAnchor: [20, 40],
     popupAnchor: [0, -40],
   });
+
+  busStationIcon = L.icon({
+    iconUrl: "img_1.png",
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+    popupAnchor: [0, -18],
+  });
+
 
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
@@ -206,13 +215,39 @@ export class MapComponent implements AfterViewInit {
     this.monumentsLayer.addTo(this.map);
     this.metroLayer.addTo(this.map);
 
+    // Bus stations layer (from public/Bus.geojson via assets)
+    this.busStationsLayer = new L.GeoJSON(alexandriaBusStations as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        const name = feature.properties?.name || feature.properties?.name_en || 'Bus Station';
+        layer.bindPopup(name);
+        layer.addEventListener('click', (e) => {
+          this.colseOtherModals('bus')
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedBus.set({
+            name_en: feature.properties?.name_en || feature.properties?.name,
+            name_ar: feature.properties?.name || '',
+            latlng: L.latLng(latnlgcords as any),
+            corridor: feature.properties?.corridor || ''
+          })
+        })
+      },
+      pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        const marker = L.marker(latlng, { icon: this.busStationIcon, draggable: false })
+        return marker
+      }
+    });
+
+    // Add bus stations to map by default
+    this.busStationsLayer.addTo(this.map);
+
 
     this.layerControl = L.control.layers({},
       {
         'Tram Station & Lines': this.tramLineLayer,
         'Metro Stations': this.metroLayer,
         'Alexandria Monuments': this.monumentsLayer,
-        'Electric Buses': this.Bus
+        'Electric Buses': this.Bus,
+        'Bus Stations': this.busStationsLayer
       },
       { collapsed: false }
     ).addTo(this.map);
