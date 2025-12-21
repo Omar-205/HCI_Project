@@ -1873,7 +1873,7 @@ const interpolatedTramLine = {
       [29.978998, 31.249649], [29.979054, 31.249581], [29.979109, 31.249514], [29.979165, 31.249446], [29.979220, 31.249379],
       [29.979276, 31.249312], [29.979332, 31.249244], [29.979387, 31.249177], [29.979443, 31.249109], [29.979499, 31.249042],
       [29.979556, 31.248975]
-    }
+    ]
   },
   "properties": {
     "name": "Alexandria Raml Tram Path Simulation",
@@ -1888,78 +1888,78 @@ export const alexandriaMetroStations = {
   "features": [
     {
       "type": "Feature",
-      "properties": {"name": "Abo Qir"},
-      "geometry": {"coordinates": [30.06177854826683, 31.317224010074426], "type": "Point"}
+      "properties": { "name": "Abo Qir" },
+      "geometry": { "coordinates": [30.06177854826683, 31.317224010074426], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Maamoura"},
-      "geometry": {"coordinates": [30.05897704877964, 31.308115873751888], "type": "Point"}
+      "properties": { "name": "Maamoura" },
+      "geometry": { "coordinates": [30.05897704877964, 31.308115873751888], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Montazah"},
-      "geometry": {"coordinates": [30.021485607719796, 31.282788618363284], "type": "Point"}
+      "properties": { "name": "Montazah" },
+      "geometry": { "coordinates": [30.021485607719796, 31.282788618363284], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Mandara"},
-      "geometry": {"coordinates": [30.013498757555226, 31.278464687186926], "type": "Point"}
+      "properties": { "name": "Mandara" },
+      "geometry": { "coordinates": [30.013498757555226, 31.278464687186926], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Asafra"},
-      "geometry": {"coordinates": [30.00794192355812, 31.272651523228376], "type": "Point"}
+      "properties": { "name": "Asafra" },
+      "geometry": { "coordinates": [30.00794192355812, 31.272651523228376], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Sidi Beshr"},
-      "geometry": {"coordinates": [29.99407620229701, 31.25709508533386], "type": "Point"}
+      "properties": { "name": "Sidi Beshr" },
+      "geometry": { "coordinates": [29.99407620229701, 31.25709508533386], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Al - Noqrashi"},
-      "geometry": {"coordinates": [29.979406160545068, 31.24812619422748], "type": "Point"}
+      "properties": { "name": "Al - Noqrashi" },
+      "geometry": { "coordinates": [29.979406160545068, 31.24812619422748], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Al Raml AlMery"},
-      "geometry": {"coordinates": [29.97672023818936, 31.242893476837565], "type": "Point"}
+      "properties": { "name": "Al Raml AlMery" },
+      "geometry": { "coordinates": [29.97672023818936, 31.242893476837565], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Gheprial"},
-      "geometry": {"coordinates": [29.975840310675807, 31.23803117739098], "type": "Point"}
+      "properties": { "name": "Gheprial" },
+      "geometry": { "coordinates": [29.975840310675807, 31.23803117739098], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Bakous"},
-      "geometry": {"coordinates": [29.97037238602374, 31.232937747861612], "type": "Point"}
+      "properties": { "name": "Bakous" },
+      "geometry": { "coordinates": [29.97037238602374, 31.232937747861612], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Al Zahria"},
-      "geometry": {"coordinates": [29.965560424207183, 31.228783611205756], "type": "Point"}
+      "properties": { "name": "Al Zahria" },
+      "geometry": { "coordinates": [29.965560424207183, 31.228783611205756], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Sidi Gaber"},
-      "geometry": {"coordinates": [29.94243524008533, 31.218914825598887], "type": "Point"}
+      "properties": { "name": "Sidi Gaber" },
+      "geometry": { "coordinates": [29.94243524008533, 31.218914825598887], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Al- Hadra"},
-      "geometry": {"coordinates": [29.929960191268606, 31.204043864383422], "type": "Point"}
+      "properties": { "name": "Al- Hadra" },
+      "geometry": { "coordinates": [29.929960191268606, 31.204043864383422], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Masr Station"},
-      "geometry": {"coordinates": [29.906771380138508, 31.193375570653316], "type": "Point"}
+      "properties": { "name": "Masr Station" },
+      "geometry": { "coordinates": [29.906771380138508, 31.193375570653316], "type": "Point" }
     },
     {
       "type": "Feature",
-      "properties": {"name": "Moharram Bey"},
-      "geometry": {"coordinates": [29.926054755234986, 31.186044239802726], "type": "Point"}
+      "properties": { "name": "Moharram Bey" },
+      "geometry": { "coordinates": [29.926054755234986, 31.186044239802726], "type": "Point" }
     }
   ]
 }

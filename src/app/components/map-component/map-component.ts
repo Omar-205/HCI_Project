@@ -36,8 +36,8 @@ export class MapComponent implements AfterViewInit {
 
   metroIcon = L.icon({
     iconUrl: "img.png",
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
+    iconSize: [80, 80],
+    iconAnchor: [45, 70],
     popupAnchor: [0, -40],
   });
 
@@ -213,7 +213,7 @@ export class MapComponent implements AfterViewInit {
     });
 
     this.monumentsLayer.addTo(this.map);
-    this.metroLayer.addTo(this.map);
+    // this.metroLayer.addTo(this.map);
 
     // Bus stations layer (from public/Bus.geojson via assets)
     this.busStationsLayer = new L.GeoJSON(alexandriaBusStations as any, {
@@ -238,7 +238,7 @@ export class MapComponent implements AfterViewInit {
     });
 
     // Add bus stations to map by default
-    this.busStationsLayer.addTo(this.map);
+    // this.busStationsLayer.addTo(this.map);
 
 
     this.layerControl = L.control.layers({},
@@ -247,7 +247,7 @@ export class MapComponent implements AfterViewInit {
         'Metro Stations': this.metroLayer,
         'Alexandria Monuments': this.monumentsLayer,
         'Electric Buses': this.Bus,
-        'Bus Stations': this.busStationsLayer
+        // 'Bus Stations': this.busStationsLayer
       },
       { collapsed: false }
     ).addTo(this.map);
@@ -775,7 +775,7 @@ interface TrainState {
 export const monumnetIcon = L.icon({
   iconUrl: "monumentIcon.png",
   iconSize: [160, 90],
-  iconAnchor: [100, 100],  // the relative position of the tip to the top-left corner
+  iconAnchor: [80, 70],  // the relative position of the tip to the top-left corner
   popupAnchor: [-3, -76],
 })
 export const BusIcon = L.icon({
