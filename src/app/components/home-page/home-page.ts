@@ -96,6 +96,14 @@ export class HomePage {
     this.sidebarContent.set(null);
   }
 
+  getBookingCategory(): 'bus' | 'tram' | 'metro' {
+    const currentTab = this.tab();
+    if (currentTab === 'Electric Bus') return 'bus';
+    if (currentTab === 'Tram') return 'tram';
+    if (currentTab === 'Metro') return 'metro';
+    return 'metro'; // default
+  }
+
   onSidebarMenuClick(itemId: string) {
     switch (itemId) {
       case 'my-tickets':

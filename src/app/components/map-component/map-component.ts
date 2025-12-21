@@ -2,7 +2,7 @@ import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
 import { map, Routing, latLng, icon, marker, tileLayer, GeoJSON } from 'leaflet';
 import 'leaflet-routing-machine';
-import { alex_raml_tram_line, alexandriaMonuments, alexandriaTransitData, interplatedTramPoint } from '../../assets/assets';
+import { alex_raml_tram_line, alexandriaMonuments, alexandriaTransitData, alexandriaMetroStations, interplatedTramPoint } from '../../assets/assets';
 import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
@@ -21,6 +21,7 @@ export class MapComponent implements AfterViewInit {
   dialog = inject(Dialog)
   private map: L.Map | undefined;
   tramLineLayer!: L.GeoJSON
+  metroLayer!: L.GeoJSON;
   Bus!: L.GeoJSON;
   monumentsLayer!: L.GeoJSON;
   layerControl!: L.Control.Layers;
@@ -30,6 +31,13 @@ export class MapComponent implements AfterViewInit {
     iconSize: [70, 40],
     iconAnchor: [38, 38],  // the relative position of the tip to the top-left corner
     popupAnchor: [-3, -76],
+  });
+
+  metroIcon = L.icon({
+    iconUrl: "img.png",
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [0, -40],
   });
 
 
@@ -179,12 +187,30 @@ export class MapComponent implements AfterViewInit {
       }
     });
 
+    // Metro layer
+    this.metroLayer = new L.GeoJSON(alexandriaMetroStations as any, {
+      onEachFeature: (feature: any, layer: L.Layer) => {
+        layer.bindPopup(feature.properties['name']);
+        layer.addEventListener('click', (e) => {
+          this.colseOtherModals('metro')
+          const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
+          this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
+        })
+      }
+      , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
+        const marker = L.marker(latlng, { icon: this.metroIcon, draggable: false })
+        return marker
+      }
+    });
+
     this.monumentsLayer.addTo(this.map);
+    this.metroLayer.addTo(this.map);
 
 
     this.layerControl = L.control.layers({},
       {
         'Tram Station & Lines': this.tramLineLayer,
+        'Metro Stations': this.metroLayer,
         'Alexandria Monuments': this.monumentsLayer,
         'Electric Buses': this.Bus
       },
@@ -261,11 +287,11 @@ export class MapComponent implements AfterViewInit {
     "Side gate": latLng(31.206909, 29.925710)
   }
 
-  colseOtherModals(modalName: "tram" | 'bus' | 'monument') {
+  colseOtherModals(modalName: "tram" | 'bus' | 'monument' | 'metro') {
     if (modalName != 'monument') {
       this.selectedMonument.set(null)
     }
-    if (modalName != 'tram') {
+    if (modalName != 'tram' && modalName != 'metro') {
       this.selectedStation.set(null)
     }
     if (modalName != 'bus') {

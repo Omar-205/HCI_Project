@@ -1,62 +1,58 @@
-<!-- Hamburger Icon Button -->
-<button (click)="toggleSidebar()"
-        class="hamburger-btn fixed top-4 left-4 z-[60] p-2 rounded-lg bg-navBar border border-border-color hover:bg-[#064e4a] transition-colors cursor-pointer"
-        [class.sidebar-open]="isOpen()">
-  <i-lucide [img]="isOpen() ? XIcon : MenuIcon" [size]="24" class="text-white"></i-lucide>
-</button>
-
-<!-- Overlay -->
-<div *ngIf="isOpen()"
-     (click)="closeSidebar()"
-     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity"></div>
-
-<!-- Sidebar -->
-<aside class="sidebar fixed top-0 left-0 h-full w-[300px] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col"
-       [class.translate-x-0]="isOpen()"
-       [class.-translate-x-full]="!isOpen()">
-
-  <!-- Header with Logo -->
-  <div class="p-6 pb-4">
-    <div class="flex items-center gap-3">
-      <div class="w-12 h-12 rounded-full bg-[#10b981] flex items-center justify-center text-white font-bold text-lg">
-        GL
-      </div>
-      <div>
-        <h2 class="font-bold text-xl text-gray-800">GreenLink</h2>
-        <p class="text-sm text-gray-500">Transport Hub</p>
+<!-- Static Sidebar -->
+<div class="sidebar-container">
+  <aside class="sidebar">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-wrapper">
+        <div class="logo-icon">
+          <span>GL</span>
+        </div>
+        <div class="logo-text">
+          <h2>GreenLink</h2>
+          <p>Transport Hub</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Divider -->
-  <div class="h-[1px] bg-gray-200 mx-4"></div>
-
-  <!-- Menu Items -->
-  <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
-    <button *ngFor="let item of menuItems"
-            (click)="onMenuItemClick(item.id)"
-            class="menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-pointer"
-            [class.active]="item.active">
-      <div class="icon-wrapper p-2 rounded-lg" [class.active-icon]="item.active">
-        <i-lucide [img]="item.icon" [size]="20" class="menu-icon"></i-lucide>
+    <!-- User Info Section -->
+    <div class="user-section">
+      <div class="user-info">
+        <div class="user-avatar">
+          {{ getInitials(userName) }}
+        </div>
+        <div class="user-details">
+          <h3>{{ userName }}</h3>
+          <p *ngIf="userEmail">{{ userEmail }}</p>
+        </div>
       </div>
-      <span class="flex-1 text-left font-medium" [class.active-text]="item.active">{{ item.label }}</span>
-      <span *ngIf="item.count" class="count-badge px-2 py-0.5 rounded-full text-xs font-semibold">
-        {{ item.count }}
-      </span>
-      <i-lucide *ngIf="item.active" [img]="ChevronRightIcon" [size]="18" class="text-[#10b981]"></i-lucide>
-    </button>
-  </nav>
+    </div>
 
-  <!-- Settings at Bottom -->
-  <div class="p-4 border-t border-gray-200">
-    <button (click)="onSettingsClick()"
-            class="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
-      <div class="p-2 rounded-lg bg-gray-100">
-        <i-lucide [img]="SettingsIcon" [size]="20" class="text-gray-600"></i-lucide>
-      </div>
-      <span class="font-medium text-gray-700">Settings</span>
-    </button>
-  </div>
-</aside>
+    <!-- Menu Items -->
+    <nav class="menu-section">
+      <button *ngFor="let item of menuItems"
+              (click)="onMenuItemClick(item.id)"
+              class="menu-item"
+              [class.active]="item.active">
+        <div class="icon-wrapper">
+          <i-lucide [img]="item.icon" [size]="18" class="menu-icon"></i-lucide>
+        </div>
+        <span class="menu-text">{{ item.label }}</span>
+        <span *ngIf="item.count" class="count-badge">
+          {{ item.count }}
+        </span>
+        <i-lucide *ngIf="item.active" [img]="ChevronRightIcon" [size]="16" class="arrow-icon"></i-lucide>
+      </button>
+    </nav>
+
+    <!-- Settings at Bottom -->
+    <div class="settings-section">
+      <button (click)="onSettingsClick()" class="settings-btn">
+        <div class="icon-wrapper">
+          <i-lucide [img]="SettingsIcon" [size]="18" class="menu-icon"></i-lucide>
+        </div>
+        <span class="menu-text">Settings</span>
+      </button>
+    </div>
+  </aside>
+</div>
 

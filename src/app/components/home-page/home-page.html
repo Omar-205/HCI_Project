@@ -1,54 +1,55 @@
 <app-sidebar (menuItemClicked)="onSidebarMenuClick($event)"></app-sidebar>
 
-<div id="bgimg" class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-fixed"></div>
-<div class="fixed inset-0 -z-10 bg-black/30 backdrop-blur-xs"></div>
+<div class="main-content-wrapper" style="margin-left: 280px;">
+  <div id="bgimg" class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-fixed"></div>
+  <div class="fixed inset-0 -z-10 bg-black/30 backdrop-blur-xs"></div>
 
-<header class="flex justify-between p-4 w-full bg-navBar text-white border border-[#1D4A47]">
-  <div class="flex gap-2">
-    <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10">
-      <path d="M30 20 L50 10 L50 100 L30 110 Z" fill="#10b981" opacity="0.8"></path>
-      <path d="M50 10 L70 20 L70 110 L50 100 Z" fill="#34d399"></path>
-      <path d="M30 20 L50 10 L70 20 L50 30 Z" fill="#6ee7b7"></path>
-      <path d="M30 20 L50 30 L50 100 Z" fill="#059669" opacity="0.3"></path>
-    </svg>
-    <div>
-      <h2 class="font-semibold text-2xl">GreenLink</h2>
-      <p class="text-text-green">Eco Transport</p>
+  <header class="flex justify-between p-4 w-full bg-navBar text-white border border-[#1D4A47]">
+    <div class="flex gap-2">
+      <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10">
+        <path d="M30 20 L50 10 L50 100 L30 110 Z" fill="#10b981" opacity="0.8"></path>
+        <path d="M50 10 L70 20 L70 110 L50 100 Z" fill="#34d399"></path>
+        <path d="M30 20 L50 10 L70 20 L50 30 Z" fill="#6ee7b7"></path>
+        <path d="M30 20 L50 30 L50 100 Z" fill="#059669" opacity="0.3"></path>
+      </svg>
+      <div>
+        <h2 class="font-semibold text-2xl">GreenLink</h2>
+        <p class="text-text-green">Eco Transport</p>
+      </div>
     </div>
-  </div>
-  <div class="flex gap-[4vw]">
-    <div class="flex items-center gap-[1vw]">
-      <i-lucide [img]="User" [size]="20" name="user" class="my-icon"></i-lucide>
-      <h3>Welcome, {{UserName}}</h3>
-    </div>
-    <button (click)="onLogout()" class="flex cursor-pointer items-center text-md gap-[1vw] font-semibold">
-      <i-lucide [img]="LogOutIcon" [size]="20" name="log-out" class="my-icon"></i-lucide>
-      Sign Out
-    </button>
-  </div>
-</header>
-
-<main class="relative p-4 flex flex-col justify-between" style="height: calc(100vh - 80px);">
-  <div class="relative">
-    <h2 class="text-white text-5xl mt-6">Choose Your Transport</h2>
-    <p class="text-text-green mt-4 mb-2">Track Buses and trains in real-time, or book your train journey</p>
-
-    <div class="p-[3px] text-text-green grid grid-cols-3 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl">
-      <button *ngFor="let tabName of tabs"
-              [class]="'text-nowrap text-center rounded-4xl text-[#A3BCBA] transition-all ' + (tabName == tab() ? 'bg-[#009966] text-[#EEF8F5]' : '')"
-              (click)="tab.set(tabName)">
-        <p class="text-md font-semibold py-0.5 mx-auto">{{tabName}}</p>
+    <div class="flex gap-[4vw]">
+      <div class="flex items-center gap-[1vw]">
+        <i-lucide [img]="User" [size]="20" name="user" class="my-icon"></i-lucide>
+        <h3>Welcome, {{UserName}}</h3>
+      </div>
+      <button (click)="onLogout()" class="flex cursor-pointer items-center text-md gap-[1vw] font-semibold">
+        <i-lucide [img]="LogOutIcon" [size]="20" name="log-out" class="my-icon"></i-lucide>
+        Sign Out
       </button>
     </div>
+  </header>
 
-    <div class="mt-4 overflow-y-auto">
-      @if (tab() == "Metro") { <app-electric-train></app-electric-train> }
-      @if (tab() == "Tram") { <app-tram></app-tram> }
-      @if (tab() == 'Electric Bus') { <app-electric-bus></app-electric-bus> }
+  <main class="relative p-4 flex flex-col justify-between" style="height: calc(100vh - 80px);">
+    <div class="relative">
+      <h2 class="text-white text-5xl mt-6">Choose Your Transport</h2>
+      <p class="text-text-green mt-4 mb-2">Track Buses and trains in real-time, or book your train journey</p>
+
+      <div class="p-[3px] text-text-green grid grid-cols-3 w-[80vw] max-w-[786px] bg-navBar border border-border-color rounded-4xl">
+        <button *ngFor="let tabName of tabs"
+                [class]="'text-nowrap text-center rounded-4xl text-[#A3BCBA] transition-all ' + (tabName == tab() ? 'bg-[#009966] text-[#EEF8F5]' : '')"
+                (click)="tab.set(tabName)">
+          <p class="text-md font-semibold py-0.5 mx-auto">{{tabName}}</p>
+        </button>
+      </div>
+
+      <div class="mt-4 overflow-y-auto">
+        @if (tab() == "Metro") { <app-electric-train></app-electric-train> }
+        @if (tab() == "Tram") { <app-tram></app-tram> }
+        @if (tab() == 'Electric Bus') { <app-electric-bus></app-electric-bus> }
+      </div>
     </div>
-  </div>
 
-  <div class="flex flex-col items-center gap-4 mb-6">
+    <div class="flex flex-col items-center gap-4 mb-6">
     <p class="text-white/80 text-lg">Need assistance or experiencing issues?</p>
     <button (click)="isModalOpen.set(true)"
             class="flex items-center gap-3 px-8  py-4 bg-gradient-to-r from-[#FF4D00] to-[#FF8A00] text-white rounded-full font-bold text-xl shadow-lg hover:scale-105 transition-all cursor-pointer">
@@ -139,7 +140,7 @@
     <!-- Modal Content -->
     <div class="overflow-y-auto max-h-[calc(90vh-80px)]">
       @if (sidebarContent() === 'book-ticket') {
-        <app-booking-form></app-booking-form>
+        <app-booking-form [category]="getBookingCategory()"></app-booking-form>
       }
       @if (sidebarContent() === 'my-tickets') {
         <app-my-tickets></app-my-tickets>
@@ -154,4 +155,5 @@
   </div>
 </div>
 }
+</div>
 
