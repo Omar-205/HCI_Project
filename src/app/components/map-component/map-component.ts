@@ -7,6 +7,8 @@ import "leaflet"
 import "@angular/cdk/dialog"
 import { Dialog } from '@angular/cdk/dialog';
 import { MapModal } from '../map-modal/map-modal';
+import { MatSnackBar } from "@angular/material/snack-bar"
+import { SnackBarComponent } from '../snack-bar-component/snack-bar-component';
 
 @Component({
   selector: 'app-map-component',
@@ -15,7 +17,7 @@ import { MapModal } from '../map-modal/map-modal';
   styleUrl: './map-component.css',
 })
 export class MapComponent implements AfterViewInit {
-
+  snackBar = inject(MatSnackBar)
   dialog = inject(Dialog)
   private map: L.Map | undefined;
   tramLineLayer!: L.GeoJSON
@@ -33,6 +35,7 @@ export class MapComponent implements AfterViewInit {
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
   selectedMonument = signal<null | { name: string, latlng: L.LatLng, description: string, address: string, wikipedia: string }>(null)
+  selectedBus = signal<null | { name_en: string, latlng: L.LatLng, corridor: string, name_ar: string }>(null)
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -85,6 +88,7 @@ export class MapComponent implements AfterViewInit {
 
 
 
+
   private initMap(): void {
     this.map = map('map', {
       center: this.centerPoint,
@@ -104,13 +108,7 @@ export class MapComponent implements AfterViewInit {
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
-    const tramMarker = L.marker([31.206006, 29.923298], {
-      riseOnHover: true,
-      icon: this.tramIcon,
-      alt: "error loading the icon",
-      draggable: false
-    })
-    //.addTo(this.map)
+
     const baseLayers = {
       tiles,
       googleStreets
@@ -124,7 +122,7 @@ export class MapComponent implements AfterViewInit {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
         layer.addEventListener('click', (e) => {
-          this.selectedMonument.set(null)
+          this.colseOtherModals('tram')
           const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
           this.selectedStation.set({ name: feature.properties['name'], latlng: L.latLng(latnlgcords as any) })
         })
@@ -142,7 +140,7 @@ export class MapComponent implements AfterViewInit {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
         layer.addEventListener('click', (e) => {
-          this.selectedStation.set(null)
+          this.colseOtherModals('monument')
           const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
           this.selectedMonument.set({
             name: feature.properties['name'],
@@ -164,17 +162,15 @@ export class MapComponent implements AfterViewInit {
       onEachFeature: (feature: any, layer: L.Layer) => {
         layer.bindPopup(feature.properties['name']);
         layer.addEventListener('click', (e) => {
-          this.selectedStation.set(null)
+          this.colseOtherModals('bus')
           const latnlgcords = [feature.geometry.coordinates[1] as number, feature.geometry.coordinates[0] as number]
-          this.selectedMonument.set({
-            name: feature.properties['name'],
+          this.selectedBus.set({
+            name_en: feature.properties['name_en'],
+            name_ar: feature.properties['name_ar'],
             latlng: L.latLng(latnlgcords as any),
-            description: feature.properties['description'],
-            address: feature.properties['address'],
-            wikipedia: feature.properties['wikipedia']
+            corridor: feature.properties['corridor'],
           })
         })
-
       }
       , pointToLayer: (geoJsonPoint: any, latlng: L.LatLng) => {
         this.arr_Bus.push(latlng)
@@ -198,11 +194,13 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
     ctr.addTo(this.map)
 
+    this.initializeTrains();
+
     this.dialog.open(MapModal, {
       hasBackdrop: true,
       data: {
         gates: Object.keys(this.gates)
-        
+
       },
       disableClose: true,
       closeOnNavigation: true,
@@ -210,28 +208,42 @@ export class MapComponent implements AfterViewInit {
       // scrollStrategy: block
     }).closed.subscribe(ret => this.closeModal(ret as any[]))
 
+    this.startAllTrains({
+      loopMode: 'limited',
+      maxLoops: 5,
+      totalSimulationTime: 600000 // 10 minutes
+      // Trains stop after 5 loops OR 10 minutes, whichever comes first
+    });
+
   }
   closeModal(param: any[]) { // after selecting from the popup
     console.log(param);
-    if (Object.keys(this.gates).includes(param[1])) {
-      if ('Tram'===param[0]) {
+    const gate = param[1]
+    if (Object.keys(this.gates).includes(gate)) {
+      if ('Tram' === param[0]) {
         this.tramLineLayer.addTo(this.map as any);
-        this.startRoutingFromGate(param[1], this.arr_Tram)
+        this.startRoutingFromGate(gate, this.arr_Tram)
         this.start_direction = param
-        console.log(this.getShortestPath(this.gates[param[1]], this.arr_Tram))
+        console.log(this.getShortestPath(this.gates[gate], this.arr_Tram))
+        this.showMessage("Routing to the nearest Tram station")
       } else {
         this.Bus.addTo(this.map as any);
-        this.startRoutingFromGate(param[1], this.arr_Bus)
+        this.startRoutingFromGate(gate, this.arr_Bus)
         this.start_direction = param
+        this.showMessage("Routing to the nearest Bus station")
       }
-    } else if (param[1] == 'select') {
+    } else if (gate == 'select') {
+      this.showMessage("Select Your Current Location")
 
-      if ('Tram'===param[0]) {
+      if ('Tram' === param[0]) {
         this.tramLineLayer.addTo(this.map as any);
         this.handleSelectStartPoint(this.arr_Tram);
+        console.log('tram routing');
+
       } else {
         this.Bus.addTo(this.map as any);
         this.handleSelectStartPoint(this.arr_Bus);
+
       }
 
       return
@@ -243,17 +255,30 @@ export class MapComponent implements AfterViewInit {
 
   gates: Record<string, L.LatLng> = {
     "E3dady gate": latLng(31.206537, 29.923098),
-    "Gamal Abel Naser": latLng(31.205734, 29.925426),
+    "Gamal Abdel Naser": latLng(31.205734, 29.925426),
     "El Garage gate": latLng(31.207996, 29.922363),
     "Entag gate": latLng(31.208184, 29.925501),
     "Side gate": latLng(31.206909, 29.925710)
+  }
+
+  colseOtherModals(modalName: "tram" | 'bus' | 'monument') {
+    if (modalName != 'monument') {
+      this.selectedMonument.set(null)
+    }
+    if (modalName != 'tram') {
+      this.selectedStation.set(null)
+    }
+    if (modalName != 'bus') {
+      this.selectedBus.set(null)
+    }
   }
 
   routeFromTo(source: L.LatLng, destination: L.LatLng) {
     if (!this.map) return
     if (this.routing)
       this.map.removeControl(this.routing)
-    console.log(source, destination)
+    this.startPoint = source
+    this.destinationPoint = destination
     this.routing = Routing.control({
       waypoints: [
         source,
@@ -276,12 +301,32 @@ export class MapComponent implements AfterViewInit {
   }
 
   inAppNavigation(destination: string) {
+    let data = ""
     if (this.selectedStation() != null) {
       this.destinationPoint = this.selectedStation()?.latlng as any
       this.routeFromTo(this.startPoint, this.destinationPoint)
+      data = `Going to the ${this.selectedStation()?.name || ""}`
     }
+    if (this.selectedMonument() != null) {
+      this.destinationPoint = this.selectedMonument()?.latlng as any
+      this.routeFromTo(this.startPoint, this.destinationPoint)
+      data = `Going to the ${this.selectedMonument()?.name || ""} Monument`
+    }
+    if (this.selectedBus() != null) {
+      this.destinationPoint = this.selectedBus()?.latlng as any
+      this.routeFromTo(this.startPoint, this.destinationPoint)
+      data = `Going to the ${this.selectedBus()?.name_en || ""}`
+    }
+    this.showMessage(data)
   }
-
+  showMessage(data: string) {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 4000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar'],
+      data
+    })
+  }
   handleSelectStartPoint = (Arr: L.LatLng[]) => {
     const selection = (e: any) => {
       console.log(e.latlng);

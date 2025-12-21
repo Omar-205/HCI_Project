@@ -7,6 +7,90 @@
   --color-border-color: #1D4A47;
 }
 
+.snackbar-container {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  animation: slideDown 0.4s ease-out;
+}
+
+.snackbar-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #C3E883 0%, #A8D35F 100%);
+  color: #1a1a1a;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.snackbar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.snackbar-text {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .snackbar-container {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+  }
+
+  .snackbar-content {
+    min-width: auto;
+    width: 100%;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
 
 body {
     background: black;
