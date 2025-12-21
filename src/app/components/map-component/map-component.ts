@@ -9,6 +9,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { MapModal } from '../map-modal/map-modal';
 import { MatSnackBar } from "@angular/material/snack-bar"
 import { SnackBarComponent } from '../snack-bar-component/snack-bar-component';
+import { TicketService } from '../Service/ticket.service';
 
 @Component({
   selector: 'app-map-component',
@@ -18,6 +19,7 @@ import { SnackBarComponent } from '../snack-bar-component/snack-bar-component';
 })
 export class MapComponent implements AfterViewInit {
   snackBar = inject(MatSnackBar)
+  ticketService = inject(TicketService)
   dialog = inject(Dialog)
   private map: L.Map | undefined;
   tramLineLayer!: L.GeoJSON
@@ -48,7 +50,17 @@ export class MapComponent implements AfterViewInit {
     popupAnchor: [0, -18],
   });
 
-
+  book() {
+    this.ticketService.createTicket({ description: "", fromPlace: "", toPlace: "", price: 0, category: 'bus' })
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+  }
 
   selectedStation = signal<null | { name: string, latlng: L.LatLng }>(null)
   selectedMonument = signal<null | { name: string, latlng: L.LatLng, description: string, address: string, wikipedia: string }>(null)

@@ -13,7 +13,7 @@
     <h3 class="text-3xl font-bold text-gray-800 leading-tight">
       What is your current location?
     </h3>
-    <p class="text-gray-700 mt-2 text-lg">Choose your destination</p>
+    <!-- <p class="text-gray-700 mt-2 text-lg">Choose your destination</p> -->
   </div>
 
   <!-- Toggle buttons with improved design -->
@@ -45,13 +45,13 @@
     <div class="flex flex-wrap justify-center gap-4">
       <button (click)="close('Tram')"
         class="flex-none w-[30%] min-w-[140px] p-5 bg-white/90 border-2 border-white rounded-2xl text-center hover:border-[#059669] hover:shadow-2xl hover:scale-110 hover:bg-white cursor-pointer transition-all duration-300 font-semibold text-base shadow-lg">
-        <div class="text-2xl mb-1">🚪</div>
-        {{'Tram'}}
+        <div class="text-4xl mb-2">🚊</div>
+        <div class="text-gray-800">Tram</div>
       </button>
       <button (click)="close('Bus')"
         class="flex-none w-[30%] min-w-[140px] p-5 bg-white/90 border-2 border-white rounded-2xl text-center hover:border-[#059669] hover:shadow-2xl hover:scale-110 hover:bg-white cursor-pointer transition-all duration-300 font-semibold text-base shadow-lg">
-        <div class="text-2xl mb-1">🚪</div>
-        {{'Bus'}}
+        <div class="text-4xl mb-2">🚌</div>
+        <div class="text-gray-800">Bus</div>
       </button>
 
     </div>

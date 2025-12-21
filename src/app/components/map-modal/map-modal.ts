@@ -1,9 +1,10 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, signal } from '@angular/core';
+import { TramFrontIcon, LucideAngularModule, BusFront, TramFront, BusIcon } from 'lucide-angular';
 
 @Component({
   selector: 'app-map-modal',
-  imports: [],
+  imports: [LucideAngularModule],
   templateUrl: './map-modal.html',
   styleUrl: './map-modal.css',
 })
@@ -32,4 +33,6 @@ export class MapModal {
 
   Tram_Bus = signal<boolean>(false);
   Procede = signal<boolean>(false);
+  Train = TramFront
+  bus = BusIcon
 }
