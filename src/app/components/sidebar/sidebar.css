@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+@theme {
+  --color-text-green: #9CEBC7;
+  --color-navBar: #033331;
+  --color-border-color: #1D4A47;
+  --color-accent: #1EE3A3;
+  --color-card-bg: rgba(22, 61, 56, 0.9);
+}
+
+/* Sidebar container */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  height: 100%;
+  background: linear-gradient(180deg, #033331 0%, #0a4a45 50%, #053b2e 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+}
+
+/* Logo section */
+.logo-section {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1EE3A3 0%, #0ea56d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(30, 227, 163, 0.3);
+}
+
+.logo-icon span {
+  color: #033331;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.logo-text h2 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logo-text p {
+  color: #C0FBF0;
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* User info section */
+.user-section {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(30, 227, 163, 0.2);
+  border: 2px solid rgba(30, 227, 163, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1EE3A3;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-details h3 {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-details p {
+  color: #C0FBF0;
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Menu items */
+.menu-section {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.menu-item:hover {
+  background: rgba(30, 227, 163, 0.1);
+  border-color: rgba(30, 227, 163, 0.2);
+}
+
+.menu-item.active {
+  background: rgba(30, 227, 163, 0.15);
+  border-color: rgba(30, 227, 163, 0.3);
+}
+
+/* Icon wrapper */
+.icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover .icon-wrapper {
+  background: rgba(30, 227, 163, 0.2);
+}
+
+.menu-item.active .icon-wrapper {
+  background: #1EE3A3;
+}
+
+.menu-icon {
+  color: #C0FBF0;
+}
+
+.menu-item.active .menu-icon {
+  color: #033331;
+}
+
+/* Menu text */
+.menu-text {
+  flex: 1;
+  text-align: left;
+  color: #C0FBF0;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu-item:hover .menu-text {
+  color: #ffffff;
+}
+
+.menu-item.active .menu-text {
+  color: #1EE3A3;
+  font-weight: 600;
+}
+
+/* Count badge */
+.count-badge {
+  background: rgba(30, 227, 163, 0.2);
+  color: #1EE3A3;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.menu-item.active .count-badge {
+  background: #1EE3A3;
+  color: #033331;
+}
+
+/* Arrow icon */
+.arrow-icon {
+  color: #1EE3A3;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.menu-item.active .arrow-icon {
+  opacity: 1;
+}
+
+/* Settings section */
+.settings-section {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.settings-btn .icon-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.settings-btn:hover .icon-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.settings-btn .menu-icon {
+  color: #C0FBF0;
+}
+
+.settings-btn .menu-text {
+  color: #C0FBF0;
+}
+
+.settings-btn:hover .menu-text {
+  color: #ffffff;
+}
+
+/* Main content offset */
+.main-content-offset {
+  margin-left: 280px;
+}
+

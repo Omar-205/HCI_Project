@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    #map {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map">
+
+  </div>
+
+  <script>
+    var map = L.map('map').setView([31.20600, 29.92392], 18);
+    // open street map tile
+    var openstreetmap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    })
+    // mapLayer.addTo(map);
+    // markers
+    var marker = L.marker([31.20600, 29.92382])
+    // adding popups to markers
+    marker.addTo(map)
+    // marker.bindPopup("def").openPopup() // can bind unique popups
+    const popup = L.popup()
+      .setLatLng([31.20600, 29.92392])
+      .setContent("content")
+      // .openOn(map)
+    //marker.bindPopup(popup)
+    // google steet tile
+    googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+    // googleStreets.addTo(map)
+    // icons
+    const icon = L.icon({
+      iconUrl: 'gps.png',
+    iconSize: [38, 38],
+    iconAnchor: [38, 38],  // the relative position of the tip to the top-left corner
+    popupAnchor: [-3, -76],
+    //shadowUrl: 'my-icon-shadow.png',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+    })
+    const redMarker = L.marker([31.20600, 29.92392], {icon: icon, draggable: false}).addTo(map)
+    // geoJson
+    var pathJson = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            29.923567846466767,
+            31.206062257301298
+          ],
+          [
+            29.92334243922741,
+            31.205988106141476
+          ],
+          [
+            29.922674887017735,
+            31.20721159285067
+          ],
+          [
+            29.92205935186405,
+            31.208420233877916
+          ],
+          [
+            29.921253087507438,
+            31.209332265654552
+          ],
+          [
+            29.920619965623644,
+            31.209889069771023
+          ],
+          [
+            29.92003553965688,
+            31.210738942921523
+          ],
+          [
+            29.920745034839115,
+            31.211220473101207
+          ],
+          [
+            29.920718662496512,
+            31.211288688376428
+          ]
+        ],
+        "type": "LineString"
+      }
+    }
+  ]
+}
+    var path = L.geoJson(pathJson, {
+      onEachFeature: function(feature, layer) {
+      },
+      style: {
+
+      }
+    })
+    path.addTo(map)
+
+
+
+    // layer controls
+    // define the layer
+    var baseLayers = {
+      "open street": openstreetmap,
+      "google street": googleStreets
+    };
+    // define the overlays
+    var overlays = {
+      "Marker": marker,
+      "Red Marker": redMarker,
+      path
+    };
+    // the default layer to be toggled
+    openstreetmap.addTo(map)
+    // add the control to the map
+    const control = L.control.layers(baseLayers, overlays, {collapsed: false});
+    control.addTo(map)
+
+
+
+  </script>
+</body>
+
+</html>

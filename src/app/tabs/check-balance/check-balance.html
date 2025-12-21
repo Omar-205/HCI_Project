@@ -1,0 +1,123 @@
+<div class="p-6 space-y-6">
+  <!-- Balance Card -->
+  <div class="balance-card relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-[#10b981] to-[#059669] text-white">
+    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+
+    <div class="relative z-10">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="p-3 bg-white/20 rounded-xl">
+            <i-lucide [img]="WalletIcon" [size]="28" class="text-white"></i-lucide>
+          </div>
+          <div>
+            <p class="text-sm text-white/80">Available Balance</p>
+            <h2 class="text-3xl font-bold">EGP {{ walletService.balance() | number:'1.2-2' }}</h2>
+          </div>
+        </div>
+        <button (click)="refreshBalance()"
+                class="p-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors cursor-pointer"
+                [class.animate-spin]="walletService.isLoading()">
+          <i-lucide [img]="RefreshIcon" [size]="20" class="text-white"></i-lucide>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 text-white/70 text-sm">
+        <i-lucide [img]="CreditCardIcon" [size]="16"></i-lucide>
+        <span>GreenLink Wallet</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="grid grid-cols-2 gap-4">
+    <button (click)="toggleTopUpMode()"
+            class="action-btn flex items-center justify-center gap-3 p-4 rounded-xl transition-all cursor-pointer"
+            [class.active]="isTopUpMode()">
+      <i-lucide [img]="PlusIcon" [size]="22"></i-lucide>
+      <span class="font-semibold">Top Up</span>
+    </button>
+    <button (click)="toggleTransactions()"
+            class="action-btn flex items-center justify-center gap-3 p-4 rounded-xl transition-all cursor-pointer"
+            [class.active]="showTransactions()">
+      <i-lucide [img]="HistoryIcon" [size]="22"></i-lucide>
+      <span class="font-semibold">History</span>
+    </button>
+  </div>
+
+  <!-- Top Up Section -->
+  @if (isTopUpMode()) {
+  <div class="top-up-section bg-[#0d3d38] rounded-2xl p-5 border border-[#1a5d4a] animate-slideDown">
+    <h3 class="text-white font-semibold mb-4">Add Funds to Wallet</h3>
+
+    <!-- Quick Amount Buttons -->
+    <div class="grid grid-cols-4 gap-2 mb-4">
+      @for (amount of quickAmounts; track amount) {
+        <button (click)="selectQuickAmount(amount)"
+                class="quick-amount-btn py-2 rounded-lg font-medium transition-all cursor-pointer"
+                [class.selected]="topUpAmount() === amount">
+          EGP {{ amount }}
+        </button>
+      }
+    </div>
+
+    <!-- Custom Amount Input -->
+    <div class="relative mb-4">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">EGP</span>
+      <input type="number"
+             [ngModel]="topUpAmount()"
+             (ngModelChange)="topUpAmount.set($event)"
+             placeholder="Enter amount"
+             class="w-full pl-14 pr-4 py-3 bg-[#0a2d29] border border-[#1a5d4a] rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#10b981]">
+    </div>
+
+    <!-- Top Up Button -->
+    <button (click)="onTopUp()"
+            [disabled]="!topUpAmount() || topUpAmount()! <= 0 || walletService.isLoading()"
+            class="w-full py-3 bg-[#10b981] hover:bg-[#0d9668] disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors cursor-pointer">
+      @if (walletService.isLoading()) {
+        <span>Processing...</span>
+      } @else {
+        <span>Add EGP {{ topUpAmount() || 0 }} to Wallet</span>
+      }
+    </button>
+  </div>
+  }
+
+  <!-- Transactions Section -->
+  @if (showTransactions()) {
+  <div class="transactions-section animate-slideDown">
+    <h3 class="text-white font-semibold mb-4">Recent Transactions</h3>
+
+    @if (walletService.transactions().length === 0) {
+      <div class="text-center py-8 text-gray-400">
+        <i-lucide [img]="HistoryIcon" [size]="48" class="mx-auto mb-3 opacity-50"></i-lucide>
+        <p>No transactions yet</p>
+      </div>
+    } @else {
+      <div class="space-y-3 max-h-[300px] overflow-y-auto custom-scrollbar">
+        @for (transaction of walletService.transactions(); track transaction.id) {
+          <div class="transaction-item flex items-center justify-between p-4 bg-[#0d3d38] rounded-xl border border-[#1a5d4a] hover:border-[#10b981]/50 transition-colors">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-lg" [ngClass]="getTransactionClass(transaction.type)">
+                <i-lucide [img]="getTransactionIcon(transaction.type)" [size]="20"></i-lucide>
+              </div>
+              <div>
+                <p class="text-white font-medium">{{ transaction.description }}</p>
+                <p class="text-gray-400 text-sm">{{ formatDate(transaction.transactionDate) }}</p>
+                @if (transaction.route) {
+                  <p class="text-gray-500 text-xs">{{ transaction.route }}</p>
+                }
+              </div>
+            </div>
+            <span class="font-bold" [ngClass]="getTransactionClass(transaction.type)">
+              {{ getAmountPrefix(transaction.type) }}EGP {{ transaction.amount | number:'1.2-2' }}
+            </span>
+          </div>
+        }
+      </div>
+    }
+  </div>
+  }
+</div>
+

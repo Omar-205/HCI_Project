@@ -1,0 +1,58 @@
+<!-- Static Sidebar -->
+<div class="sidebar-container">
+  <aside class="sidebar">
+    <!-- Logo Section -->
+    <div class="logo-section mt-10">
+      <!-- <div class="logo-wrapper">
+        <div class="logo-icon">
+          <span>GL</span>
+        </div>
+        <div class="logo-text">
+          <h2>GreenLink</h2>
+          <p>Transport Hub</p>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- User Info Section -->
+    <div class="user-section mt">
+      <div class="user-info">
+        <div class="user-avatar">
+          {{ getInitials(userName) }}
+        </div>
+        <div class="user-details">
+          <h3>{{ userName }}</h3>
+          <p *ngIf="userEmail">{{ userEmail }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <nav class="menu-section">
+      <button *ngFor="let item of menuItems"
+              (click)="onMenuItemClick(item.id)"
+              class="menu-item"
+              [class.active]="item.active">
+        <div class="icon-wrapper">
+          <i-lucide [img]="item.icon" [size]="18" class="menu-icon"></i-lucide>
+        </div>
+        <span class="menu-text">{{ item.label }}</span>
+        <span *ngIf="item.count" class="count-badge">
+          {{ item.count }}
+        </span>
+        <i-lucide *ngIf="item.active" [img]="ChevronRightIcon" [size]="16" class="arrow-icon"></i-lucide>
+      </button>
+    </nav>
+
+    <!-- Settings at Bottom -->
+    <div class="settings-section">
+      <button (click)="onSettingsClick()" class="settings-btn">
+        <div class="icon-wrapper">
+          <i-lucide [img]="SettingsIcon" [size]="18" class="menu-icon"></i-lucide>
+        </div>
+        <span class="menu-text">Settings</span>
+      </button>
+    </div>
+  </aside>
+</div>
+

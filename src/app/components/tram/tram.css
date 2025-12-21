@@ -1,0 +1,227 @@
+
+.bus-container {
+  /* background-color: #104D45; */
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 24px;
+  color: #FFFFFF;
+  background: rgba(22, 61, 56, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.082);
+  margin-bottom: 20px;
+}
+
+
+.station-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.left-content .card-header {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #C0FBF0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.left-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.left-content .subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #C0FBF0;
+  margin: 4px 0 0;
+}
+
+
+.directions-btn {
+  background-color: #1EE3A3;
+  color: #104D45;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.directions-btn:hover {
+  background-color: #5CFBD2;
+}
+
+.promo-card {
+  background-image:
+
+    linear-gradient(to top, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0) 100%),
+
+
+    url("../../assets/Tram_img.jpg");
+
+
+  min-height: 200px;
+  background-size: cover;
+  background-position: center;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.promo-content p{
+    color: #C0FBF0;
+}
+
+.upcoming-buses-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bus-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+
+.card-main-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-wrapper.bus-icon {
+  background-color: #19A184;
+}
+
+.icon-wrapper svg {
+  fill: #FFFFFF;
+}
+
+
+.bus-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.bus-details p {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: #C0FBF0;
+}
+
+.arrival-info {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.arrival-info .minutes {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.arrival-info .minutes-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #C0FBF0;
+}
+
+.arrival-info .arrival-time {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #C0FBF0;
+}
+
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 0;
+  padding: 16px;
+}
+
+.icon-wrapper.info-icon {
+  background-color: #34B3E4;
+}
+
+.info-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.info-details p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #C0FBF0;
+  line-height: 1.4;
+}
+
+.bus-list .card.bus-card:hover {
+  border-color: #1EE3A3;
+}

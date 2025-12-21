@@ -1,0 +1,83 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign-in.css">
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+
+<main>
+    <header class="Header">
+        <nav class="Header__navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+        <form class="Header__Search__Bar">
+            <input type="search" placeholder="Search">
+            <button type="submit"><i class='bx  bx-search' aria-label="submit search"></i></button>
+        </form>
+    </header>
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h2 class="Logo">GreenLink</h2>
+            <div class="text-sci">
+                <h2>Welcome!<br><span>To GreenLink</span></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, cupiditate.</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bxl  bx-linkedin'></i></a>
+                    <a href="#"><i class='bxl  bx-facebook-square'></i></a>
+                    <a href="#"><i class='bxl  bx-instagram'></i></a>
+                    <a href="#"><i class='bxl  bx-twitter-x'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="logreg-box">
+            <div class="form-box Login">
+                <form (ngSubmit)="onSubmit()" [formGroup]="SignIn">
+                    <h2>Sign In</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx  bx-envelope'></i></span>
+                        <input formControlName="email" placeholder="eg:Ahmed@Saied.com" required>
+                        @if (submit &&
+                        SignIn.controls['email'].hasError('required') &&
+                        SignIn.controls['email']?.touched)
+                        {
+                        <small>Enter an Email</small>
+                        }
+                        @if (submit &&
+                        SignIn.controls['email'].hasError('email') &&
+                        SignIn.controls['email']?.touched) {
+                        <small>Your Email Format is not Correct
+                        </small>
+                        }
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx  bx-lock'></i></span>
+                        <input type="password" formControlName="password" required aria-label="password input">
+                        @if (SignIn.controls['password'].hasError('require') &&
+                        SignIn.controls['password']?.touched){
+                        <small>Enter a Password
+                        </small>
+                        }
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label><input type="checkbox" >Remember me</label>
+                        <a href="#">Forget password?</a>
+                    </div>
+                    <button type="submit" class="btn">Sign In</button>
+                    <div class="login-register">
+                        <p>Don't have an account?<a routerLink="/sign-up" class="register-link">Sign
+                                Up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>

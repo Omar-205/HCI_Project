@@ -1,0 +1,405 @@
+export const alex_raml_tram_line = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_01",
+        "name_en": "AlRaml Tram Station",
+        "name_ar": "محطة ترام الرمل",
+        "district": "Al Attarin",
+        "sequence_order": 1,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.90130592,
+          31.2018099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_02",
+        "name_en": "ALKATARAKT Hospital Tram Station",
+        "name_ar": "محطة ترام مستشفى الكتاراكت",
+        "district": "Bab Sharq",
+        "sequence_order": 2,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.93031825,
+          31.20134163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_03",
+        "name_en": "Shatibi Tram Station",
+        "name_ar": "محطة ترام الشاطبي",
+        "district": "Bab Sharq",
+        "sequence_order": 3,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.91700095,
+          31.20933336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_04",
+        "name_en": "El Ibrahimeya Tram Station",
+        "name_ar": "محطة ترام الإبراهيمية",
+        "district": "Sidi Gaber",
+        "sequence_order": 4,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.92630038,
+          31.21683602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_05",
+        "name_en": "Grand Sporting Tram Station",
+        "name_ar": "محطة ترام سبورتنج",
+        "district": "Sidi Gaber",
+        "sequence_order": 5,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.93355471,
+          31.21892411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_06",
+        "name_en": "Cleopatra El Soghra Tram Station",
+        "name_ar": "محطة ترام كليوباترا الصغرى",
+        "district": "Sidi Gaber",
+        "sequence_order": 6,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.93614151,
+          31.22073811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_07",
+        "name_en": "Cleopatra (Hammamat) Tram Station",
+        "name_ar": "محطة ترام كليوباترا الحمامات",
+        "district": "Sidi Gaber",
+        "sequence_order": 7,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.93805593,
+          31.22232979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_08",
+        "name_en": "Sidi Gaber El Sheikh Tram Station",
+        "name_ar": "محطة ترام سيدي جابر الشيخ",
+        "district": "Sidi Gaber",
+        "sequence_order": 8,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.94215068,
+          31.22423977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_09",
+        "name_en": "Moustafa Kamel Tram Station",
+        "name_ar": "محطة ترام مصطفى كامل",
+        "district": "Sidi Gaber",
+        "sequence_order": 9,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.94507549,
+          31.22487642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_10",
+        "name_en": "Roshdy Tram Station",
+        "name_ar": "محطة ترام رشدي",
+        "district": "Sidi Gaber",
+        "sequence_order": 10,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.95124738,
+          31.22981079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_11",
+        "name_en": "Al-Hidaya Tram Station",
+        "name_ar": "محطة ترام الهداية",
+        "district": "Fleming",
+        "sequence_order": 11,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.95543553,
+          31.23445307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_12",
+        "name_en": "Alwezara Tram Station",
+        "name_ar": "محطة ترام الوزارة",
+        "district": "Fleming",
+        "sequence_order": 12,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.95690914,
+          31.23272882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_13",
+        "name_en": "Saba Basha Tram Station",
+        "name_ar": "محطة ترام سابا باشا",
+        "district": "Fleming",
+        "sequence_order": 13,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.95714182,
+          31.23730465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_14",
+        "name_en": "El Karnak Tram Station",
+        "name_ar": "محطة ترام الكرنك",
+        "district": "Fleming",
+        "sequence_order": 14,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.96140754,
+          31.23571308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_15",
+        "name_en": "Gleem Tram Station",
+        "name_ar": "محطة ترام جليم",
+        "district": "Gleem",
+        "sequence_order": 15,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.96016661,
+          31.24028876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_16",
+        "name_en": "San Stefano Tram Station",
+        "name_ar": "محطة ترام سان ستيفانو",
+        "district": "San Stefano",
+        "sequence_order": 16,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.96792247,
+          31.24572624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_17",
+        "name_en": "Tharwat Tram Station",
+        "name_ar": "محطة ترام ثروت",
+        "district": "San Stefano",
+        "sequence_order": 17,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.96869805,
+          31.24764917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_18",
+        "name_en": "Louran Tram Station",
+        "name_ar": "محطة ترام لوران",
+        "district": "Louran",
+        "sequence_order": 18,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.97149016,
+          31.24977098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_19",
+        "name_en": "Victoria Tram Station",
+        "name_ar": "محطة ترام فيكتوريا",
+        "district": "Victoria",
+        "sequence_order": 19,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.97955626,
+          31.24897531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "RAML_20",
+        "name_en": "Sidi Bishr Tram Station",
+        "name_ar": "محطة ترام سيدي بشر",
+        "district": "Sidi Bishr",
+        "sequence_order": 20,
+        "line_name": "Raml Tram",
+        "station_type": "stop",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.97622124,
+          31.25301992
+        ]
+      }
+    }
+  ]
+}

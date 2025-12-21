@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "properties": { "name": "سوتر" }, "geometry": { "type": "Point", "coordinates": [29.9700, 31.2200] } },
+    { "type": "Feature", "properties": { "name": "الأزاريطة" }, "geometry": { "type": "Point", "coordinates": [29.9110, 31.1970] } },
+    { "type": "Feature", "properties": { "name": "كامب شيزار" }, "geometry": { "type": "Point", "coordinates": [29.9200, 31.2050] } },
+    { "type": "Feature", "properties": { "name": "سبورتنج" }, "geometry": { "type": "Point", "coordinates": [29.9300, 31.2100] } },
+    { "type": "Feature", "properties": { "name": "سيدي جابر" }, "geometry": { "type": "Point", "coordinates": [29.9428, 31.2194] } },
+    { "type": "Feature", "properties": { "name": "مصطفى كامل" }, "geometry": { "type": "Point", "coordinates": [29.9500, 31.2250] } },
+    { "type": "Feature", "properties": { "name": "رشدي" }, "geometry": { "type": "Point", "coordinates": [29.9550, 31.2280] } },
+    { "type": "Feature", "properties": { "name": "سان ستيفانو" }, "geometry": { "type": "Point", "coordinates": [29.9700, 31.2400] } },
+    { "type": "Feature", "properties": { "name": "جليم" }, "geometry": { "type": "Point", "coordinates": [29.9800, 31.2450] } },
+    { "type": "Feature", "properties": { "name": "زيزينيا" }, "geometry": { "type": "Point", "coordinates": [29.9850, 31.2480] } },
+    { "type": "Feature", "properties": { "name": "فيكتوريا" }, "geometry": { "type": "Point", "coordinates": [29.9950, 31.2460] } },
+    { "type": "Feature", "properties": { "name": "سيدي بشر" }, "geometry": { "type": "Point", "coordinates": [30.0108, 31.2592] } },
+    { "type": "Feature", "properties": { "name": "العصافرة" }, "geometry": { "type": "Point", "coordinates": [30.0233, 31.2689] } },
+    { "type": "Feature", "properties": { "name": "المندرة" }, "geometry": { "type": "Point", "coordinates": [30.0381, 31.2797] } },
+    { "type": "Feature", "properties": { "name": "المعمورة" }, "geometry": { "type": "Point", "coordinates": [30.0631, 31.2942] } },
+    { "type": "Feature", "properties": { "name": "محطة 45" }, "geometry": { "type": "Point", "coordinates": [30.1000, 31.3200] } }
+  ]
+}

@@ -25,7 +25,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/leaflet/dist/leaflet.css",
+              "src/styles.css",
+              "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css",
+              "https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css"
             ]
           },
           "configurations": {

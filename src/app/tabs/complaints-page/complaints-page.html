@@ -1,0 +1,75 @@
+<div class="p-6 text-white space-y-6 overflow-y-auto max-h-full">
+  <div class="flex justify-between items-center">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight text-[#EEF8F5]">My Complaints</h2>
+      <p class="text-[#A3BCBA] text-sm italic opacity-80">We are here to listen and help you</p>
+    </div>
+    
+    <button class="flex items-center gap-2 bg-[#EEF8F5] text-[#1D4A47] px-5 py-2 rounded-xl font-bold hover:bg-opacity-90 shadow-lg transition-all active:scale-95">
+      <i-lucide [img]="ContactIcon" [size]="20"></i-lucide>
+      Contact Support
+    </button>
+  </div>
+
+    <div class="p-[3px] text-[#A3BCBA] grid grid-cols-3 w-full bg-[#1D4A47]/40 border border-[#1D4A47] rounded-4xl">
+      @for (filterTab of filterTabs; track filterTab) {
+        <button 
+          (click)="activeFilter.set(filterTab)"
+          [class]="'py-2 transition-all duration-200 rounded-4xl font-semibold text-center ' + 
+                  (activeFilter() === filterTab ? 'bg-[#009966] text-[#EEF8F5]' : 'hover:text-white')">
+          {{ filterTab }}
+        </button>
+      }
+  </div>
+
+    @if(currentlyDisplayedComplaints().length > 0) {
+        <div class="space-y-4">
+        @for (complaint of currentlyDisplayedComplaints(); track complaint.ticketId) {
+            <div class="bg-[#1D4A47]/30 border border-white/10 rounded-2xl p-6 backdrop-blur-md transition hover:border-[#009966]/50">
+            
+            <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center gap-3">
+                <span class="text-[#009966] text-xs font-mono font-bold">{{ complaint.ticketId }}</span>
+                <span [class]="'text-[10px] px-2 py-0.5 rounded-full border uppercase font-bold ' + 
+                    (complaint.status === ComplaintStatus.RESOLVED ? 'bg-emerald-500/20 text-emerald-500 border-emerald-500/30' : 'bg-amber-500/20 text-amber-500 border-amber-500/30')">
+                    {{ complaint.status }}
+                </span>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4 text-[#EEF8F5]">{{ complaint.title }}</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 text-sm text-[#A3BCBA]">
+                <div class="flex items-center gap-2">
+                <i-lucide [img]="CalendarIcon" [size]="16" class="opacity-70"></i-lucide>
+                <span>{{ complaint.createdAt }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                <i-lucide [img]="AlertIcon" [size]="16" class="text-[#009966]"></i-lucide>
+                <span>{{ complaint.complaintType }}</span>
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                <span class="opacity-70">Severity:</span>
+                <span [class]="'px-2 py-0.5 rounded border text-[11px] font-medium ' + getSeverityClass(complaint.severity)">
+                    {{ complaint.severity }}
+                </span>
+                </div>
+            </div>
+            
+            <button class="mt-6 text-[#009966] text-xs font-medium hover:underline flex items-center gap-1 transition">
+                Click to view details and track progress
+                <i-lucide [img]="ChevronIcon" [size]="14"></i-lucide>
+            </button>
+            </div>
+        }
+    </div>  
+    }
+
+    @else {
+        <div class="flex flex-col items-center justify-center py-20 text-center">
+        <i-lucide [img]="ClipboardIcon" [size]="64" class="text-[#A3BCBA] mb-4 opacity-20"></i-lucide>
+        <h3 class="text-xl font-semibold text-[#EEF8F5]">Sorry, there are no complaints</h3>
+        <p class="text-[#A3BCBA]">You haven't filed any complaints yet.</p>
+    </div>
+    }
+</div>

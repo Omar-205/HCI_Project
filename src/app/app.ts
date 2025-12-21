@@ -1,22 +1,16 @@
-import { Component } from '@angular/core';
-import { Header } from './header/header';
-import { TransportSelectorComponent } from './transport-selector/transport-selector';
-import { HeroCard } from './hero-card/hero-card';
-import { TicketPanel } from './ticket-panel/ticket-panel';
-import { BookingForm } from './booking-form/booking-form';
-
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+
   standalone: true,
   imports: [
-    Header,
-    TransportSelectorComponent,
-    HeroCard,
-    TicketPanel,
-    BookingForm
+    RouterOutlet,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent {}
+export class App {
+  protected readonly title = signal('HCI_Project');
+}
