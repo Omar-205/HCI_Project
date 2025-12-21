@@ -129,6 +129,7 @@
         @if (sidebarContent() === 'book-ticket') { Book Ticket }
         @if (sidebarContent() === 'my-tickets') { My Tickets }
         @if (sidebarContent() === 'my-complaints') { My Complaints }
+        @if (sidebarContent() === 'check-balance') { My Wallet }
       </h2>
       <button (click)="closeSidebarContent()" class="text-gray-400 hover:text-white transition-colors cursor-pointer p-2" aria-label="Close modal">
         <i-lucide [img]="XIcon" [size]="24"></i-lucide>
@@ -145,6 +146,9 @@
       }
       @if (sidebarContent() === 'my-complaints') {
         <app-complaints-page></app-complaints-page>
+      }
+      @if (sidebarContent() === 'check-balance') {
+        <app-check-balance></app-check-balance>
       }
     </div>
   </div>

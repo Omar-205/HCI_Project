@@ -12,10 +12,11 @@ import { SidebarComponent } from '../sidebar/sidebar';
 import { BookingForm } from '../booking-form/booking-form';
 import { MyTickets } from '../../tabs/my-tickets/my-tickets';
 import { ComplaintsPage } from '../../tabs/complaints-page/complaints-page';
+import { CheckBalanceComponent } from '../../tabs/check-balance/check-balance';
 
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram, FormsModule, SidebarComponent, BookingForm, MyTickets, ComplaintsPage],
+  imports: [CommonModule, LucideAngularModule, ElectricTrain, ElectricBusComponent, Tram, FormsModule, SidebarComponent, BookingForm, MyTickets, ComplaintsPage, CheckBalanceComponent],
   templateUrl: './home-page.html',
   styleUrls: ['./home-page.css'],
   standalone: true,
@@ -104,7 +105,7 @@ export class HomePage {
         this.sidebarContent.set('my-complaints');
         break;
       case 'check-balance':
-        // Handle check balance
+        this.sidebarContent.set('check-balance');
         break;
       case 'book-ticket':
         this.sidebarContent.set('book-ticket');
