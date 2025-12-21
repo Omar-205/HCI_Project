@@ -14,9 +14,9 @@ html, body {
   margin: 0;
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%);
-  background-image: 
+  background-image:
   linear-gradient(180deg, var(--green-900) 0%, #053b1f 100%),
-  url('/assets/train-background.jpg');
+  url('app/assets/train-background.jpg');
   color: var(--text);
 }
 
