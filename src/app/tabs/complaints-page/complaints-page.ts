@@ -1,5 +1,5 @@
-import { Component , computed, inject , signal } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { Component , computed, inject , signal, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Home, Calendar, AlertCircle, ChevronRight, ClipboardX, MessageCircle } from 'lucide-angular';
 import { ComplaintService } from '../../components/Service/complaint.service';
 import { ComplaintStatus } from '../../models/ComplaintResponse';
@@ -10,9 +10,24 @@ import { ComplaintStatus } from '../../models/ComplaintResponse';
   templateUrl: './complaints-page.html',
   styleUrl: './complaints-page.css',
 })
-export class ComplaintsPage {
+export class ComplaintsPage implements OnInit {
   complaintService = inject(ComplaintService);
   public  ComplaintStatus = ComplaintStatus;
+
+  ngOnInit(): void {
+    this.loadComplaints();
+  }
+
+  loadComplaints(): void {
+    this.complaintService.getUserComplaints().subscribe({
+      next: (complaints) => {
+        console.log('Complaints loaded successfully:', complaints);
+      },
+      error: (err) => {
+        console.error('Error loading complaints:', err);
+      }
+    });
+  }
   readonly ContactIcon = MessageCircle;
   readonly CalendarIcon = Calendar;
   readonly AlertIcon = AlertCircle;

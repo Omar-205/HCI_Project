@@ -1,13 +1,12 @@
-import { Component, signal  } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, User, LogOut , FileWarning, X } from "lucide-angular";
+import { LucideAngularModule, User, LogOut , TriangleAlert, X } from "lucide-angular";
 import { ElectricTrain } from '../../tabs/electric-train/electric-train';
 import { ElectricBusComponent } from "../electric-bus/electric-bus";
 import { Tram } from "../tram/tram";
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComplaintService } from '../Service/complaint.service';
-import { inject } from '@angular/core';
 import { ComplaintRequest, ComplaintSeverity, ComplaintType } from '../../models/ComplaintRequest';
 import { SidebarComponent } from '../sidebar/sidebar';
 import { BookingForm } from '../booking-form/booking-form';
@@ -43,7 +42,7 @@ export class HomePage {
     severity: ComplaintSeverity.LOW
   };
 
-  constructor(private router: Router, private ActiveRoute: ActivatedRoute) {
+  constructor(private readonly router: Router) {
     const loggeddata = localStorage.getItem("Username")
     if (loggeddata != null) {
       this.UserName = loggeddata;
@@ -59,7 +58,7 @@ export class HomePage {
 
   isModalOpen = signal<boolean>(false);
 
-  readonly FileWarning = FileWarning;
+  readonly FileWarning = TriangleAlert;
   readonly XIcon = X;
 
   // Add logout method
@@ -73,9 +72,23 @@ export class HomePage {
 
   onSubmitComplaint() {
     // 2l mafrod hena 2ana h3mel call ba2a lel service w 2deha 2l complaintData 3shan ttsagel fe 2l backend
-    this.complaintService.createComplaint(this.complaintData);
-
-    this.isModalOpen.set(false);
+    this.complaintService.createComplaint(this.complaintData).subscribe({
+      next: (res) => {
+        console.log('Complaint created successfully', res);
+        this.isModalOpen.set(false);
+        // Reset complaint data
+        this.complaintData = {
+          title: '',
+          description: '',
+          complaintType: ComplaintType.SERVICE_QUALITY,
+          ticketId: 123,
+          severity: ComplaintSeverity.LOW
+        };
+      },
+      error: (err) => {
+        console.error('Error creating complaint:', err);
+      }
+    });
   }
 
   closeSidebarContent() {
