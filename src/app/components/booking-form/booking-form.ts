@@ -47,7 +47,7 @@ export class BookingForm implements OnInit {
 
   constructor(private readonly fb: FormBuilder) {
     this.bookingForm = this.fb.group({
-      category: [this.category, Validators.required],
+      category: [this.category.toUpperCase, Validators.required],
       fromStation: ['', Validators.required],
       toStation: ['', Validators.required],
       passengers: [1, Validators.required],
@@ -106,11 +106,13 @@ export class BookingForm implements OnInit {
       const formValue = this.bookingForm.value;
 
       const request: CreateTicketRequest = {
-        category: formValue.category,
+        category: formValue.category.toUpperCase(),
         fromPlace: formValue.fromStation,
         toPlace: formValue.toStation,
         description: formValue.description || `${formValue.category} ticket from ${formValue.fromStation} to ${formValue.toStation}`,
-        price: this.getTotalPrice()
+        price: this.getTotalPrice(),
+        status:"Pending",
+        
       };
 
       // Check wallet balance before booking
@@ -128,7 +130,7 @@ export class BookingForm implements OnInit {
           const paymentReq = {
             amount: totalPrice,
             type: TransactionType.PAYMENT,
-            description: `Payment for ${formValue.category} ticket from ${formValue.fromStation} to ${formValue.toStation}`,
+            description: `Payment for ${formValue.category.toUpperCase()} ticket from ${formValue.fromStation} to ${formValue.toStation}`,
             route: `${formValue.fromStation} - ${formValue.toStation}`
           };
 

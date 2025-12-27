@@ -4,5 +4,6 @@ export interface CreateTicketRequest {
   toPlace: string;
   description: string;
   price: number;
+  status:string;
 }
 

@@ -46,7 +46,7 @@ export class HomePage {
   constructor(private readonly router: Router) {
     const loggeddata = localStorage.getItem("Username")
     if (loggeddata != null) {
-      this.UserName = loggeddata;
+      this.UserName = loggeddata.substring(0,loggeddata.indexOf('@'));
     }
   }
   // ngOnInit(): void {

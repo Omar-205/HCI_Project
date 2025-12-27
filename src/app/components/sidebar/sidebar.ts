@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
     const loggedData = localStorage.getItem('Username');
     const email = localStorage.getItem('Email');
     if (loggedData) {
-      this.userName = loggedData;
+      this.userName = loggedData.substring(0,loggedData.indexOf('@'));
     }
     if (email) {
       this.userEmail = email;
